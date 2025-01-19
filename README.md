@@ -18,6 +18,4 @@ Convergent Analytics Health AI Suite:
 
 Convergent Analytics Enterprise AI Suite:
 
-Automates readmission probability estimation on a real-time flow of clinical episodes.
-
 - Download the overview of [Cannibalization Analysis](Convergent_Analytics_Cannibalization_Analysis_250119_v01.pdf)
