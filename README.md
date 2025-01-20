@@ -12,11 +12,11 @@
 
 ## Solutions Developed Using Convergent Analytics for Open-Source Architectures:
 
-**Convergent Analytics Health AI Suite**:
+**Convergent Analytics Health AI Suite:**
 
 - Download the overview of [Stroke Prediction](Convergent_Analytics_Stroke_Prediction_250119_v02.pdf)
 
-**Convergent Analytics Enterprise AI Suite**:
+**Convergent Analytics Enterprise AI Suite:**
 
 - Download the overview of [Cannibalization Analysis](Convergent_Analytics_Cannibalization_Analysis_250119_v01.pdf)
 
