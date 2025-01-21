@@ -20,9 +20,9 @@
 
 - Download the overview of [Cannibalization Analysis](Convergent_Analytics_Cannibalization_Analysis_250119_v01.pdf)
 
-# Links to Required Downloads
+# Links to Required Open-Source Downloads
 
-- `jBPM (Java Business Process Management)`: find a toolkit for building business applications to help automate business processes and decisions [here](https://github.com/kiegroup/jbpm) - read more about it [here](https://www.jbpm.org/)
+- `jBPM (Java Business Process Management)`: find an integration engine for building business applications to automate business processes and decisions [here](https://github.com/kiegroup/jbpm) - read more about it [here](https://www.jbpm.org/)
 - `Jep (Java Embedded Python)`: find an extension to Java that uses JNI and CPython API to start Python interpreters inside a JVM [here](https://github.com/ninia/jep) - read more about it [here](https://ninia.github.io/jep/)
-- `PostgreSQL`: find an object-relational database [here](https://github.com/postgres/postgres) - read more about it [here](https://www.postgresql.org/)
-- `BIRT (Business Intelligence Reporting Tool)`: find a technology platform to create data visualizations [here](https://github.com/eclipse-birt/birt) - read more about it [here](https://eclipse-birt.github.io/birt-website/)
+- `PostgreSQL`: find an object-relational database engine [here](https://github.com/postgres/postgres) - read more about it [here](https://www.postgresql.org/)
+- `BIRT (Business Intelligence Reporting Tool)`: find a suite to design and deploy data analyses and visualizations [here](https://github.com/eclipse-birt/birt) - read more about it [here](https://eclipse-birt.github.io/birt-website/)
