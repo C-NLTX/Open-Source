@@ -10,6 +10,10 @@
 
 ![jBPM orchestrating Python](Cannibalization.png)
 
+## Articles
+
+- [jBPM as AI Orchestration Platform](https://www.linkedin.com/pulse/jbpm-ai-orchestration-platform-sergey-lukyanchikov-o4oie/) as of March 10th, 2025
+
 ## Solutions Developed Using Convergent Analytics for Open-Source Architectures:
 
 **Convergent Analytics Health AI Suite:**
