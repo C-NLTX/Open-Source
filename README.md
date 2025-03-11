@@ -19,10 +19,15 @@
 **Convergent Analytics Health AI Suite:**
 
 - Download the overview of [Stroke Prediction](Convergent_Analytics_Stroke_Prediction_250228_v06.pdf)
+- Download the solution demo: `coming soon.`
 
 **Convergent Analytics Enterprise AI Suite:**
 
 - Download the overview of [Cannibalization Analysis](Convergent_Analytics_Cannibalization_Analysis_250119_v01.pdf)
+
+## Links to Documentation
+
+`Coming soon.`
 
 # Links to Required Open-Source Downloads
 
