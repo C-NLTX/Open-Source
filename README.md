@@ -25,11 +25,13 @@
 
 - Download the overview of [Cannibalization Analysis](Convergent_Analytics_Cannibalization_Analysis_250119_v01.pdf)
 
-## Links to Documentation
+# Downloads
+
+## Documentation
 
 `Coming soon.`
 
-# Links to Required Open-Source Downloads
+## Open-Source Components
 
 - `jBPM (Java Business Process Management)`: find an integration engine for building applications to automate business processes and decisions [here](https://github.com/kiegroup/jbpm) - read more about it [here](https://www.jbpm.org/)
 - `Jep (Java Embedded Python)`: find an extension to Java that uses JNI and CPython API to start Python interpreters inside a JVM [here](https://github.com/ninia/jep) - read more about it [here](https://ninia.github.io/jep/)
