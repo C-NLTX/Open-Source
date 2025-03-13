@@ -18,12 +18,12 @@
 
 **Convergent Analytics Health AI Suite:**
 
-- Download the overview of [Stroke Prediction](Convergent_Analytics_Stroke_Prediction_250228_v06.pdf)
+- [Stroke Prediction solution overview](Convergent_Analytics_Stroke_Prediction_250228_v06.pdf)
 - [Stroke Prediction solution template](/Programs/project)
 
 **Convergent Analytics Enterprise AI Suite:**
 
-- Download the overview of [Cannibalization Analysis](Convergent_Analytics_Cannibalization_Analysis_250119_v01.pdf)
+- [Cannibalization Analysis solution overview](Convergent_Analytics_Cannibalization_Analysis_250119_v01.pdf)
 
 # Downloads
 
