@@ -14,12 +14,16 @@
 
 - [jBPM as AI Orchestration Platform](https://www.linkedin.com/pulse/jbpm-ai-orchestration-platform-sergey-lukyanchikov-o4oie/) as of March 10th, 2025
 
+## AI Orchestration Platform Designed Using Convergent Analytics for Open-Source Architectures:
+
+- [AI Orchestration platform template](/Programs/jBPM/project)
+
 ## Solutions Developed Using Convergent Analytics for Open-Source Architectures:
 
 **Convergent Analytics Health AI Suite:**
 
 - [Stroke Prediction solution overview](Convergent_Analytics_Stroke_Prediction_250228_v06.pdf)
-- [Stroke Prediction solution template](/Programs/project)
+- Stroke Prediction solution template: `coming soon.`
 
 **Convergent Analytics Enterprise AI Suite:**
 
