@@ -1,0 +1,1282 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- origin at X=0.0 Y=0.0 -->
+<bpmn2:definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:bpmn2="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:g="http://www.jboss.org/drools/flow/gpd" xmlns:java="http://www.java.com/javaTypes" xmlns:tns="http://www.jboss.org/drools" xmlns="http://www.jboss.org/drools" xsi:schemaLocation="http://www.omg.org/spec/BPMN/20100524/MODEL BPMN20.xsd http://www.jboss.org/drools drools.xsd http://www.bpsim.org/schemas/1.0 bpsim.xsd" id="Definition" exporter="org.eclipse.bpmn2.modeler.core" exporterVersion="1.5.0.Final-v20180515-1642-B1" expressionLanguage="http://www.mvel.org/2.0" targetNamespace="http://www.omg.org/bpmn20" typeLanguage="http://www.java.com/javaTypes">
+  <bpmn2:itemDefinition id="_iterationsItem" isCollection="false" structureRef="com.discovery.project.Iterations"/>
+  <bpmn2:itemDefinition id="_count" isCollection="false" structureRef="Integer"/>
+  <bpmn2:itemDefinition id="_i" isCollection="false" structureRef="Integer"/>
+  <bpmn2:itemDefinition id="ItemDefinition_5" isCollection="false" structureRef="java.lang.Integer"/>
+  <bpmn2:itemDefinition id="ItemDefinition_12" isCollection="false" structureRef="com.discovery.project.Workdir"/>
+  <bpmn2:itemDefinition id="ItemDefinition_1" isCollection="false" structureRef="com.discovery.project.Dropcols"/>
+  <bpmn2:itemDefinition id="ItemDefinition_2" isCollection="false" structureRef="com.discovery.project.Samplestruct"/>
+  <bpmn2:itemDefinition id="ItemDefinition_3" isCollection="false" structureRef="com.discovery.project.Train"/>
+  <bpmn2:itemDefinition id="ItemDefinition_4" isCollection="false" structureRef="com.discovery.project.Test"/>
+  <bpmn2:itemDefinition id="ItemDefinition_6" isCollection="false" structureRef="com.discovery.project.Costfunc"/>
+  <bpmn2:itemDefinition id="ItemDefinition_7" isCollection="false" structureRef="com.discovery.project.Validate"/>
+  <bpmn2:itemDefinition id="ItemDefinition_8" isCollection="false" structureRef="com.discovery.project.Manage"/>
+  <bpmn2:process id="stroke-train" tns:packageName="com.discovery.project" tns:version="1.0" name="stroke-train" isExecutable="true" processType="Private">
+    <bpmn2:extensionElements>
+      <tns:import name="org.kie.api.runtime.process.CaseAssignment"/>
+      <tns:import name="org.kie.api.runtime.process.CaseData"/>
+    </bpmn2:extensionElements>
+    <bpmn2:property id="iterations" itemSubjectRef="_iterationsItem" name="iterations">
+      <bpmn2:extensionElements>
+        <tns:metaData name="customTags">
+          <tns:metaValue>iterations</tns:metaValue>
+        </tns:metaData>
+      </bpmn2:extensionElements>
+    </bpmn2:property>
+    <bpmn2:property id="workdir" itemSubjectRef="ItemDefinition_12" name="workdir">
+      <bpmn2:extensionElements>
+        <tns:metaData name="customTags">
+          <tns:metaValue>workdir</tns:metaValue>
+        </tns:metaData>
+      </bpmn2:extensionElements>
+    </bpmn2:property>
+    <bpmn2:property id="dropcols" itemSubjectRef="ItemDefinition_1" name="dropcols">
+      <bpmn2:extensionElements>
+        <tns:metaData name="customTags">
+          <tns:metaValue>dropcols</tns:metaValue>
+        </tns:metaData>
+      </bpmn2:extensionElements>
+    </bpmn2:property>
+    <bpmn2:property id="samplestruct" itemSubjectRef="ItemDefinition_2" name="samplestruct">
+      <bpmn2:extensionElements>
+        <tns:metaData name="customTags">
+          <tns:metaValue>samplestruct</tns:metaValue>
+        </tns:metaData>
+      </bpmn2:extensionElements>
+    </bpmn2:property>
+    <bpmn2:property id="train" itemSubjectRef="ItemDefinition_3" name="train">
+      <bpmn2:extensionElements>
+        <tns:metaData name="customTags">
+          <tns:metaValue>train</tns:metaValue>
+        </tns:metaData>
+      </bpmn2:extensionElements>
+    </bpmn2:property>
+    <bpmn2:property id="test" itemSubjectRef="ItemDefinition_4" name="test">
+      <bpmn2:extensionElements>
+        <tns:metaData name="customTags">
+          <tns:metaValue>test</tns:metaValue>
+        </tns:metaData>
+      </bpmn2:extensionElements>
+    </bpmn2:property>
+    <bpmn2:property id="costfunc" itemSubjectRef="ItemDefinition_6" name="costfunc">
+      <bpmn2:extensionElements>
+        <tns:metaData name="customTags">
+          <tns:metaValue>costfunc</tns:metaValue>
+        </tns:metaData>
+      </bpmn2:extensionElements>
+    </bpmn2:property>
+    <bpmn2:property id="validate" itemSubjectRef="ItemDefinition_7" name="validate">
+      <bpmn2:extensionElements>
+        <tns:metaData name="customTags">
+          <tns:metaValue>validate</tns:metaValue>
+        </tns:metaData>
+      </bpmn2:extensionElements>
+    </bpmn2:property>
+    <bpmn2:property id="manage" itemSubjectRef="ItemDefinition_8" name="manage">
+      <bpmn2:extensionElements>
+        <tns:metaData name="customTags">
+          <tns:metaValue>manage</tns:metaValue>
+        </tns:metaData>
+      </bpmn2:extensionElements>
+    </bpmn2:property>
+    <bpmn2:startEvent id="_06747C7E-060A-4104-815A-01650C91EE84">
+      <bpmn2:extensionElements>
+        <tns:metaData name="elementname">
+          <tns:metaValue><![CDATA[]]></tns:metaValue>
+        </tns:metaData>
+      </bpmn2:extensionElements>
+      <bpmn2:outgoing>SequenceFlow_13</bpmn2:outgoing>
+    </bpmn2:startEvent>
+    <bpmn2:endEvent id="_42482F6A-53E1-46B6-AB7B-F5C1BFA93833">
+      <bpmn2:extensionElements>
+        <tns:metaData name="elementname">
+          <tns:metaValue><![CDATA[]]></tns:metaValue>
+        </tns:metaData>
+      </bpmn2:extensionElements>
+      <bpmn2:incoming>SequenceFlow_16</bpmn2:incoming>
+    </bpmn2:endEvent>
+    <bpmn2:subProcess id="SubProcess_1" name="Sub Process 1">
+      <bpmn2:extensionElements>
+        <tns:metaData name="elementname">
+          <tns:metaValue><![CDATA[Sub Process 1]]></tns:metaValue>
+        </tns:metaData>
+      </bpmn2:extensionElements>
+      <bpmn2:incoming>SequenceFlow_13</bpmn2:incoming>
+      <bpmn2:outgoing>SequenceFlow_15</bpmn2:outgoing>
+      <bpmn2:scriptTask id="ScriptTask_3" name="KeepAlive" scriptFormat="http://www.java.com/java">
+        <bpmn2:extensionElements>
+          <tns:metaData name="elementname">
+            <tns:metaValue><![CDATA[KeepAlive]]></tns:metaValue>
+          </tns:metaData>
+        </bpmn2:extensionElements>
+        <bpmn2:incoming>SequenceFlow_2</bpmn2:incoming>
+        <bpmn2:outgoing>SequenceFlow_14</bpmn2:outgoing>
+        <bpmn2:script>jep.JepConfig jepConfig = (jep.JepConfig) kcontext.getVariable(&quot;jepConfig&quot;);
+jep.SubInterpreter subInterp = (jep.SubInterpreter) kcontext.getVariable(&quot;subInterp&quot;);
+//jep.SharedInterpreter subInterp = (jep.SharedInterpreter) kcontext.getVariable(&quot;subInterp&quot;);
+
+java.lang.String script = java.lang.String.join(&quot;\n&quot;,
+&quot;import matplotlib&quot;,
+&quot;matplotlib.use('Agg')&quot;,
+&quot;import matplotlib.pyplot as plt&quot;,
+&quot;matplotlib.pyplot.switch_backend('Agg')&quot;,
+&quot;import seaborn as sns&quot;);
+
+subInterp.set(&quot;script&quot;, script);
+subInterp.eval(&quot;exec(script)&quot;);
+
+subInterp.eval(&quot;f=plt.figure()&quot;);
+subInterp.eval(&quot;plt.close(f)&quot;);</bpmn2:script>
+      </bpmn2:scriptTask>
+      <bpmn2:scriptTask id="ScriptTask_1" name="Cleanup" scriptFormat="http://www.java.com/java">
+        <bpmn2:extensionElements>
+          <tns:metaData name="elementname">
+            <tns:metaValue><![CDATA[Cleanup]]></tns:metaValue>
+          </tns:metaData>
+        </bpmn2:extensionElements>
+        <bpmn2:incoming>SequenceFlow_14</bpmn2:incoming>
+        <bpmn2:outgoing>SequenceFlow_18</bpmn2:outgoing>
+        <bpmn2:script>jep.JepConfig jepConfig = (jep.JepConfig) kcontext.getVariable(&quot;jepConfig&quot;);
+jep.SubInterpreter subInterp = (jep.SubInterpreter) kcontext.getVariable(&quot;subInterp&quot;);
+//jep.SharedInterpreter subInterp = (jep.SharedInterpreter) kcontext.getVariable(&quot;subInterp&quot;);
+jepConfig.setSharedModules(null);
+subInterp.close();
+subInterp=null;
+kcontext.setVariable(&quot;subInterp&quot;,null);
+kcontext.setVariable(&quot;jepConfig&quot;,null);
+System.gc();
+System.out.println(&quot;####### Finished Sub Process 1 stroke-train.bpmn #######&quot;);</bpmn2:script>
+      </bpmn2:scriptTask>
+      <bpmn2:scriptTask id="_13F37D63-83E8-425E-A942-5FA4275E5157" name="Setup" scriptFormat="http://www.java.com/java">
+        <bpmn2:extensionElements>
+          <tns:metaData name="elementname">
+            <tns:metaValue><![CDATA[Setup]]></tns:metaValue>
+          </tns:metaData>
+        </bpmn2:extensionElements>
+        <bpmn2:incoming>SequenceFlow_17</bpmn2:incoming>
+        <bpmn2:outgoing>SequenceFlow_2</bpmn2:outgoing>
+        <bpmn2:script>System.out.println(&quot;####### Starting Sub Process 1 stroke-train.bpmn #######&quot;);
+System.gc();
+
+jep.JepConfig jepConfig = new jep.JepConfig();
+jepConfig.addSharedModules(&quot;matplotlib&quot;);
+jepConfig.addSharedModules(&quot;seaborn&quot;);
+jep.SubInterpreter subInterp = new jep.SubInterpreter(jepConfig);
+//jep.SharedInterpreter.setConfig(jepConfig);
+//jep.SharedInterpreter subInterp = new jep.SharedInterpreter();
+
+kcontext.setVariable(&quot;subInterp&quot;,subInterp);
+kcontext.setVariable(&quot;jepConfig&quot;,jepConfig);</bpmn2:script>
+      </bpmn2:scriptTask>
+      <bpmn2:sequenceFlow id="SequenceFlow_2" tns:priority="1" sourceRef="_13F37D63-83E8-425E-A942-5FA4275E5157" targetRef="ScriptTask_3"/>
+      <bpmn2:sequenceFlow id="SequenceFlow_14" tns:priority="1" sourceRef="ScriptTask_3" targetRef="ScriptTask_1"/>
+      <bpmn2:startEvent id="StartEvent_1" name="">
+        <bpmn2:extensionElements>
+          <tns:metaData name="elementname">
+            <tns:metaValue><![CDATA[]]></tns:metaValue>
+          </tns:metaData>
+        </bpmn2:extensionElements>
+        <bpmn2:outgoing>SequenceFlow_17</bpmn2:outgoing>
+      </bpmn2:startEvent>
+      <bpmn2:sequenceFlow id="SequenceFlow_17" tns:priority="1" sourceRef="StartEvent_1" targetRef="_13F37D63-83E8-425E-A942-5FA4275E5157"/>
+      <bpmn2:endEvent id="EndEvent_1">
+        <bpmn2:extensionElements>
+          <tns:metaData name="elementname">
+            <tns:metaValue><![CDATA[]]></tns:metaValue>
+          </tns:metaData>
+        </bpmn2:extensionElements>
+        <bpmn2:incoming>SequenceFlow_18</bpmn2:incoming>
+      </bpmn2:endEvent>
+      <bpmn2:sequenceFlow id="SequenceFlow_18" tns:priority="1" sourceRef="ScriptTask_1" targetRef="EndEvent_1"/>
+    </bpmn2:subProcess>
+    <bpmn2:subProcess id="SubProcess_2" name="Sub Process 2">
+      <bpmn2:extensionElements>
+        <tns:metaData name="elementname">
+          <tns:metaValue><![CDATA[Sub Process 2]]></tns:metaValue>
+        </tns:metaData>
+      </bpmn2:extensionElements>
+      <bpmn2:incoming>SequenceFlow_15</bpmn2:incoming>
+      <bpmn2:outgoing>SequenceFlow_16</bpmn2:outgoing>
+      <bpmn2:scriptTask id="ScriptTask_7" name="Cleanup" scriptFormat="http://www.java.com/java">
+        <bpmn2:extensionElements>
+          <tns:metaData name="elementname">
+            <tns:metaValue><![CDATA[Cleanup]]></tns:metaValue>
+          </tns:metaData>
+        </bpmn2:extensionElements>
+        <bpmn2:incoming>SequenceFlow_1</bpmn2:incoming>
+        <bpmn2:outgoing>SequenceFlow_19</bpmn2:outgoing>
+        <bpmn2:script>jep.JepConfig jepConfig = (jep.JepConfig) kcontext.getVariable(&quot;jepConfig&quot;);
+jep.SubInterpreter subInterp = (jep.SubInterpreter) kcontext.getVariable(&quot;subInterp&quot;);
+//jep.SharedInterpreter subInterp = (jep.SharedInterpreter) kcontext.getVariable(&quot;subInterp&quot;);
+jepConfig.setSharedModules(null);
+kcontext.setVariable(&quot;subInterp&quot;,null);
+kcontext.setVariable(&quot;jepConfig&quot;,null);
+
+java.lang.String script100 = java.lang.String.join(&quot;\n&quot;,
+&quot;if 'threading' in sys.modules:&quot;,
+&quot;    del sys.modules['threading']&quot;);
+
+subInterp.set(&quot;script100&quot;, script100);
+subInterp.eval(&quot;exec(script100)&quot;);
+
+subInterp.close();
+subInterp=null;
+System.gc();
+System.out.println(&quot;####### Finished Sub Process 2 stroke-train.bpmn #######&quot;);
+//Thread.currentThread().interrupt();</bpmn2:script>
+      </bpmn2:scriptTask>
+      <bpmn2:scriptTask id="ScriptTask_6" name="Setup" scriptFormat="http://www.java.com/java">
+        <bpmn2:extensionElements>
+          <tns:metaData name="elementname">
+            <tns:metaValue><![CDATA[Setup]]></tns:metaValue>
+          </tns:metaData>
+        </bpmn2:extensionElements>
+        <bpmn2:incoming>SequenceFlow_20</bpmn2:incoming>
+        <bpmn2:outgoing>SequenceFlow_10</bpmn2:outgoing>
+        <bpmn2:script>System.out.println(&quot;####### Starting Sub Process 2 stroke-train.bpmn #######&quot;);
+System.gc();
+
+kcontext.setVariable(&quot;count&quot;, iterations.getNumber());
+kcontext.setVariable(&quot;path&quot;, workdir.getPath());
+kcontext.setVariable(&quot;droplist&quot;, dropcols.getDroplist());
+kcontext.setVariable(&quot;balancing&quot;, samplestruct.getBalancing());
+kcontext.setVariable(&quot;publish&quot;, manage.getPublish());
+kcontext.setVariable(&quot;training&quot;, train.getTraining());
+kcontext.setVariable(&quot;preddraw&quot;, test.getPreddraw());
+kcontext.setVariable(&quot;costoferror&quot;, costfunc.getCostoferror());
+kcontext.setVariable(&quot;costofchecking&quot;, costfunc.getCostofchecking());
+kcontext.setVariable(&quot;predfrac&quot;, test.getPredfrac());
+kcontext.setVariable(&quot;testdraws&quot;, validate.getTestdraws());
+kcontext.setVariable(&quot;folds&quot;, train.getFolds());
+kcontext.setVariable(&quot;bagfrac&quot;, train.getBagfrac());
+kcontext.setVariable(&quot;weights&quot;, train.getWeights());
+kcontext.setVariable(&quot;weightsaccval&quot;, train.getWeightsaccval());
+kcontext.setVariable(&quot;weightsacctst&quot;, train.getWeightsacctst());
+kcontext.setVariable(&quot;i&quot;, 1);
+jep.JepConfig jepConfig = new jep.JepConfig();
+jepConfig.addSharedModules(&quot;warnings&quot;);
+jepConfig.addSharedModules(&quot;numpy&quot;);
+jepConfig.addSharedModules(&quot;pandas&quot;);
+jepConfig.addSharedModules(&quot;matplotlib&quot;);
+jepConfig.addSharedModules(&quot;seaborn&quot;);
+jepConfig.addSharedModules(&quot;datetime&quot;);
+jepConfig.addSharedModules(&quot;sklearn&quot;);
+jepConfig.addSharedModules(&quot;psycopg2&quot;);
+jepConfig.addSharedModules(&quot;gc&quot;);
+jepConfig.addSharedModules(&quot;ast&quot;);
+jepConfig.addSharedModules(&quot;dill&quot;);
+jep.SubInterpreter subInterp = new jep.SubInterpreter(jepConfig);
+//jep.SharedInterpreter.setConfig(jepConfig);
+//jep.SharedInterpreter subInterp = new jep.SharedInterpreter();
+
+System.out.println(&quot;####### Python libraries import and PostgreSQL connection: started #######&quot;);
+
+java.lang.String script0 = java.lang.String.join(&quot;\n&quot;,
+&quot;import warnings&quot;,
+&quot;warnings.filterwarnings('ignore')&quot;,
+&quot;import pandas as pd&quot;,
+&quot;import numpy as np&quot;,
+&quot;import datetime&quot;,
+&quot;from sklearn.model_selection import train_test_split&quot;,
+&quot;from sklearn.preprocessing import OneHotEncoder&quot;,
+&quot;from sklearn.linear_model import LogisticRegression&quot;,
+&quot;from sklearn.neighbors import KNeighborsClassifier&quot;,
+&quot;from sklearn.ensemble import RandomForestClassifier&quot;,
+&quot;from sklearn.model_selection import GridSearchCV&quot;,
+&quot;from sklearn.ensemble import VotingClassifier&quot;,
+&quot;from sklearn.metrics import roc_curve&quot;,
+&quot;from sklearn.metrics import confusion_matrix&quot;,
+&quot;from sklearn.metrics import accuracy_score&quot;,
+&quot;from sklearn.feature_selection import f_regression&quot;,
+&quot;import psycopg2&quot;,
+&quot;import gc&quot;,
+&quot;import ast&quot;,
+&quot;import dill&quot;,
+&quot;import sys&quot;,
+&quot;pd.options.display.max_columns = None&quot;,
+&quot;pd.options.display.max_rows = None&quot;,
+&quot;conn=psycopg2.connect('host=127.0.0.1 port=5432 dbname=stroke user=postgres password=pAsSwOrD target_session_attrs=read-write')&quot;,
+&quot;Data=pd.read_sql('SELECT * FROM public.kaggledata',conn)&quot;);
+
+subInterp.set(&quot;script0&quot;, script0);
+subInterp.eval(&quot;exec(script0)&quot;);
+
+System.out.println(&quot;####### Python libraries import and PostgreSQL connection: finished #######&quot;);
+
+kcontext.setVariable(&quot;subInterp&quot;,subInterp);
+kcontext.setVariable(&quot;jepConfig&quot;,jepConfig);</bpmn2:script>
+      </bpmn2:scriptTask>
+      <bpmn2:sequenceFlow id="SequenceFlow_10" tns:priority="1" sourceRef="ScriptTask_6" targetRef="ScriptTask_4"/>
+      <bpmn2:scriptTask id="ScriptTask_5" name="Loop" scriptFormat="http://www.java.com/java">
+        <bpmn2:extensionElements>
+          <tns:metaData name="elementname">
+            <tns:metaValue><![CDATA[Loop]]></tns:metaValue>
+          </tns:metaData>
+        </bpmn2:extensionElements>
+        <bpmn2:incoming>SequenceFlow_12</bpmn2:incoming>
+        <bpmn2:outgoing>SequenceFlow_5</bpmn2:outgoing>
+        <bpmn2:script>System.out.println(&quot;count = &quot; + kcontext.getVariable(&quot;count&quot;));
+System.out.println(&quot;i = &quot; + kcontext.getVariable(&quot;i&quot;));
+jep.JepConfig jepConfig = (jep.JepConfig) kcontext.getVariable(&quot;jepConfig&quot;);
+jep.SubInterpreter subInterp = (jep.SubInterpreter) kcontext.getVariable(&quot;subInterp&quot;);
+//jep.SharedInterpreter subInterp = (jep.SharedInterpreter) kcontext.getVariable(&quot;subInterp&quot;);
+
+subInterp.set(&quot;i&quot;, kcontext.getVariable(&quot;i&quot;));
+
+System.out.println(&quot;####### Building a balanced dataset: started #######&quot;);
+
+java.lang.String script3 = java.lang.String.join(&quot;\n&quot;,
+&quot;Targets=Data.loc[Data['stroke']==1]&quot;,
+&quot;NonTargets=Data.loc[Data['stroke']==0]&quot;,
+&quot;NonTargets=NonTargets.sample(len(Targets)*balancing)&quot;,
+&quot;Dataset=Targets.append(NonTargets)&quot;);
+
+subInterp.set(&quot;script3&quot;, script3);
+subInterp.eval(&quot;exec(script3)&quot;);
+
+System.out.println(&quot;####### Building a balanced dataset: finished #######&quot;);
+
+System.out.println(&quot;####### Fitting categorical variable encoders: started #######&quot;);
+
+java.lang.String script4 = java.lang.String.join(&quot;\n&quot;,
+&quot;gender=pd.DataFrame(Dataset['gender'])&quot;,
+&quot;ohe_gender=OneHotEncoder(handle_unknown='ignore', sparse=False)&quot;,
+&quot;ohe_gender.fit(gender)&quot;,
+&quot;ever_married=pd.DataFrame(Dataset['ever_married'])&quot;,
+&quot;ohe_ever_married=OneHotEncoder(handle_unknown='ignore', sparse=False)&quot;,
+&quot;ohe_ever_married.fit(ever_married)&quot;,
+&quot;work_type=pd.DataFrame(Dataset['work_type'])&quot;,
+&quot;ohe_work_type=OneHotEncoder(handle_unknown='ignore', sparse=False)&quot;,
+&quot;ohe_work_type.fit(work_type)&quot;,
+&quot;residence_type=pd.DataFrame(Dataset['residence_type'])&quot;,
+&quot;ohe_residence_type=OneHotEncoder(handle_unknown='ignore', sparse=False)&quot;,
+&quot;ohe_residence_type.fit(residence_type)&quot;,
+&quot;smoking_status=pd.DataFrame(Dataset['smoking_status'])&quot;,
+&quot;ohe_smoking_status=OneHotEncoder(handle_unknown='ignore', sparse=False)&quot;,
+&quot;ohe_smoking_status.fit(smoking_status)&quot;,
+&quot;if training>=1:&quot;,
+&quot;    ModelMart=[]&quot;,
+&quot;    if 'ModelDict' not in locals().keys():&quot;,
+&quot;        ModelDict={}&quot;,
+&quot;divisorpred=preddraw&quot;);
+
+subInterp.set(&quot;script4&quot;, script4);
+subInterp.eval(&quot;exec(script4)&quot;);
+
+System.out.println(&quot;####### Fitting categorical variable encoders: finished #######&quot;);
+
+System.out.println(&quot;####### Converting (encoding) string values of categorical variables to numeric values: started #######&quot;);
+
+java.lang.String script5 = java.lang.String.join(&quot;\n&quot;,
+&quot;gender_enc=pd.DataFrame(ohe_gender.transform(gender), columns=['{}{}'.format('gender_',i) for i in np.array(ohe_gender.categories_).tolist()[0]])&quot;,
+&quot;ever_married_enc=pd.DataFrame(ohe_ever_married.transform(ever_married), columns=['{}{}'.format('ever_married_',i) for i in np.array(ohe_ever_married.categories_).tolist()[0]])&quot;,
+&quot;work_type_enc=pd.DataFrame(ohe_work_type.transform(work_type), columns=['{}{}'.format('work_type_',i) for i in np.array(ohe_work_type.categories_).tolist()[0]])&quot;,
+&quot;residence_type_enc=pd.DataFrame(ohe_residence_type.transform(residence_type), columns=['{}{}'.format('residence_type_',i) for i in np.array(ohe_residence_type.categories_).tolist()[0]])&quot;,
+&quot;smoking_status_enc=pd.DataFrame(ohe_smoking_status.transform(smoking_status), columns=['{}{}'.format('smoking_status_',i) for i in np.array(ohe_smoking_status.categories_).tolist()[0]])&quot;);
+
+subInterp.set(&quot;script5&quot;, script5);
+subInterp.eval(&quot;exec(script5)&quot;);
+
+System.out.println(&quot;####### Converting (encoding) string values of categorical variables to numeric values: finished #######&quot;);
+
+System.out.println(&quot;####### Randomized splitting of the balanced dataset into a training and prediction datasets: started #######&quot;);
+
+java.lang.String script6 = java.lang.String.join(&quot;\n&quot;,
+&quot;DatasetA=pd.concat([Dataset.reset_index(drop=True), gender_enc, ever_married_enc, work_type_enc, residence_type_enc, smoking_status_enc], axis=1)&quot;,
+&quot;if predfrac>0:&quot;,
+&quot;    PatlistA=pd.DataFrame(DatasetA['id'].unique())&quot;,
+&quot;    PatlistB=PatlistA.sample(frac=predfrac)&quot;,
+&quot;    PatlistC=PatlistA[~PatlistA[0].isin(PatlistB[0])]&quot;,
+&quot;    DatasetB=DatasetA[DatasetA['id'].isin(PatlistB[0])]&quot;,
+&quot;    DatasetC=DatasetA[DatasetA['id'].isin(PatlistC[0])]&quot;);
+
+subInterp.set(&quot;script6&quot;, script6);
+subInterp.eval(&quot;exec(script6)&quot;);
+
+System.out.println(&quot;####### Randomized splitting of the balanced dataset into a training and prediction datasets: finished #######&quot;);
+
+System.out.println(&quot;####### Experiment 1/3: started #######&quot;);
+
+java.lang.String script7 = java.lang.String.join(&quot;\n&quot;,
+&quot;#Randomized extraction of a patientset&quot;,    
+&quot;Patientset01=DatasetB.sample(frac=bagfrac)&quot;,
+&quot;X01=Patientset01.drop(droplist, axis=1)&quot;,
+&quot;Y01=Patientset01['stroke']&quot;,
+&quot;Y01=Y01.astype('int')&quot;,    
+&quot;#If testdraws parameter (see above) is set to 1, perform an additional split for experiment-level model training and accuracy testing&quot;,    
+&quot;if testdraws==0:&quot;,
+&quot;    X01_train=X01&quot;,
+&quot;    Y01_train=Y01&quot;,
+&quot;else:&quot;,
+&quot;    X01_train, X01_test, Y01_train, Y01_test = train_test_split(X01, Y01, test_size=0.2, shuffle=False)&quot;,    
+&quot;#Train a set of models on the training portion of the patientset:&quot;,    
+&quot;knn01 = GridSearchCV(KNeighborsClassifier(), {'n_neighbors': np.arange(1, min(25,Y01_train[Y01_train==1].count()))}, cv=folds, iid=...).fit(X01_train, Y01_train).best_estimator_&quot;,
+&quot;rf01 = GridSearchCV(RandomForestClassifier(), {'n_estimators': [50, 100, 200]}, cv=folds, iid=...).fit(X01_train, Y01_train).best_estimator_&quot;,
+&quot;logit01 = GridSearchCV(LogisticRegression(solver='lbfgs', max_iter=10000), {'C': [0.1, 0.5, 1, 50, 100, 500, 1000, 5000, 10000]}, cv=folds, iid=...).fit(X01_train, Y01_train).best_estimator_&quot;,    
+&quot;#Do a validation (apply models to the training portion of the patientset)&quot;,    
+&quot;Y01HATVAL_knn01 = knn01.predict(X01_train)&quot;,
+&quot;Y01HATVAL_rf01 = rf01.predict(X01_train)&quot;,
+&quot;Y01HATVAL_logit01 = logit01.predict(X01_train)&quot;,    
+&quot;#If testdraws is set to 1, do an accuracy test (apply models to the testing portion of the patientset)&quot;,    
+&quot;if testdraws==1:&quot;,
+&quot;    Y01HATTST_knn01 = knn01.predict(X01_test)&quot;,
+&quot;    Y01HATTST_rf01 = rf01.predict(X01_test)&quot;,
+&quot;    Y01HATTST_logit01 = logit01.predict(X01_test)&quot;);
+
+subInterp.set(&quot;script7&quot;, script7);
+subInterp.eval(&quot;exec(script7)&quot;);
+
+System.out.println(&quot;####### Experiment 1/3: finished #######&quot;);
+
+System.out.println(&quot;####### Experiment 2/3: started #######&quot;);
+
+java.lang.String script8 = java.lang.String.join(&quot;\n&quot;,
+&quot;#Randomized extraction of a patientset for experiment 2/3&quot;,    
+&quot;Patientset02=DatasetB.sample(frac=bagfrac)&quot;,
+&quot;X02=Patientset02.drop(droplist, axis=1)&quot;,
+&quot;Y02=Patientset02['stroke']&quot;,
+&quot;Y02=Y02.astype('int')&quot;,
+&quot;#If testdraws parameter (see above) is set to 1, perform an additional split for experiment-level model training and accuracy testing&quot;,    
+&quot;if testdraws==0:&quot;,
+&quot;    X02_train=X02&quot;,
+&quot;    Y02_train=Y02&quot;,
+&quot;else:&quot;,
+&quot;    X02_train, X02_test, Y02_train, Y02_test = train_test_split(X02, Y02, test_size=0.2, shuffle=False)&quot;,    
+&quot;#Train a set of models on the training portion of the patientset:&quot;,    
+&quot;knn02 = GridSearchCV(KNeighborsClassifier(), {'n_neighbors': np.arange(1, min(25,Y02_train[Y02_train==1].count()))}, cv=folds, iid=...).fit(X02_train, Y02_train).best_estimator_&quot;,
+&quot;rf02 = GridSearchCV(RandomForestClassifier(), {'n_estimators': [50, 100, 200]}, cv=folds, iid=...).fit(X02_train, Y02_train).best_estimator_&quot;,
+&quot;logit02 = GridSearchCV(LogisticRegression(solver='lbfgs', max_iter=10000), {'C': [0.1, 0.5, 1, 50, 100, 500, 1000, 5000, 10000]}, cv=folds, iid=...).fit(X02_train, Y02_train).best_estimator_&quot;,    
+&quot;#Do a validation (apply models to the training portion of the patientset)&quot;,    
+&quot;Y02HATVAL_knn02 = knn02.predict(X02_train)&quot;,
+&quot;Y02HATVAL_rf02 = rf02.predict(X02_train)&quot;,
+&quot;Y02HATVAL_logit02 = logit02.predict(X02_train)&quot;,    
+&quot;#If testdraws is set to 1, do an accuracy test (apply models to the testing portion of the patientset)&quot;,    
+&quot;if testdraws==1:&quot;,
+&quot;    Y02HATTST_knn02 = knn02.predict(X02_test)&quot;,
+&quot;    Y02HATTST_rf02 = rf02.predict(X02_test)&quot;,
+&quot;    Y02HATTST_logit02 = logit02.predict(X02_test)&quot;);
+
+subInterp.set(&quot;script8&quot;, script8);
+subInterp.eval(&quot;exec(script8)&quot;);
+
+System.out.println(&quot;####### Experiment 2/3: finished #######&quot;);
+
+System.out.println(&quot;####### Experiment 3/3: started #######&quot;);
+
+java.lang.String script9 = java.lang.String.join(&quot;\n&quot;,
+&quot;#Randomized extraction of a patientset for experiment 3/3&quot;,    
+&quot;Patientset03=DatasetB.sample(frac=bagfrac)&quot;,
+&quot;X03=Patientset03.drop(droplist, axis=1)&quot;,
+&quot;Y03=Patientset03['stroke']&quot;,
+&quot;Y03=Y03.astype('int')&quot;,    
+&quot;#If testdraws parameter (see above) is set to 1, perform an additional split for experiment-level model training and accuracy testing&quot;,    
+&quot;if testdraws==0:&quot;,
+&quot;    X03_train=X03&quot;,
+&quot;    Y03_train=Y03&quot;,
+&quot;else:&quot;,
+&quot;    X03_train, X03_test, Y03_train, Y03_test = train_test_split(X03, Y03, test_size=0.2, shuffle=False)&quot;,    
+&quot;#Train a set of models on the training portion of the patientset:&quot;,    
+&quot;knn03 = GridSearchCV(KNeighborsClassifier(), {'n_neighbors': np.arange(1, min(25,Y03_train[Y03_train==1].count()))}, cv=folds, iid=...).fit(X03_train, Y03_train).best_estimator_&quot;,
+&quot;rf03 = GridSearchCV(RandomForestClassifier(), {'n_estimators': [50, 100, 200]}, cv=folds, iid=...).fit(X03_train, Y03_train).best_estimator_&quot;,
+&quot;logit03 = GridSearchCV(LogisticRegression(solver='lbfgs', max_iter=10000), {'C': [0.1, 0.5, 1, 50, 100, 500, 1000, 5000, 10000]}, cv=folds, iid=...).fit(X03_train, Y03_train).best_estimator_&quot;,    
+&quot;#Do a validation (apply models to the training portion of the patientset)&quot;,    
+&quot;Y03HATVAL_knn03 = knn03.predict(X03_train)&quot;,
+&quot;Y03HATVAL_rf03 = rf03.predict(X03_train)&quot;,
+&quot;Y03HATVAL_logit03 = logit03.predict(X03_train)&quot;,    
+&quot;#If testdraws is set to 1, do an accuracy test (apply models to the testing portion of the patientset)&quot;,    
+&quot;if testdraws==1:&quot;,
+&quot;    Y03HATTST_knn03 = knn03.predict(X03_test)&quot;,
+&quot;    Y03HATTST_rf03 = rf03.predict(X03_test)&quot;,
+&quot;    Y03HATTST_logit03 = logit03.predict(X03_test)&quot;);
+
+subInterp.set(&quot;script9&quot;, script9);
+subInterp.eval(&quot;exec(script9)&quot;);
+
+System.out.println(&quot;####### Experiment 3/3: finished #######&quot;);
+
+System.out.println(&quot;####### Ensemble Experiment: started #######&quot;);
+
+java.lang.String script10 = java.lang.String.join(&quot;\n&quot;,
+&quot;#Randomized extraction of a patientset for the ensemble experiment&quot;,    
+&quot;Patientset00=DatasetB.sample(frac=bagfrac)&quot;,        
+&quot;X00=Patientset00.drop(droplist, axis=1)&quot;,
+&quot;Y00=Patientset00['stroke']&quot;,
+&quot;Y00=Y00.astype('int')&quot;,        
+&quot;if testdraws==0:&quot;,
+&quot;    X00_train=X00&quot;,
+&quot;    Y00_train=Y00&quot;,
+&quot;else:&quot;,
+&quot;    X00_train, X00_test, Y00_train, Y00_test = train_test_split(X00, Y00, test_size=0.2*testdraws, shuffle=False)&quot;,    
+&quot;#Training the voting ensemble&quot;,    
+&quot;all = VotingClassifier([('knn01', knn01), ('rf01', rf01), ('logit01', logit01), ('knn02', knn02), ('rf02', rf02), ('logit02', logit02), ('knn03', knn03), ('rf03', rf03), ('logit03', logit03)], voting='soft', weights=weights).fit(X00_train, Y00_train)&quot;,    
+&quot;#Validation of the voting ensemble&quot;,    
+&quot;Y00HATVAL_all=all._predict_proba(X00_train)[:,1]&quot;,
+&quot;Y00HATVAL_all_bin=all.predict(X00_train)&quot;);
+
+subInterp.set(&quot;script10&quot;, script10);
+subInterp.eval(&quot;exec(script10)&quot;);
+
+System.out.println(&quot;####### Ensemble Experiment: finished #######&quot;);
+
+System.out.println(&quot;####### Building validation-related metrics: started #######&quot;);
+
+java.lang.String script11 = java.lang.String.join(&quot;\n&quot;,
+&quot;globals=globals()&quot;,
+&quot;MonitorVAL01=pd.DataFrame(columns=['ID','ACCURACY','PARAMS'])&quot;,    
+&quot;for k in all.get_params(deep=True)['estimators']:&quot;,
+&quot;    estimator1=pd.DataFrame([k[0], accuracy_score(globals['Y'+k[0][-2:]+'_train'], globals['Y'+k[0][-2:]+'HATVAL_'+k[0]]), all.get_params(deep=True)[k[0]]], index=['ID','ACCURACY','PARAMS']).T&quot;,
+&quot;    MonitorVAL01=MonitorVAL01.append(estimator1)&quot;,
+&quot;del(estimator1)&quot;,
+&quot;gc.collect()&quot;,     
+&quot;MonitorVAL02=pd.DataFrame(columns=['ID']+(X00.columns+'_coeff').tolist())&quot;,    
+&quot;for k in all.get_params(deep=True)['estimators']:&quot;,
+&quot;    estimator2=pd.DataFrame([k[0]]+LogisticRegression().fit(globals['X'+k[0][-2:]+'_train'], globals['Y'+k[0][-2:]+'HATVAL_'+k[0]]).coef_[0].tolist(), index=MonitorVAL02.columns.tolist()).T&quot;,
+&quot;    MonitorVAL02=MonitorVAL02.append(estimator2)&quot;,
+&quot;del(estimator2)&quot;,
+&quot;del(globals)&quot;,
+&quot;gc.collect()&quot;,  
+&quot;if weightsaccval==1:&quot;,
+&quot;    #weights=np.array(MonitorVAL01['ACCURACY']/MonitorVAL01['ACCURACY'].sum())&quot;,
+&quot;    weights=np.array((MonitorVAL01['ACCURACY']-MonitorVAL01['ACCURACY'].min())/(MonitorVAL01['ACCURACY']-MonitorVAL01['ACCURACY'].min()).sum())&quot;,
+&quot;    all = VotingClassifier([('knn01', knn01), ('rf01', rf01), ('logit01', logit01), ('knn02', knn02), ('rf02', rf02), ('logit02', logit02), ('knn03', knn03), ('rf03', rf03), ('logit03', logit03)], voting='soft', weights=weights).fit(X00_train, Y00_train)&quot;);               
+
+subInterp.set(&quot;script11&quot;, script11);
+subInterp.eval(&quot;exec(script11)&quot;);
+
+System.out.println(&quot;####### Building validation-related metrics: finished #######&quot;);
+
+System.out.println(&quot;####### Building testing-related metrics (part 1: experiment-level metrics): started #######&quot;);
+
+java.lang.String script12 = java.lang.String.join(&quot;\n&quot;,
+&quot;globals=globals()&quot;,
+&quot;if testdraws==1:&quot;,
+&quot;    MonitorTST01=pd.DataFrame(columns=['ID','ACCURACY','PARAMS'])&quot;,
+&quot;    for k in all.get_params(deep=True)['estimators']:&quot;,
+&quot;        estimator3=pd.DataFrame([k[0], accuracy_score(globals['Y'+k[0][-2:]+'_test'], globals['Y'+k[0][-2:]+'HATTST_'+k[0]]), all.get_params(deep=True)[k[0]]], index=['ID','ACCURACY','PARAMS']).T&quot;,
+&quot;        MonitorTST01=MonitorTST01.append(estimator3)&quot;,
+&quot;    del(estimator3)&quot;,
+&quot;    gc.collect()&quot;,
+&quot;    MonitorTST02=pd.DataFrame(columns=['ID']+(X00.columns+'_coeff').tolist())&quot;,
+&quot;    for k in all.get_params(deep=True)['estimators']:&quot;,
+&quot;        estimator4=pd.DataFrame([k[0]]+LogisticRegression().fit(globals['X'+k[0][-2:]+'_test'], globals['Y'+k[0][-2:]+'HATTST_'+k[0]]).coef_[0].tolist(), index=MonitorTST02.columns.tolist()).T&quot;,
+&quot;        MonitorTST02=MonitorTST02.append(estimator4)&quot;,
+&quot;    del(estimator4)&quot;,
+&quot;    del(globals)&quot;,
+&quot;    gc.collect()&quot;,
+&quot;    if weightsacctst==1:&quot;,
+&quot;        #weights=np.array(MonitorTST01['ACCURACY']/MonitorTST01['ACCURACY'].sum())&quot;,
+&quot;        weights=np.array((MonitorTST01['ACCURACY']-MonitorTST01['ACCURACY'].min())/(MonitorTST01['ACCURACY']-MonitorTST01['ACCURACY'].min()).sum())&quot;,
+&quot;        all = VotingClassifier([('knn01', knn01), ('rf01', rf01), ('logit01', logit01), ('knn02', knn02), ('rf02', rf02), ('logit02', logit02), ('knn03', knn03), ('rf03', rf03), ('logit03', logit03)], voting='soft', weights=weights).fit(X00_train, Y00_train)&quot;,
+&quot;params=str(all.get_params(deep=False).get('flatten_transform'))+str(all.get_params(deep=False).get('n_jobs'))+str(all.get_params(deep=False).get('voting'))+str(all.get_params(deep=False).get('weights').tolist())&quot;,
+&quot;estimator=pd.DataFrame(['all', accuracy_score(Y00_train, Y00HATVAL_all_bin), params], index=['ID','ACCURACY','PARAMS']).T&quot;,
+&quot;MonitorVAL01=MonitorVAL01.append(estimator)&quot;,
+&quot;MonitorVAL01=MonitorVAL01.reset_index(drop=True)&quot;,
+&quot;values=['all']+LogisticRegression().fit(X00_train, Y00HATVAL_all_bin).coef_[0].tolist()&quot;,
+&quot;estimator=pd.DataFrame(values, index=MonitorVAL02.columns.tolist()).T&quot;,
+&quot;MonitorVAL02=MonitorVAL02.append(estimator)&quot;,
+&quot;MonitorVAL02=MonitorVAL02.reset_index(drop=True)&quot;,
+&quot;MonitorVAL=pd.merge(MonitorVAL01, MonitorVAL02, on=['ID'])&quot;,
+&quot;#Coefficients=pd.DataFrame(columns=['ID', 'INTERCEPT']+(X00.columns+'_coeff').tolist())&quot;,
+&quot;#for k in ['logit01', 'logit02', 'logit03']:&quot;,
+&quot;#    estimator=pd.DataFrame([k]+eval(k+'.intercept_').tolist()+eval(k+'.coef_').tolist()[0], index=Coefficients.columns.tolist()).T&quot;,
+&quot;#    Coefficients=Coefficients.append(estimator)&quot;,    
+&quot;#estimator=pd.DataFrame(['averaged']+np.array(Coefficients.agg(['mean']))[0].tolist(), index=Coefficients.columns.tolist()).T&quot;,
+&quot;#Coefficients=Coefficients.append(estimator)&quot;,
+&quot;#Coefficients=Coefficients.reset_index(drop=True)&quot;);
+
+subInterp.set(&quot;script12&quot;, script12);
+subInterp.eval(&quot;exec(script12)&quot;);
+
+System.out.println(&quot;####### Building testing-related metrics (part 1: experiment-level metrics): finished #######&quot;);
+
+System.out.println(&quot;####### Building validation-related graphs: started #######&quot;);
+
+java.lang.String script13 = java.lang.String.join(&quot;\n&quot;,
+&quot;fpr_knn01, tpr_knn01, _ = roc_curve(Y01_train, Y01HATVAL_knn01, pos_label=1)&quot;,
+&quot;fpr_rf01, tpr_rf01, _ = roc_curve(Y01_train, Y01HATVAL_rf01)&quot;,
+&quot;fpr_logit01, tpr_logit01, _ = roc_curve(Y01_train, Y01HATVAL_logit01)&quot;,
+&quot;fpr_knn02, tpr_knn02, _ = roc_curve(Y02_train, Y02HATVAL_knn02)&quot;,
+&quot;fpr_rf02, tpr_rf02, _ = roc_curve(Y02_train, Y02HATVAL_rf02)&quot;,
+&quot;fpr_logit02, tpr_logit02, _ = roc_curve(Y02_train, Y02HATVAL_logit02)&quot;,
+&quot;fpr_knn03, tpr_knn03, _ = roc_curve(Y03_train, Y03HATVAL_knn03)&quot;,
+&quot;fpr_rf03, tpr_rf03, _ = roc_curve(Y03_train, Y03HATVAL_rf03)&quot;,
+&quot;fpr_logit03, tpr_logit03, _ = roc_curve(Y03_train, Y03HATVAL_logit03)&quot;,
+&quot;fpr_all, tpr_all, _ = roc_curve(Y00_train, Y00HATVAL_all)&quot;,    
+&quot;f=plt.figure()&quot;,
+&quot;plt.plot([0, 1], [0, 1], 'k--')&quot;,
+&quot;plt.plot(fpr_knn01, tpr_knn01, label='KNN01')&quot;,
+&quot;plt.plot(fpr_rf01, tpr_rf01, label='RF01')&quot;,
+&quot;plt.plot(fpr_logit01, tpr_logit01, label='LOGIT01')&quot;,
+&quot;plt.plot(fpr_knn02, tpr_knn02, label='KNN02')&quot;,
+&quot;plt.plot(fpr_rf02, tpr_rf02, label='RF02')&quot;,
+&quot;plt.plot(fpr_logit02, tpr_logit02, label='LOGIT02')&quot;,
+&quot;plt.plot(fpr_knn03, tpr_knn03, label='KNN03')&quot;,
+&quot;plt.plot(fpr_rf03, tpr_rf03, label='RF03')&quot;,
+&quot;plt.plot(fpr_logit03, tpr_logit03, label='LOGIT03')&quot;,
+&quot;plt.plot(fpr_all, tpr_all, label='KNN+RF+LOGIT')&quot;,
+&quot;plt.xlabel('False positive rate')&quot;,
+&quot;plt.ylabel('True positive rate')&quot;,
+&quot;plt.title('ROC Curves: VAL')&quot;,
+&quot;plt.legend(loc='best')&quot;,
+&quot;f.savefig(path+'/STROKE011.png')&quot;,
+&quot;plt.close(f)&quot;,    
+&quot;f=plt.figure(figsize=(20, 10))&quot;,
+&quot;plt.barh(MonitorVAL['ID'], MonitorVAL['ACCURACY'])&quot;,
+&quot;plt.xlabel('Accuracy')&quot;,
+&quot;plt.title('Model Accuracies: VAL')&quot;,
+&quot;f.savefig(path+'/STROKE012.png')&quot;,
+&quot;plt.close(f)&quot;,    
+&quot;f=plt.figure(figsize=(20, 100))&quot;,
+&quot;plt.barh(MonitorVAL.columns[3:], MonitorVAL.iloc[-1,3:])&quot;,
+&quot;plt.xlabel('p-Value')&quot;,
+&quot;plt.title('Ensemble Variable Importance: VAL')&quot;,
+&quot;f.savefig(path+'/STROKE013.png')&quot;,
+&quot;plt.close(f)&quot;,
+&quot;#f=plt.figure(figsize=(20, 100))&quot;,
+&quot;#plt.barh(Coefficients.columns[1:], Coefficients.iloc[-1,1:])&quot;,
+&quot;#plt.xlabel('Averaged Coefficient')&quot;,
+&quot;#plt.title('Averaged Variable Coefficients: VAL')&quot;,
+&quot;#f.savefig(path+'/STROKE014.png')&quot;,
+&quot;#plt.close(f)&quot;);
+
+subInterp.set(&quot;script13&quot;, script13);
+subInterp.eval(&quot;exec(script13)&quot;);
+
+System.out.println(&quot;####### Building validation-related graphs: finished #######&quot;);
+
+System.out.println(&quot;####### Adding the ensemble to model mart: started #######&quot;);
+
+java.lang.String script14 = java.lang.String.join(&quot;\n&quot;,
+&quot;ModelMart.append(all)&quot;);
+
+subInterp.set(&quot;script14&quot;, script14);
+subInterp.eval(&quot;exec(script14)&quot;);
+
+System.out.println(&quot;####### Adding the ensemble to model mart: finished #######&quot;);
+
+System.out.println(&quot;####### Building testing-related metrics and graphs (part 2: ensemble-level metrics): finished #######&quot;);
+
+java.lang.String script15 = java.lang.String.join(&quot;\n&quot;,
+&quot;if testdraws==1:&quot;,
+&quot;    #If testdraws is set to 1, do an accuracy test using the voting ensemble&quot;,        
+&quot;    Y00HATTST_all=all._predict_proba(X00_test)[:,1]&quot;,
+&quot;    Y00HATTST_all_bin=all.predict(X00_test)&quot;,
+&quot;    params=str(all.get_params(deep=False).get('flatten_transform'))+str(all.get_params(deep=False).get('n_jobs'))+str(all.get_params(deep=False).get('voting'))+str(all.get_params(deep=False).get('weights').tolist())&quot;,
+&quot;    estimator=pd.DataFrame(['all', accuracy_score(Y00_test, Y00HATTST_all_bin), params], index=['ID','ACCURACY','PARAMS']).T&quot;,
+&quot;    MonitorTST01=MonitorTST01.append(estimator)&quot;,
+&quot;    MonitorTST01=MonitorTST01.reset_index(drop=True)&quot;,    
+&quot;    values=['all']+LogisticRegression().fit(X00_test, Y00HATTST_all_bin).coef_[0].tolist()&quot;,
+&quot;    estimator=pd.DataFrame(values, index=MonitorTST02.columns.tolist()).T&quot;,
+&quot;    MonitorTST02=MonitorTST02.append(estimator)&quot;,
+&quot;    MonitorTST02=MonitorTST02.reset_index(drop=True)&quot;,    
+&quot;    MonitorTST=pd.merge(MonitorTST01, MonitorTST02, on=['ID'])&quot;,    
+&quot;    fpr_knn01, tpr_knn01, _ = roc_curve(Y01_test, Y01HATTST_knn01, pos_label=1)&quot;,
+&quot;    fpr_rf01, tpr_rf01, _ = roc_curve(Y01_test, Y01HATTST_rf01)&quot;,
+&quot;    fpr_logit01, tpr_logit01, _ = roc_curve(Y01_test, Y01HATTST_logit01)&quot;,
+&quot;    fpr_knn02, tpr_knn02, _ = roc_curve(Y02_test, Y02HATTST_knn02)&quot;,
+&quot;    fpr_rf02, tpr_rf02, _ = roc_curve(Y02_test, Y02HATTST_rf02)&quot;,
+&quot;    fpr_logit02, tpr_logit02, _ = roc_curve(Y02_test, Y02HATTST_logit02)&quot;,
+&quot;    fpr_knn03, tpr_knn03, _ = roc_curve(Y03_test, Y03HATTST_knn03)&quot;,
+&quot;    fpr_rf03, tpr_rf03, _ = roc_curve(Y03_test, Y03HATTST_rf03)&quot;,
+&quot;    fpr_logit03, tpr_logit03, _ = roc_curve(Y03_test, Y03HATTST_logit03)&quot;,
+&quot;    fpr_all, tpr_all, _ = roc_curve(Y00_test, Y00HATTST_all)&quot;,    
+&quot;    f=plt.figure()&quot;,
+&quot;    plt.plot([0, 1], [0, 1], 'k--')&quot;,
+&quot;    plt.plot(fpr_knn01, tpr_knn01, label='KNN01')&quot;,
+&quot;    plt.plot(fpr_rf01, tpr_rf01, label='RF01')&quot;,
+&quot;    plt.plot(fpr_logit01, tpr_logit01, label='LOGIT01')&quot;,
+&quot;    plt.plot(fpr_knn02, tpr_knn02, label='KNN02')&quot;,
+&quot;    plt.plot(fpr_rf02, tpr_rf02, label='RF02')&quot;,
+&quot;    plt.plot(fpr_logit02, tpr_logit02, label='LOGIT02')&quot;,
+&quot;    plt.plot(fpr_knn03, tpr_knn03, label='KNN03')&quot;,
+&quot;    plt.plot(fpr_rf03, tpr_rf03, label='RF03')&quot;,
+&quot;    plt.plot(fpr_logit03, tpr_logit03, label='LOGIT03')&quot;,
+&quot;    plt.plot(fpr_all, tpr_all, label='KNN+RF+LOGIT')&quot;,
+&quot;    plt.xlabel('False positive rate')&quot;,
+&quot;    plt.ylabel('True positive rate')&quot;,
+&quot;    plt.title('ROC Curves: TST')&quot;,
+&quot;    plt.legend(loc='best')&quot;,
+&quot;    f.savefig(path+'/STROKE021.png')&quot;,
+&quot;    plt.close(f)&quot;,    
+&quot;    f=plt.figure(figsize=(20, 10))&quot;,
+&quot;    plt.barh(MonitorTST['ID'], MonitorTST['ACCURACY'])&quot;,
+&quot;    plt.xlabel('Accuracy')&quot;,
+&quot;    plt.title('Model Accuracies: TST')&quot;,
+&quot;    f.savefig(path+'/STROKE022.png')&quot;,
+&quot;    plt.close(f)&quot;,        
+&quot;    f=plt.figure(figsize=(20, 100))&quot;,
+&quot;    plt.barh(MonitorTST.columns[3:], MonitorTST.iloc[-1,3:])&quot;,
+&quot;    plt.xlabel('p-Value')&quot;,
+&quot;    plt.title('Ensemble Variable Importance: TST')&quot;,
+&quot;    f.savefig(path+'/STROKE023.png')&quot;,
+&quot;    plt.close(f)&quot;);
+
+subInterp.set(&quot;script15&quot;, script15);
+subInterp.eval(&quot;exec(script15)&quot;);
+
+System.out.println(&quot;####### Building testing-related metrics and graphs (part 2: ensemble-level metrics): finished #######&quot;);
+
+System.out.println(&quot;####### Prediction (on a batch of patients): started #######&quot;);
+
+java.lang.String script16 = java.lang.String.join(&quot;\n&quot;,
+&quot;if preddraw>=1:&quot;,    
+&quot;    #Building a patientset for prediction&quot;,    
+&quot;    Patientset=DatasetC&quot;,    
+&quot;    X=Patientset.drop(droplist, axis=1)&quot;,
+&quot;    Y=Patientset['stroke']&quot;,
+&quot;    Y=Y.astype('int')&quot;,    
+&quot;    #Predicting using the voting ensemble&quot;,            
+&quot;    if training==0:&quot;,
+&quot;        all=ModelDict[''.join('stroke')][(preddraw-1)%len(ModelDict[''.join('stroke')])]&quot;,    
+&quot;    YHAT=all._predict_proba(X)[:,1]&quot;,
+&quot;    YHAT_bin=all.predict(X)&quot;,    
+&quot;    #Building prediction-related metrics and graphs&quot;,    
+&quot;    fpr_pred, tpr_pred, _ = roc_curve(Y, YHAT, pos_label=1)&quot;,    
+&quot;    f=plt.figure()&quot;,
+&quot;    plt.plot([0, 1], [0, 1], 'k--')&quot;,
+&quot;    plt.plot(fpr_pred, tpr_pred, label='KNN+RF+LOGIT')&quot;,
+&quot;    plt.xlabel('False positive rate')&quot;,
+&quot;    plt.ylabel('True positive rate')&quot;,
+&quot;    plt.title('ROC Curves: PRED')&quot;,
+&quot;    plt.legend(loc='best')&quot;,
+&quot;    f.savefig(path+'/STROKE031.png')&quot;,
+&quot;    plt.close(f)&quot;,    
+&quot;    Patientset['PREDICTION']=YHAT.tolist()&quot;,            
+&quot;    preddraw=preddraw-1&quot;,        
+&quot;    divisorpred=1&quot;,        
+&quot;    Patientset['PREDICTION']=Patientset['PREDICTION']/divisorpred&quot;,    
+&quot;    Prediction=Patientset['PREDICTION']>0.5&quot;,
+&quot;    Prediction=Prediction.astype(int)&quot;,    
+&quot;    cm = confusion_matrix(Patientset['stroke'].astype('int'), Prediction)&quot;,    
+&quot;    Confusion=pd.DataFrame(np.array((cm[1][1],cm[0][1],cm[0][0],cm[1][0]))).T&quot;,
+&quot;    Confusion.columns=['TP','FN','TN','FP']&quot;,
+&quot;    Confusion['ACC']=(Confusion['TP']+Confusion['TN'])/(Confusion['TP']+Confusion['TN']+Confusion['FP']+Confusion['FN'])&quot;,
+&quot;    Confusion['TPR']=(Confusion['TP'])/(Confusion['TP']+Confusion['FN'])&quot;,
+&quot;    Confusion['TNR']=(Confusion['TN'])/(Confusion['TN']+Confusion['FP'])&quot;,
+&quot;    Confusion['PPV']=(Confusion['TP'])/(Confusion['TP']+Confusion['FP'])&quot;,
+&quot;    Confusion['NPV']=(Confusion['TN'])/(Confusion['TN']+Confusion['FN'])&quot;,    
+&quot;    f=plt.figure()&quot;,
+&quot;    sns.heatmap(cm, annot=True)&quot;,
+&quot;    plt.xlabel('Predicted (0 - non-target, 1 - target)')&quot;,
+&quot;    plt.ylabel('Actual (1 - target, 0 - non-target)')&quot;,
+&quot;    plt.title('Ensemble Confusion Matrix: PRED')&quot;,
+&quot;    f.savefig(path+'/STROKE032.png')&quot;,
+&quot;    plt.close(f)&quot;,    
+&quot;    y_gain_bench=Patientset['stroke']*costoferror-(1-Patientset['stroke'])*costofchecking&quot;,
+&quot;    y_gain=Patientset['PREDICTION']*costoferror-(1-Patientset['PREDICTION'])*costofchecking&quot;,
+&quot;    Y_analysis_bench=pd.concat([pd.DataFrame(Patientset['stroke']),pd.DataFrame(y_gain_bench)],axis=1)&quot;,
+&quot;    Y_analysis=pd.concat([pd.DataFrame(Patientset['PREDICTION']),pd.DataFrame(y_gain)],axis=1)&quot;,
+&quot;    Y_analysis_bench.columns = ['PROBABILITY','GAIN']&quot;,
+&quot;    Y_analysis.columns = ['PROBABILITY','GAIN']&quot;,
+&quot;    Y_analysis_bench=Y_analysis_bench.sort_values(by=['PROBABILITY'],ascending=False)&quot;,
+&quot;    Y_analysis=Y_analysis.sort_values(by=['PROBABILITY'],ascending=False)&quot;,
+&quot;    Y_analysis_bench=Y_analysis_bench.reset_index(drop=True)&quot;,
+&quot;    Y_analysis=Y_analysis.reset_index(drop=True)&quot;,
+&quot;    Prediction_analysis_bench=Y_analysis_bench['PROBABILITY']&quot;,
+&quot;    Prediction_analysis=Y_analysis['PROBABILITY']&quot;,
+&quot;    Prediction_analysis_scaled_bench=np.linspace(1,0,len(Patientset['stroke']))&quot;,
+&quot;    Prediction_analysis_scaled=np.linspace(1,0,len(Patientset['PREDICTION']))&quot;,
+&quot;    y_gain_analysis_bench=Y_analysis_bench['GAIN']&quot;,
+&quot;    y_gain_analysis=Y_analysis['GAIN']&quot;,
+&quot;    y_gain_analysis_cumsum_bench=np.cumsum(y_gain_analysis_bench)&quot;,
+&quot;    y_gain_analysis_cumsum=np.cumsum(y_gain_analysis)&quot;,
+&quot;    y_gain_analysis_cumsum_max_bench=np.amax(y_gain_analysis_cumsum_bench)&quot;,
+&quot;    y_gain_analysis_cumsum_max=np.amax(y_gain_analysis_cumsum)&quot;,
+&quot;    y_gain_index_bench=np.where(y_gain_analysis_cumsum_bench==y_gain_analysis_cumsum_max_bench)&quot;,
+&quot;    y_gain_index=np.where(y_gain_analysis_cumsum==y_gain_analysis_cumsum_max)&quot;,
+&quot;    f=plt.figure()&quot;,
+&quot;    plt.plot(Prediction_analysis,y_gain_analysis_cumsum, c='blue', label='Predicted')&quot;,
+&quot;    plt.plot([np.asscalar(Prediction_analysis[y_gain_index[0]]),np.asscalar(Prediction_analysis[y_gain_index[0]])],[0,np.asscalar(y_gain_analysis_cumsum_max)],c='red',linestyle='--')&quot;,
+&quot;    plt.xlim(1,0)&quot;,
+&quot;    plt.xlabel('Audience stroke probability')&quot;,
+&quot;    plt.ylabel('Gain')&quot;,
+&quot;    plt.title('Optimal checking audience: costoferror='+str(costoferror)+' costofchecking='+str(costofchecking))&quot;,
+&quot;    plt.legend(loc='best')&quot;,
+&quot;    f.savefig(path+'/STROKE033.png')&quot;,
+&quot;    plt.close(f)&quot;,
+&quot;    f=plt.figure()&quot;,
+&quot;    plt.plot(Prediction_analysis_scaled_bench,y_gain_analysis_cumsum_bench, c='grey', label='Actual')&quot;,
+&quot;    plt.plot(Prediction_analysis_scaled,y_gain_analysis_cumsum, c='green', label='Predicted')&quot;,
+&quot;    plt.plot([np.asscalar(Prediction_analysis_scaled[y_gain_index[0]]),np.asscalar(Prediction_analysis_scaled[y_gain_index[0]])],[0,np.asscalar(y_gain_analysis_cumsum_max)],c='red',linestyle='--')&quot;,
+&quot;    plt.xlim(1,0)&quot;,
+&quot;    plt.xlabel('Audience reverse-sorted by stroke probability')&quot;,
+&quot;    plt.ylabel('Gain')&quot;,
+&quot;    plt.title('Optimal checking audience: costoferror='+str(costoferror)+' costofchecking='+str(costofchecking))&quot;,
+&quot;    plt.legend(loc='best')&quot;,
+&quot;    f.savefig(path+'/STROKE034.png')&quot;,
+&quot;    plt.close(f)&quot;,    
+&quot;    ResultsetPRED=Patientset[Patientset.columns.intersection(Dataset.columns.tolist()+['PREDICTION'])]&quot;,
+&quot;    ResultsetPRED.to_csv(path+'/STROKEResultsetPRED.csv')&quot;);
+
+subInterp.set(&quot;script16&quot;, script16);
+subInterp.eval(&quot;exec(script16)&quot;);
+
+System.out.println(&quot;####### Prediction (on a batch of patients): finished #######&quot;);
+
+int iterator = (int) kcontext.getVariable(&quot;i&quot;);
+kcontext.setVariable(&quot;i&quot;, iterator+1);
+kcontext.setVariable(&quot;subInterp&quot;,subInterp);
+kcontext.setVariable(&quot;jepConfig&quot;,jepConfig);</bpmn2:script>
+      </bpmn2:scriptTask>
+      <bpmn2:sequenceFlow id="SequenceFlow_5" sourceRef="ScriptTask_5" targetRef="ExclusiveGateway_2"/>
+      <bpmn2:exclusiveGateway id="ExclusiveGateway_4" name="Repeat" gatewayDirection="Converging">
+        <bpmn2:incoming>SequenceFlow_4</bpmn2:incoming>
+        <bpmn2:incoming>SequenceFlow_11</bpmn2:incoming>
+        <bpmn2:outgoing>SequenceFlow_12</bpmn2:outgoing>
+      </bpmn2:exclusiveGateway>
+      <bpmn2:sequenceFlow id="SequenceFlow_12" sourceRef="ExclusiveGateway_4" targetRef="ScriptTask_5"/>
+      <bpmn2:exclusiveGateway id="ExclusiveGateway_2" name="Check" gatewayDirection="Diverging">
+        <bpmn2:incoming>SequenceFlow_5</bpmn2:incoming>
+        <bpmn2:outgoing>SequenceFlow_4</bpmn2:outgoing>
+        <bpmn2:outgoing>SequenceFlow_9</bpmn2:outgoing>
+      </bpmn2:exclusiveGateway>
+      <bpmn2:sequenceFlow id="SequenceFlow_4" tns:priority="1" name="i &lt;= count" sourceRef="ExclusiveGateway_2" targetRef="ExclusiveGateway_4">
+        <bpmn2:conditionExpression xsi:type="bpmn2:tFormalExpression" id="FormalExpression_1">return kcontext.getVariable(&quot;i&quot;) &lt;= kcontext.getVariable(&quot;count&quot;);</bpmn2:conditionExpression>
+      </bpmn2:sequenceFlow>
+      <bpmn2:sequenceFlow id="SequenceFlow_9" tns:priority="2" name="else" sourceRef="ExclusiveGateway_2" targetRef="ScriptTask_2">
+        <bpmn2:conditionExpression xsi:type="bpmn2:tFormalExpression" id="FormalExpression_4" language="http://www.java.com/java">return true;</bpmn2:conditionExpression>
+      </bpmn2:sequenceFlow>
+      <bpmn2:scriptTask id="ScriptTask_4" name="OneOff" scriptFormat="http://www.java.com/java">
+        <bpmn2:extensionElements>
+          <tns:metaData name="elementname">
+            <tns:metaValue><![CDATA[OneOff]]></tns:metaValue>
+          </tns:metaData>
+        </bpmn2:extensionElements>
+        <bpmn2:incoming>SequenceFlow_10</bpmn2:incoming>
+        <bpmn2:outgoing>SequenceFlow_11</bpmn2:outgoing>
+        <bpmn2:script>jep.JepConfig jepConfig = (jep.JepConfig) kcontext.getVariable(&quot;jepConfig&quot;);
+jep.SubInterpreter subInterp = (jep.SubInterpreter) kcontext.getVariable(&quot;subInterp&quot;);
+//jep.SharedInterpreter subInterp = (jep.SharedInterpreter) kcontext.getVariable(&quot;subInterp&quot;);
+
+System.out.println(&quot;####### Defining parameter values: started #######&quot;);
+
+java.lang.String path = (java.lang.String) kcontext.getVariable(&quot;path&quot;);
+subInterp.set(&quot;path&quot;, path);
+subInterp.eval(&quot;path&quot;);
+java.lang.String droplist = (java.lang.String) kcontext.getVariable(&quot;droplist&quot;);
+subInterp.set(&quot;droplist&quot;, droplist);
+subInterp.eval(&quot;droplist=ast.literal_eval(droplist)&quot;);
+java.lang.Integer balancing = (java.lang.Integer) kcontext.getVariable(&quot;balancing&quot;);
+subInterp.set(&quot;balancing&quot;, balancing);
+subInterp.eval(&quot;balancing&quot;);
+java.lang.Integer publish = (java.lang.Integer) kcontext.getVariable(&quot;publish&quot;);
+subInterp.set(&quot;publish&quot;, publish);
+subInterp.eval(&quot;publish&quot;);
+java.lang.Integer training = (java.lang.Integer) kcontext.getVariable(&quot;training&quot;);
+subInterp.set(&quot;training&quot;, training);
+subInterp.eval(&quot;training&quot;);
+java.lang.Integer preddraw = (java.lang.Integer) kcontext.getVariable(&quot;preddraw&quot;);
+subInterp.set(&quot;preddraw&quot;, preddraw);
+subInterp.eval(&quot;preddraw&quot;);
+java.lang.Float costoferror = (java.lang.Float) kcontext.getVariable(&quot;costoferror&quot;);
+subInterp.set(&quot;costoferror&quot;, costoferror);
+subInterp.eval(&quot;costoferror&quot;);
+java.lang.Float costofchecking = (java.lang.Float) kcontext.getVariable(&quot;costofchecking&quot;);
+subInterp.set(&quot;costofchecking&quot;, costofchecking);
+subInterp.eval(&quot;costofchecking&quot;);
+java.lang.Float predfrac = (java.lang.Float) kcontext.getVariable(&quot;predfrac&quot;);
+subInterp.set(&quot;predfrac&quot;, predfrac);
+subInterp.eval(&quot;predfrac=round(predfrac, 2)&quot;);
+java.lang.Integer testdraws = (java.lang.Integer) kcontext.getVariable(&quot;testdraws&quot;);
+subInterp.set(&quot;testdraws&quot;, testdraws);
+subInterp.eval(&quot;testdraws&quot;);
+java.lang.Integer folds = (java.lang.Integer) kcontext.getVariable(&quot;folds&quot;);
+subInterp.set(&quot;folds&quot;, folds);
+subInterp.eval(&quot;folds&quot;);
+java.lang.Float bagfrac = (java.lang.Float) kcontext.getVariable(&quot;bagfrac&quot;);
+subInterp.set(&quot;bagfrac&quot;, bagfrac);
+subInterp.eval(&quot;bagfrac=round(bagfrac, 2)&quot;);
+java.lang.String weights = (java.lang.String) kcontext.getVariable(&quot;weights&quot;);
+subInterp.set(&quot;weights&quot;, weights);
+subInterp.eval(&quot;weights&quot;);
+
+java.lang.String script_adhoc0 = java.lang.String.join(&quot;\n&quot;,
+&quot;if weights == '':&quot;,
+&quot;    weights = None&quot;,
+&quot;else:&quot;,
+&quot;    weights = ast.literal_eval(weights)&quot;);
+
+subInterp.set(&quot;script_adhoc0&quot;, script_adhoc0);
+subInterp.eval(&quot;exec(script_adhoc0)&quot;);
+
+java.lang.Integer weightsaccval = (java.lang.Integer) kcontext.getVariable(&quot;weightsaccval&quot;);
+subInterp.set(&quot;weightsaccval&quot;, weightsaccval);
+subInterp.eval(&quot;weightsaccval&quot;);
+java.lang.Integer weightsacctst = (java.lang.Integer) kcontext.getVariable(&quot;weightsacctst&quot;);
+subInterp.set(&quot;weightsacctst&quot;, weightsacctst);
+subInterp.eval(&quot;weightsacctst&quot;);
+
+java.lang.String script1 = java.lang.String.join(&quot;\n&quot;,
+&quot;#path='C:/xampp/htdocs/OpenEMR-7.0.2/interface/modules/custom_modules/oe-module-jbpm-generic-callout/public'&quot;,
+&quot;#Defining a list of columns to be excluded from further datasets in this scenario&quot;,
+&quot;#droplist=['gender','ever_married','work_type','residence_type','smoking_status','stroke']&quot;,
+&quot;#Defining the balancing ratio (1 means 50-50, any other number changes the share of non-target patients)&quot;,
+&quot;#balancing=1&quot;,
+&quot;#Flag for saving the training artefacts&quot;,
+&quot;#publish=1&quot;,
+&quot;#Flag for indicating the number of training runs&quot;,
+&quot;#training=1&quot;,
+&quot;#Flag for switching on/off prediction on a portion of the balanced dataset as part of end-to-end scenario (see further below)&quot;,
+&quot;#preddraw=1&quot;,
+&quot;#Average per-patient gain due to stroke detection&quot;,
+&quot;#costoferror=25&quot;,
+&quot;#Average per-patient loss due to additional checks on stroke never confirmed&quot;,
+&quot;#costofchecking=10&quot;,
+&quot;#Defining the default fraction of the balanced dataset to be reserved for training (the rest of the dataset becomes reserved for prediction)&quot;,
+&quot;#predfrac=0.9&quot;,
+&quot;#Flag for switching on/off testing in experiments (see further below)&quot;,
+&quot;#testdraws=1&quot;,
+&quot;#Default depth of cross-validation (None for proceeding without cross-validation)&quot;,
+&quot;#folds=5&quot;,
+&quot;#Defining the default fraction of the training dataset to be reserved for patientsets in experiments&quot;,
+&quot;#bagfrac=0.99&quot;,
+&quot;#Defining default values for weighting ensemble model votes:&quot;,
+&quot;#By default, all models are given equal weights&quot;,
+&quot;#weights=None&quot;,
+&quot;#If set to 1, assings weights based on model validation accuracy scores&quot;,
+&quot;#weightsaccval=1&quot;,
+&quot;#If set to 1, assigns weights based on model testing accuracy scores (supercedes the above validation-based setting)&quot;,
+&quot;#weightsacctst=0&quot;);
+
+subInterp.set(&quot;script1&quot;, script1);
+subInterp.eval(&quot;exec(script1)&quot;);
+
+System.out.println(&quot;####### Defining parameter values: finished #######&quot;);
+
+System.out.println(&quot;####### EDA: started #######&quot;);
+
+java.lang.String script2 = java.lang.String.join(&quot;\n&quot;,
+&quot;import matplotlib&quot;,
+&quot;matplotlib.use('Agg')&quot;,
+&quot;import matplotlib.pyplot as plt&quot;,
+&quot;matplotlib.pyplot.switch_backend('Agg')&quot;,
+&quot;import seaborn as sns&quot;,
+&quot;f=plt.figure()&quot;,
+&quot;f=plt.figure()&quot;,
+&quot;plt.close(f)&quot;,
+&quot;#Percentages of missing values per variable:&quot;,
+&quot;Data.isna().astype(int).mean()*100 #we can harmlessly suppress records with missing values&quot;,
+&quot;#Deleting from the source dataset records with missing values:&quot;,
+&quot;Data = Data.dropna(subset=['bmi'])&quot;,
+&quot;#Checking that no variable has zero variance or a degenerate distribution:&quot;,
+&quot;Data.describe() #none of the variables has zero variance, all of the variables have a non-degenerate distribution&quot;,
+&quot;#Checking than no pair of distinct variables correlates above 0.5 (full True means that the check has passed OK):&quot;,
+&quot;np.array((abs(Data.corr())>0.5).astype(int))==np.identity(len(Data.corr())) #we can proceed without dropping variables due to correlation&quot;);
+
+subInterp.set(&quot;script2&quot;, script2);
+subInterp.eval(&quot;exec(script2)&quot;);
+
+System.out.println(&quot;####### EDA: finished #######&quot;);
+
+kcontext.setVariable(&quot;subInterp&quot;,subInterp);
+kcontext.setVariable(&quot;jepConfig&quot;,jepConfig);</bpmn2:script>
+      </bpmn2:scriptTask>
+      <bpmn2:sequenceFlow id="SequenceFlow_11" tns:priority="1" sourceRef="ScriptTask_4" targetRef="ExclusiveGateway_4"/>
+      <bpmn2:endEvent id="EndEvent_2" name="">
+        <bpmn2:extensionElements>
+          <tns:metaData name="elementname">
+            <tns:metaValue><![CDATA[]]></tns:metaValue>
+          </tns:metaData>
+        </bpmn2:extensionElements>
+        <bpmn2:incoming>SequenceFlow_19</bpmn2:incoming>
+      </bpmn2:endEvent>
+      <bpmn2:sequenceFlow id="SequenceFlow_19" tns:priority="1" sourceRef="ScriptTask_7" targetRef="EndEvent_2"/>
+      <bpmn2:startEvent id="StartEvent_2" name="">
+        <bpmn2:extensionElements>
+          <tns:metaData name="elementname">
+            <tns:metaValue><![CDATA[]]></tns:metaValue>
+          </tns:metaData>
+        </bpmn2:extensionElements>
+        <bpmn2:outgoing>SequenceFlow_20</bpmn2:outgoing>
+      </bpmn2:startEvent>
+      <bpmn2:sequenceFlow id="SequenceFlow_20" tns:priority="1" sourceRef="StartEvent_2" targetRef="ScriptTask_6"/>
+      <bpmn2:scriptTask id="ScriptTask_2" name="Result" scriptFormat="http://www.java.com/java">
+        <bpmn2:extensionElements>
+          <tns:metaData name="elementname">
+            <tns:metaValue><![CDATA[Result]]></tns:metaValue>
+          </tns:metaData>
+        </bpmn2:extensionElements>
+        <bpmn2:incoming>SequenceFlow_9</bpmn2:incoming>
+        <bpmn2:outgoing>SequenceFlow_1</bpmn2:outgoing>
+        <bpmn2:script>//System.out.println(&quot;count = &quot; + kcontext.getVariable(&quot;count&quot;));
+//System.out.println(&quot;i = &quot; + kcontext.getVariable(&quot;i&quot;));
+jep.JepConfig jepConfig = (jep.JepConfig) kcontext.getVariable(&quot;jepConfig&quot;);
+jep.SubInterpreter subInterp = (jep.SubInterpreter) kcontext.getVariable(&quot;subInterp&quot;);
+//jep.SharedInterpreter subInterp = (jep.SharedInterpreter) kcontext.getVariable(&quot;subInterp&quot;);
+
+System.out.println(&quot;####### Publishing: started #######&quot;);
+
+java.lang.String script98 = java.lang.String.join(&quot;\n&quot;,
+&quot;if publish>0:&quot;,
+&quot;    #for key in range(len(ModelDict[''.join(targetstatus)])):&quot;,
+&quot;    for key in range(len(ModelMart)):&quot;,
+&quot;        with open(rf'{path}/ModelDict.{balancing}.{predfrac}.{folds}.{bagfrac}.{key}.all.pkl', 'wb') as file:&quot;,
+&quot;            #dill.dump(ModelDict[''.join(targetstatus)][key], file)&quot;,
+&quot;            dill.dump(ModelMart[key], file)&quot;,
+&quot;    with open(rf'{path}/ohe_gender.pkl', 'wb') as file:&quot;,
+&quot;        dill.dump(ohe_gender, file)&quot;,
+&quot;    with open(rf'{path}/ohe_ever_married.pkl', 'wb') as file:&quot;,
+&quot;        dill.dump(ohe_ever_married, file)&quot;,
+&quot;    with open(rf'{path}/ohe_work_type.pkl', 'wb') as file:&quot;,
+&quot;        dill.dump(ohe_work_type, file)&quot;,
+&quot;    with open(rf'{path}/ohe_residence_type.pkl', 'wb') as file:&quot;,
+&quot;        dill.dump(ohe_residence_type, file)&quot;,
+&quot;    with open(rf'{path}/ohe_smoking_status.pkl', 'wb') as file:&quot;,
+&quot;        dill.dump(ohe_smoking_status, file)&quot;,
+&quot;    #with open(rf'{path}/scaler_Age.pkl', 'wb') as file:&quot;,
+&quot;    #    dill.dump(scaler_Age, file)&quot;,
+&quot;    with open(rf'{path}/DatasetC.pkl', 'wb') as file:&quot;,
+&quot;        dill.dump(DatasetC, file)&quot;);
+
+subInterp.set(&quot;script98&quot;, script98);
+subInterp.eval(&quot;exec(script98)&quot;);
+
+System.out.println(&quot;####### Publishing: finished #######&quot;);
+
+java.lang.Double ACC = (java.lang.Double) subInterp.getValue(&quot;round(Confusion['ACC'].squeeze(), 4)&quot;);
+kcontext.setVariable(&quot;ACC&quot;, ACC);
+java.lang.Double TPR = (java.lang.Double) subInterp.getValue(&quot;round(Confusion['TPR'].squeeze(), 4)&quot;);
+kcontext.setVariable(&quot;TPR&quot;, TPR);
+java.lang.Double TNR = (java.lang.Double) subInterp.getValue(&quot;round(Confusion['TNR'].squeeze(), 4)&quot;);
+kcontext.setVariable(&quot;TNR&quot;, TNR);
+java.lang.Double PPV = (java.lang.Double) subInterp.getValue(&quot;round(Confusion['PPV'].squeeze(), 4)&quot;);
+kcontext.setVariable(&quot;PPV&quot;, PPV);
+java.lang.Double NPV = (java.lang.Double) subInterp.getValue(&quot;round(Confusion['NPV'].squeeze(), 4)&quot;);
+kcontext.setVariable(&quot;NPV&quot;, NPV); 
+
+System.out.println(&quot;####### Harvesting: started #######&quot;);
+
+java.lang.String script99 = java.lang.String.join(&quot;\n&quot;,
+&quot;cursor = conn.cursor()&quot;,
+&quot;cursor.execute('DELETE FROM public.kaggletest')&quot;,
+&quot;cursor.close()&quot;,
+&quot;conn.commit()&quot;,
+&quot;cursor = conn.cursor()&quot;,
+&quot;for s in ResultsetPRED.index:&quot;,
+&quot;    row = '\\\''+'\\\',\\\''.join([str(x) for x in ResultsetPRED.loc[s].to_list()])+'\\\''&quot;,
+&quot;    insert = ''.join(['INSERT INTO public.kaggletest VALUES(', row, ')'])&quot;,
+&quot;    cursor.execute(insert)&quot;,
+&quot;cursor.close()&quot;,
+&quot;conn.commit()&quot;,
+&quot;conn.close()&quot;);
+
+subInterp.set(&quot;script99&quot;, script99);
+subInterp.eval(&quot;exec(script99)&quot;);
+
+System.out.println(&quot;####### Harvesting: finished #######&quot;);
+
+//int iterator = (int) kcontext.getVariable(&quot;i&quot;);
+//kcontext.setVariable(&quot;i&quot;, iterator+1);
+kcontext.setVariable(&quot;subInterp&quot;,subInterp);
+kcontext.setVariable(&quot;jepConfig&quot;,jepConfig);</bpmn2:script>
+      </bpmn2:scriptTask>
+      <bpmn2:sequenceFlow id="SequenceFlow_1" tns:priority="1" sourceRef="ScriptTask_2" targetRef="ScriptTask_7"/>
+    </bpmn2:subProcess>
+    <bpmn2:sequenceFlow id="SequenceFlow_13" tns:priority="1" sourceRef="_06747C7E-060A-4104-815A-01650C91EE84" targetRef="SubProcess_1"/>
+    <bpmn2:sequenceFlow id="SequenceFlow_15" tns:priority="1" sourceRef="SubProcess_1" targetRef="SubProcess_2"/>
+    <bpmn2:sequenceFlow id="SequenceFlow_16" tns:priority="1" sourceRef="SubProcess_2" targetRef="_42482F6A-53E1-46B6-AB7B-F5C1BFA93833"/>
+  </bpmn2:process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_1">
+    <bpmndi:BPMNPlane id="BPMNPlane_Process_1" bpmnElement="stroke-train">
+      <bpmndi:BPMNShape id="BPMNShape_SubProcess_1" bpmnElement="SubProcess_1" isExpanded="true">
+        <dc:Bounds height="211.0" width="821.0" x="170.0" y="18.0"/>
+        <bpmndi:BPMNLabel id="BPMNLabel_1">
+          <dc:Bounds height="18.0" width="97.0" x="176.0" y="21.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_SubProcess_2" bpmnElement="SubProcess_2" isExpanded="true">
+        <dc:Bounds height="513.0" width="871.0" x="170.0" y="307.0"/>
+        <bpmndi:BPMNLabel id="BPMNLabel_2">
+          <dc:Bounds height="18.0" width="97.0" x="176.0" y="310.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_ScriptTask_2" bpmnElement="_13F37D63-83E8-425E-A942-5FA4275E5157">
+        <dc:Bounds height="102.0" width="154.0" x="330.0" y="77.0"/>
+        <bpmndi:BPMNLabel id="BPMNLabel_2">
+          <dc:Bounds height="18.0" width="39.0" x="387.0" y="119.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_StartEvent_1" bpmnElement="_06747C7E-060A-4104-815A-01650C91EE84">
+        <dc:Bounds height="48.0" width="48.0" x="50.0" y="99.0"/>
+        <bpmndi:BPMNLabel id="BPMNLabel_3"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_EndEvent_1" bpmnElement="_42482F6A-53E1-46B6-AB7B-F5C1BFA93833">
+        <dc:Bounds height="48.0" width="48.0" x="1140.0" y="540.0"/>
+        <bpmndi:BPMNLabel id="BPMNLabel_4"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_ScriptTask_3" bpmnElement="ScriptTask_1">
+        <dc:Bounds height="102.0" width="154.0" x="700.0" y="77.0"/>
+        <bpmndi:BPMNLabel id="BPMNLabel_7">
+          <dc:Bounds height="18.0" width="56.0" x="749.0" y="119.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_ScriptTask_5" bpmnElement="ScriptTask_3" isExpanded="true">
+        <dc:Bounds height="50.0" width="110.0" x="550.0" y="103.0"/>
+        <bpmndi:BPMNLabel id="BPMNLabel_8">
+          <dc:Bounds height="18.0" width="67.0" x="571.0" y="119.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_ExclusiveGateway_3" bpmnElement="ExclusiveGateway_2" isMarkerVisible="true">
+        <dc:Bounds height="48.0" width="48.0" x="906.0" y="434.0"/>
+        <bpmndi:BPMNLabel id="BPMNLabel_5">
+          <dc:Bounds height="18.0" width="43.0" x="908.0" y="482.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_ScriptTask_1" bpmnElement="ScriptTask_4" isExpanded="true">
+        <dc:Bounds height="50.0" width="110.0" x="420.0" y="433.0"/>
+        <bpmndi:BPMNLabel id="BPMNLabel_6">
+          <dc:Bounds height="18.0" width="48.0" x="451.0" y="449.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_ScriptTask_6" bpmnElement="ScriptTask_5" isExpanded="true">
+        <dc:Bounds height="50.0" width="110.0" x="780.0" y="333.0"/>
+        <bpmndi:BPMNLabel id="BPMNLabel_9">
+          <dc:Bounds height="18.0" width="33.0" x="818.0" y="349.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_ScriptTask_7" bpmnElement="ScriptTask_6">
+        <dc:Bounds height="102.0" width="154.0" x="203.0" y="407.0"/>
+        <bpmndi:BPMNLabel id="BPMNLabel_10">
+          <dc:Bounds height="18.0" width="39.0" x="260.0" y="449.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_ScriptTask_8" bpmnElement="ScriptTask_7">
+        <dc:Bounds height="102.0" width="154.0" x="853.0" y="613.0"/>
+        <bpmndi:BPMNLabel id="BPMNLabel_11">
+          <dc:Bounds height="18.0" width="56.0" x="902.0" y="655.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_ExclusiveGateway_4" bpmnElement="ExclusiveGateway_4" isMarkerVisible="true">
+        <dc:Bounds height="48.0" width="48.0" x="633.0" y="434.0"/>
+        <bpmndi:BPMNLabel id="BPMNLabel_12">
+          <dc:Bounds height="18.0" width="48.0" x="633.0" y="482.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_StartEvent_2" bpmnElement="StartEvent_1">
+        <dc:Bounds height="36.0" width="36.0" x="212.0" y="110.0"/>
+        <bpmndi:BPMNLabel id="BPMNLabel_13"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_EndEvent_2" bpmnElement="EndEvent_1">
+        <dc:Bounds height="36.0" width="36.0" x="922.0" y="110.0"/>
+        <bpmndi:BPMNLabel id="BPMNLabel_14"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_EndEvent_3" bpmnElement="EndEvent_2">
+        <dc:Bounds height="36.0" width="36.0" x="912.0" y="764.0"/>
+        <bpmndi:BPMNLabel id="BPMNLabel_15"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_StartEvent_3" bpmnElement="StartEvent_2">
+        <dc:Bounds height="36.0" width="36.0" x="262.0" y="574.0"/>
+        <bpmndi:BPMNLabel id="BPMNLabel_16"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_ScriptTask_4" bpmnElement="ScriptTask_2" isExpanded="true">
+        <dc:Bounds height="50.0" width="110.0" x="875.0" y="544.0"/>
+        <bpmndi:BPMNLabel id="BPMNLabel_17">
+          <dc:Bounds height="18.0" width="43.0" x="908.0" y="560.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_3" bpmnElement="SequenceFlow_2" sourceElement="BPMNShape_ScriptTask_2" targetElement="BPMNShape_ScriptTask_5">
+        <di:waypoint xsi:type="dc:Point" x="484.0" y="128.0"/>
+        <di:waypoint xsi:type="dc:Point" x="517.0" y="128.0"/>
+        <di:waypoint xsi:type="dc:Point" x="550.0" y="128.0"/>
+        <bpmndi:BPMNLabel id="BPMNLabel_17"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_8" bpmnElement="SequenceFlow_4" sourceElement="BPMNShape_ExclusiveGateway_3" targetElement="BPMNShape_ExclusiveGateway_4">
+        <di:waypoint xsi:type="dc:Point" x="906.0" y="458.0"/>
+        <di:waypoint xsi:type="dc:Point" x="794.0" y="458.0"/>
+        <di:waypoint xsi:type="dc:Point" x="681.0" y="458.0"/>
+        <bpmndi:BPMNLabel id="BPMNLabel_18">
+          <dc:Bounds height="18.0" width="66.0" x="762.0" y="459.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_9" bpmnElement="SequenceFlow_5" sourceElement="BPMNShape_ScriptTask_6" targetElement="BPMNShape_ExclusiveGateway_3">
+        <di:waypoint xsi:type="dc:Point" x="890.0" y="358.0"/>
+        <di:waypoint xsi:type="dc:Point" x="930.0" y="358.0"/>
+        <di:waypoint xsi:type="dc:Point" x="930.0" y="434.0"/>
+        <bpmndi:BPMNLabel id="BPMNLabel_19"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_10" bpmnElement="SequenceFlow_9" sourceElement="BPMNShape_ExclusiveGateway_3" targetElement="BPMNShape_ScriptTask_4">
+        <di:waypoint xsi:type="dc:Point" x="930.0" y="482.0"/>
+        <di:waypoint xsi:type="dc:Point" x="930.0" y="513.0"/>
+        <di:waypoint xsi:type="dc:Point" x="930.0" y="544.0"/>
+        <bpmndi:BPMNLabel id="BPMNLabel_20">
+          <dc:Bounds height="18.0" width="27.0" x="917.0" y="514.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_11" bpmnElement="SequenceFlow_10" sourceElement="BPMNShape_ScriptTask_7" targetElement="BPMNShape_ScriptTask_1">
+        <di:waypoint xsi:type="dc:Point" x="357.0" y="458.0"/>
+        <di:waypoint xsi:type="dc:Point" x="388.0" y="458.0"/>
+        <di:waypoint xsi:type="dc:Point" x="420.0" y="458.0"/>
+        <bpmndi:BPMNLabel id="BPMNLabel_21"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_15" bpmnElement="SequenceFlow_11" sourceElement="BPMNShape_ScriptTask_1" targetElement="BPMNShape_ExclusiveGateway_4">
+        <di:waypoint xsi:type="dc:Point" x="530.0" y="458.0"/>
+        <di:waypoint xsi:type="dc:Point" x="581.0" y="458.0"/>
+        <di:waypoint xsi:type="dc:Point" x="633.0" y="458.0"/>
+        <bpmndi:BPMNLabel id="BPMNLabel_22"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_16" bpmnElement="SequenceFlow_12" sourceElement="BPMNShape_ExclusiveGateway_4" targetElement="BPMNShape_ScriptTask_6">
+        <di:waypoint xsi:type="dc:Point" x="657.0" y="434.0"/>
+        <di:waypoint xsi:type="dc:Point" x="657.0" y="358.0"/>
+        <di:waypoint xsi:type="dc:Point" x="780.0" y="358.0"/>
+        <bpmndi:BPMNLabel id="BPMNLabel_23"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_17" bpmnElement="SequenceFlow_13" sourceElement="BPMNShape_StartEvent_1" targetElement="BPMNShape_SubProcess_1">
+        <di:waypoint xsi:type="dc:Point" x="98.0" y="123.0"/>
+        <di:waypoint xsi:type="dc:Point" x="134.0" y="123.0"/>
+        <di:waypoint xsi:type="dc:Point" x="170.0" y="123.0"/>
+        <bpmndi:BPMNLabel id="BPMNLabel_24"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_18" bpmnElement="SequenceFlow_14" sourceElement="BPMNShape_ScriptTask_5" targetElement="BPMNShape_ScriptTask_3">
+        <di:waypoint xsi:type="dc:Point" x="660.0" y="128.0"/>
+        <di:waypoint xsi:type="dc:Point" x="680.0" y="128.0"/>
+        <di:waypoint xsi:type="dc:Point" x="700.0" y="128.0"/>
+        <bpmndi:BPMNLabel id="BPMNLabel_25"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_19" bpmnElement="SequenceFlow_15" sourceElement="BPMNShape_SubProcess_1" targetElement="BPMNShape_SubProcess_2">
+        <di:waypoint xsi:type="dc:Point" x="580.0" y="229.0"/>
+        <di:waypoint xsi:type="dc:Point" x="580.0" y="268.0"/>
+        <di:waypoint xsi:type="dc:Point" x="605.0" y="268.0"/>
+        <di:waypoint xsi:type="dc:Point" x="605.0" y="307.0"/>
+        <bpmndi:BPMNLabel id="BPMNLabel_26"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_20" bpmnElement="SequenceFlow_16" sourceElement="BPMNShape_SubProcess_2" targetElement="BPMNShape_EndEvent_1">
+        <di:waypoint xsi:type="dc:Point" x="1041.0" y="563.0"/>
+        <di:waypoint xsi:type="dc:Point" x="1090.0" y="563.0"/>
+        <di:waypoint xsi:type="dc:Point" x="1140.0" y="564.0"/>
+        <bpmndi:BPMNLabel id="BPMNLabel_27"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_21" bpmnElement="SequenceFlow_17" sourceElement="BPMNShape_StartEvent_2" targetElement="BPMNShape_ScriptTask_2">
+        <di:waypoint xsi:type="dc:Point" x="248.0" y="128.0"/>
+        <di:waypoint xsi:type="dc:Point" x="289.0" y="128.0"/>
+        <di:waypoint xsi:type="dc:Point" x="330.0" y="128.0"/>
+        <bpmndi:BPMNLabel id="BPMNLabel_28"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_22" bpmnElement="SequenceFlow_18" sourceElement="BPMNShape_ScriptTask_3" targetElement="BPMNShape_EndEvent_2">
+        <di:waypoint xsi:type="dc:Point" x="854.0" y="128.0"/>
+        <di:waypoint xsi:type="dc:Point" x="888.0" y="128.0"/>
+        <di:waypoint xsi:type="dc:Point" x="922.0" y="128.0"/>
+        <bpmndi:BPMNLabel id="BPMNLabel_29"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_23" bpmnElement="SequenceFlow_19" sourceElement="BPMNShape_ScriptTask_8" targetElement="BPMNShape_EndEvent_3">
+        <di:waypoint xsi:type="dc:Point" x="930.0" y="715.0"/>
+        <di:waypoint xsi:type="dc:Point" x="930.0" y="739.0"/>
+        <di:waypoint xsi:type="dc:Point" x="930.0" y="764.0"/>
+        <bpmndi:BPMNLabel id="BPMNLabel_30"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_24" bpmnElement="SequenceFlow_20" sourceElement="BPMNShape_StartEvent_3" targetElement="BPMNShape_ScriptTask_7">
+        <di:waypoint xsi:type="dc:Point" x="280.0" y="574.0"/>
+        <di:waypoint xsi:type="dc:Point" x="280.0" y="542.0"/>
+        <di:waypoint xsi:type="dc:Point" x="280.0" y="509.0"/>
+        <bpmndi:BPMNLabel id="BPMNLabel_31"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_1" bpmnElement="SequenceFlow_1" sourceElement="BPMNShape_ScriptTask_4" targetElement="BPMNShape_ScriptTask_8">
+        <di:waypoint xsi:type="dc:Point" x="930.0" y="594.0"/>
+        <di:waypoint xsi:type="dc:Point" x="930.0" y="603.0"/>
+        <di:waypoint xsi:type="dc:Point" x="930.0" y="613.0"/>
+        <bpmndi:BPMNLabel id="BPMNLabel_32"/>
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</bpmn2:definitions>

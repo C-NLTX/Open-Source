@@ -1,0 +1,787 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- origin at X=0.0 Y=0.0 -->
+<bpmn2:definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:bpmn2="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:g="http://www.jboss.org/drools/flow/gpd" xmlns:java="http://www.java.com/javaTypes" xmlns:tns="http://www.jboss.org/drools" xmlns="http://www.jboss.org/drools" xsi:schemaLocation="http://www.omg.org/spec/BPMN/20100524/MODEL BPMN20.xsd http://www.jboss.org/drools drools.xsd http://www.bpsim.org/schemas/1.0 bpsim.xsd" id="Definition" exporter="org.eclipse.bpmn2.modeler.core" exporterVersion="1.5.0.Final-v20180515-1642-B1" expressionLanguage="http://www.mvel.org/2.0" targetNamespace="http://www.omg.org/bpmn20" typeLanguage="http://www.java.com/javaTypes">
+  <bpmn2:itemDefinition id="_iterationsItem" isCollection="false" structureRef="com.discovery.project.Iterations"/>
+  <bpmn2:itemDefinition id="_count" isCollection="false" structureRef="Integer"/>
+  <bpmn2:itemDefinition id="_i" isCollection="false" structureRef="Integer"/>
+  <bpmn2:itemDefinition id="ItemDefinition_5" isCollection="false" structureRef="java.lang.Integer"/>
+  <bpmn2:itemDefinition id="ItemDefinition_12" isCollection="false" structureRef="com.discovery.project.Workdir"/>
+  <bpmn2:itemDefinition id="ItemDefinition_1" isCollection="false" structureRef="com.discovery.project.Dropcols"/>
+  <bpmn2:itemDefinition id="ItemDefinition_2" isCollection="false" structureRef="com.discovery.project.Samplestruct"/>
+  <bpmn2:itemDefinition id="ItemDefinition_3" isCollection="false" structureRef="com.discovery.project.Train"/>
+  <bpmn2:itemDefinition id="ItemDefinition_4" isCollection="false" structureRef="com.discovery.project.Test"/>
+  <bpmn2:itemDefinition id="ItemDefinition_8" isCollection="false" structureRef="com.discovery.project.Record"/>
+  <bpmn2:itemDefinition id="ItemDefinition_9" isCollection="false" structureRef="com.discovery.project.Act"/>
+  <bpmn2:process id="stroke-act" tns:packageName="com.discovery.project" tns:version="1.0" name="stroke-act" isExecutable="true" processType="Private">
+    <bpmn2:extensionElements>
+      <tns:import name="org.kie.api.runtime.process.CaseAssignment"/>
+      <tns:import name="org.kie.api.runtime.process.CaseData"/>
+    </bpmn2:extensionElements>
+    <bpmn2:property id="iterations" itemSubjectRef="_iterationsItem" name="iterations">
+      <bpmn2:extensionElements>
+        <tns:metaData name="customTags">
+          <tns:metaValue>iterations</tns:metaValue>
+        </tns:metaData>
+      </bpmn2:extensionElements>
+    </bpmn2:property>
+    <bpmn2:property id="workdir" itemSubjectRef="ItemDefinition_12" name="workdir">
+      <bpmn2:extensionElements>
+        <tns:metaData name="customTags">
+          <tns:metaValue>workdir</tns:metaValue>
+        </tns:metaData>
+      </bpmn2:extensionElements>
+    </bpmn2:property>
+    <bpmn2:property id="dropcols" itemSubjectRef="ItemDefinition_1" name="dropcols">
+      <bpmn2:extensionElements>
+        <tns:metaData name="customTags">
+          <tns:metaValue>dropcols</tns:metaValue>
+        </tns:metaData>
+      </bpmn2:extensionElements>
+    </bpmn2:property>
+    <bpmn2:property id="samplestruct" itemSubjectRef="ItemDefinition_2" name="samplestruct">
+      <bpmn2:extensionElements>
+        <tns:metaData name="customTags">
+          <tns:metaValue>samplestruct</tns:metaValue>
+        </tns:metaData>
+      </bpmn2:extensionElements>
+    </bpmn2:property>
+    <bpmn2:property id="train" itemSubjectRef="ItemDefinition_3" name="train">
+      <bpmn2:extensionElements>
+        <tns:metaData name="customTags">
+          <tns:metaValue>train</tns:metaValue>
+        </tns:metaData>
+      </bpmn2:extensionElements>
+    </bpmn2:property>
+    <bpmn2:property id="test" itemSubjectRef="ItemDefinition_4" name="test">
+      <bpmn2:extensionElements>
+        <tns:metaData name="customTags">
+          <tns:metaValue>test</tns:metaValue>
+        </tns:metaData>
+      </bpmn2:extensionElements>
+    </bpmn2:property>
+    <bpmn2:property id="record" itemSubjectRef="ItemDefinition_8" name="record">
+      <bpmn2:extensionElements>
+        <tns:metaData name="customTags">
+          <tns:metaValue>record</tns:metaValue>
+        </tns:metaData>
+      </bpmn2:extensionElements>
+    </bpmn2:property>
+    <bpmn2:property id="act" itemSubjectRef="ItemDefinition_9" name="act">
+      <bpmn2:extensionElements>
+        <tns:metaData name="customTags">
+          <tns:metaValue>act</tns:metaValue>
+        </tns:metaData>
+      </bpmn2:extensionElements>
+    </bpmn2:property>
+    <bpmn2:startEvent id="_06747C7E-060A-4104-815A-01650C91EE84">
+      <bpmn2:extensionElements>
+        <tns:metaData name="elementname">
+          <tns:metaValue><![CDATA[]]></tns:metaValue>
+        </tns:metaData>
+      </bpmn2:extensionElements>
+      <bpmn2:outgoing>SequenceFlow_3</bpmn2:outgoing>
+    </bpmn2:startEvent>
+    <bpmn2:endEvent id="_42482F6A-53E1-46B6-AB7B-F5C1BFA93833">
+      <bpmn2:extensionElements>
+        <tns:metaData name="elementname">
+          <tns:metaValue><![CDATA[]]></tns:metaValue>
+        </tns:metaData>
+      </bpmn2:extensionElements>
+      <bpmn2:incoming>SequenceFlow_16</bpmn2:incoming>
+    </bpmn2:endEvent>
+    <bpmn2:subProcess id="SubProcess_2" name="Sub Process 2">
+      <bpmn2:extensionElements>
+        <tns:metaData name="elementname">
+          <tns:metaValue><![CDATA[Sub Process 2]]></tns:metaValue>
+        </tns:metaData>
+      </bpmn2:extensionElements>
+      <bpmn2:incoming>SequenceFlow_14</bpmn2:incoming>
+      <bpmn2:outgoing>SequenceFlow_16</bpmn2:outgoing>
+      <bpmn2:scriptTask id="ScriptTask_7" name="Cleanup" scriptFormat="http://www.java.com/java">
+        <bpmn2:extensionElements>
+          <tns:metaData name="elementname">
+            <tns:metaValue><![CDATA[Cleanup]]></tns:metaValue>
+          </tns:metaData>
+        </bpmn2:extensionElements>
+        <bpmn2:incoming>SequenceFlow_1</bpmn2:incoming>
+        <bpmn2:outgoing>SequenceFlow_19</bpmn2:outgoing>
+        <bpmn2:script>jep.JepConfig jepConfig = (jep.JepConfig) kcontext.getVariable(&quot;jepConfig&quot;);
+jep.SubInterpreter subInterp = (jep.SubInterpreter) kcontext.getVariable(&quot;subInterp&quot;);
+jepConfig.setSharedModules(null);
+kcontext.setVariable(&quot;subInterp&quot;,null);
+kcontext.setVariable(&quot;jepConfig&quot;,null);
+
+java.lang.String script100 = java.lang.String.join(&quot;\n&quot;,
+&quot;if 'threading' in sys.modules:&quot;,
+&quot;    del sys.modules['threading']&quot;);
+
+subInterp.set(&quot;script100&quot;, script100);
+subInterp.eval(&quot;exec(script100)&quot;);
+
+subInterp.close();
+subInterp=null;
+System.gc();
+System.out.println(&quot;####### Finished Sub Process 2 stroke-act.bpmn #######&quot;);
+//Thread.currentThread().interrupt();</bpmn2:script>
+      </bpmn2:scriptTask>
+      <bpmn2:scriptTask id="ScriptTask_6" name="Setup" scriptFormat="http://www.java.com/java">
+        <bpmn2:extensionElements>
+          <tns:metaData name="elementname">
+            <tns:metaValue><![CDATA[Setup]]></tns:metaValue>
+          </tns:metaData>
+        </bpmn2:extensionElements>
+        <bpmn2:incoming>SequenceFlow_20</bpmn2:incoming>
+        <bpmn2:outgoing>SequenceFlow_10</bpmn2:outgoing>
+        <bpmn2:script>System.out.println(&quot;####### Starting Sub Process 2 stroke-act.bpmn #######&quot;);
+System.gc();
+
+kcontext.setVariable(&quot;count&quot;, iterations.getNumber());
+kcontext.setVariable(&quot;path&quot;, workdir.getPath());
+kcontext.setVariable(&quot;droplist&quot;, dropcols.getDroplist());
+kcontext.setVariable(&quot;balancing&quot;, samplestruct.getBalancing());
+kcontext.setVariable(&quot;action&quot;, act.getAction());
+kcontext.setVariable(&quot;predfrac&quot;, test.getPredfrac());
+kcontext.setVariable(&quot;folds&quot;, train.getFolds());
+kcontext.setVariable(&quot;bagfrac&quot;, train.getBagfrac());
+
+kcontext.setVariable(&quot;id&quot;, record.getId());
+kcontext.setVariable(&quot;gender&quot;, record.getGender());
+kcontext.setVariable(&quot;age&quot;, record.getAge());
+kcontext.setVariable(&quot;hypertension&quot;, record.getHypertension());
+kcontext.setVariable(&quot;heart_disease&quot;, record.getHeart_disease());
+kcontext.setVariable(&quot;ever_married&quot;, record.getEver_married());
+kcontext.setVariable(&quot;work_type&quot;, record.getWork_type());
+kcontext.setVariable(&quot;residence_type&quot;, record.getResidence_type());
+kcontext.setVariable(&quot;avg_glucose_level&quot;, record.getAvg_glucose_level());
+kcontext.setVariable(&quot;bmi&quot;, record.getBmi());
+kcontext.setVariable(&quot;smoking_status&quot;, record.getSmoking_status());
+kcontext.setVariable(&quot;stroke&quot;, record.getStroke());
+
+kcontext.setVariable(&quot;i&quot;, 1);
+
+jep.JepConfig jepConfig = new jep.JepConfig();
+//jep.JepConfig jepConfig = (jep.JepConfig) kcontext.getVariable(&quot;jepConfig&quot;);
+jepConfig.addSharedModules(&quot;warnings&quot;);
+jepConfig.addSharedModules(&quot;numpy&quot;);
+jepConfig.addSharedModules(&quot;pandas&quot;);
+jepConfig.addSharedModules(&quot;scipy&quot;);
+jepConfig.addSharedModules(&quot;ast&quot;);
+jepConfig.addSharedModules(&quot;dill&quot;);
+jepConfig.addSharedModules(&quot;os&quot;);
+jepConfig.addSharedModules(&quot;sys&quot;);
+jepConfig.addSharedModules(&quot;sklearn&quot;);
+jep.SubInterpreter subInterp = new jep.SubInterpreter(jepConfig);
+//jep.SubInterpreter subInterp = (jep.SubInterpreter) kcontext.getVariable(&quot;subInterp&quot;);
+
+System.out.println(&quot;####### Python libraries import: started #######&quot;);
+
+java.lang.String script0 = java.lang.String.join(&quot;\n&quot;,
+&quot;import warnings&quot;,
+&quot;warnings.filterwarnings('ignore')&quot;,
+&quot;import pandas as pd&quot;,
+&quot;import numpy as np&quot;,
+&quot;import scipy&quot;,
+&quot;import ast&quot;,
+&quot;import sys&quot;,
+&quot;from sklearn.externals import six&quot;,
+&quot;import joblib&quot;,
+&quot;import dill&quot;,
+&quot;import gc&quot;,
+&quot;import os&quot;);
+
+subInterp.set(&quot;script0&quot;, script0);
+subInterp.eval(&quot;exec(script0)&quot;);
+
+System.out.println(&quot;####### Python libraries import: finished #######&quot;);
+
+kcontext.setVariable(&quot;subInterp&quot;,subInterp);
+kcontext.setVariable(&quot;jepConfig&quot;,jepConfig);</bpmn2:script>
+      </bpmn2:scriptTask>
+      <bpmn2:sequenceFlow id="SequenceFlow_10" tns:priority="1" sourceRef="ScriptTask_6" targetRef="ScriptTask_4"/>
+      <bpmn2:scriptTask id="ScriptTask_5" name="Loop" scriptFormat="http://www.java.com/java">
+        <bpmn2:extensionElements>
+          <tns:metaData name="elementname">
+            <tns:metaValue><![CDATA[Loop]]></tns:metaValue>
+          </tns:metaData>
+        </bpmn2:extensionElements>
+        <bpmn2:incoming>SequenceFlow_12</bpmn2:incoming>
+        <bpmn2:outgoing>SequenceFlow_5</bpmn2:outgoing>
+        <bpmn2:script>System.out.println(&quot;count = &quot; + kcontext.getVariable(&quot;count&quot;));
+System.out.println(&quot;i = &quot; + kcontext.getVariable(&quot;i&quot;));
+jep.JepConfig jepConfig = (jep.JepConfig) kcontext.getVariable(&quot;jepConfig&quot;);
+jep.SubInterpreter subInterp = (jep.SubInterpreter) kcontext.getVariable(&quot;subInterp&quot;);
+
+subInterp.set(&quot;i&quot;, kcontext.getVariable(&quot;i&quot;));
+
+System.out.println(&quot;####### Encoding categorical variables: started #######&quot;);
+
+java.lang.String script3 = java.lang.String.join(&quot;\n&quot;,
+&quot;columns=['id', 'gender', 'age', 'hypertension', 'heart_disease', 'ever_married', 'work_type', 'residence_type', 'avg_glucose_level', 'bmi', 'smoking_status', 'stroke']&quot;,
+&quot;Record=pd.DataFrame(record).T&quot;,
+&quot;Record.columns=columns&quot;,
+&quot;genderACT=pd.DataFrame(Record['gender'])&quot;,
+&quot;gender_encACT=pd.DataFrame(ohe_gender.transform(genderACT), columns=['{}{}'.format('gender_',i) for i in np.array(ohe_gender.categories_).tolist()[0]])&quot;,
+&quot;ever_marriedACT=pd.DataFrame(Record['ever_married'])&quot;,
+&quot;ever_married_encACT=pd.DataFrame(ohe_ever_married.transform(ever_marriedACT), columns=['{}{}'.format('ever_married_',i) for i in np.array(ohe_ever_married.categories_).tolist()[0]])&quot;,
+&quot;work_typeACT=pd.DataFrame(Record['work_type'])&quot;,
+&quot;work_type_encACT=pd.DataFrame(ohe_work_type.transform(work_typeACT), columns=['{}{}'.format('work_type_',i) for i in np.array(ohe_work_type.categories_).tolist()[0]])&quot;,
+&quot;residence_typeACT=pd.DataFrame(Record['residence_type'])&quot;,
+&quot;residence_type_encACT=pd.DataFrame(ohe_residence_type.transform(residence_typeACT), columns=['{}{}'.format('residence_type_',i) for i in np.array(ohe_residence_type.categories_).tolist()[0]])&quot;,
+&quot;smoking_statusACT=pd.DataFrame(Record['smoking_status'])&quot;,
+&quot;smoking_status_encACT=pd.DataFrame(ohe_smoking_status.transform(smoking_statusACT), columns=['{}{}'.format('smoking_status_',i) for i in np.array(ohe_smoking_status.categories_).tolist()[0]])&quot;,
+&quot;Record=pd.concat([Record.reset_index(drop=True), gender_encACT, ever_married_encACT, work_type_encACT, residence_type_encACT, smoking_status_encACT], axis=1)&quot;);
+
+subInterp.set(&quot;script3&quot;, script3);
+subInterp.eval(&quot;exec(script3)&quot;);
+
+System.out.println(&quot;####### Encoding categorical variables: finished #######&quot;);
+
+System.out.println(&quot;####### Prediction (on a patient record): started #######&quot;);
+
+java.lang.String script4 = java.lang.String.join(&quot;\n&quot;,
+&quot;if action>=1:&quot;,
+&quot;    XACT=Record.drop(droplist, axis=1, errors='ignore')&quot;,
+&quot;    XACT.to_csv(rf'{path}/XACT.csv')&quot;,
+&quot;    YACT=Record['stroke']&quot;,
+&quot;    YACT=YACT.astype('int')&quot;,
+&quot;    all=ModelDict[''.join(str(balancing)+str(predfrac)+str(folds)+str(bagfrac)+str(key))][(action-1)%len(ModelDict[''.join(str(balancing)+str(predfrac)+str(folds)+str(bagfrac)+str(key))])]&quot;,
+&quot;    YHATACT=all._predict_proba(XACT)[:,1]&quot;,
+&quot;    YHATACT_bin=all.predict(XACT)&quot;,
+&quot;    Record['PREDICTION']=YHATACT.tolist()&quot;,
+&quot;    Record['PREDICTION']=Record['PREDICTION']/divisoract&quot;,
+&quot;    Record.to_csv(rf'{path}/STROKERecord.csv')&quot;,
+&quot;    action=action-1&quot;);
+
+subInterp.set(&quot;script4&quot;, script4);
+subInterp.eval(&quot;exec(script4)&quot;);
+
+System.out.println(&quot;####### Prediction (on a patient record): finished #######&quot;);
+
+int iterator = (int) kcontext.getVariable(&quot;i&quot;);
+kcontext.setVariable(&quot;i&quot;, iterator+1);
+kcontext.setVariable(&quot;subInterp&quot;,subInterp);
+kcontext.setVariable(&quot;jepConfig&quot;,jepConfig);</bpmn2:script>
+      </bpmn2:scriptTask>
+      <bpmn2:sequenceFlow id="SequenceFlow_5" sourceRef="ScriptTask_5" targetRef="ExclusiveGateway_2"/>
+      <bpmn2:exclusiveGateway id="ExclusiveGateway_4" name="Repeat" gatewayDirection="Converging">
+        <bpmn2:incoming>SequenceFlow_4</bpmn2:incoming>
+        <bpmn2:incoming>SequenceFlow_11</bpmn2:incoming>
+        <bpmn2:outgoing>SequenceFlow_12</bpmn2:outgoing>
+      </bpmn2:exclusiveGateway>
+      <bpmn2:sequenceFlow id="SequenceFlow_12" sourceRef="ExclusiveGateway_4" targetRef="ScriptTask_5"/>
+      <bpmn2:exclusiveGateway id="ExclusiveGateway_2" name="Check" gatewayDirection="Diverging">
+        <bpmn2:incoming>SequenceFlow_5</bpmn2:incoming>
+        <bpmn2:outgoing>SequenceFlow_4</bpmn2:outgoing>
+        <bpmn2:outgoing>SequenceFlow_9</bpmn2:outgoing>
+      </bpmn2:exclusiveGateway>
+      <bpmn2:sequenceFlow id="SequenceFlow_4" tns:priority="1" name="i &lt;= count" sourceRef="ExclusiveGateway_2" targetRef="ExclusiveGateway_4">
+        <bpmn2:conditionExpression xsi:type="bpmn2:tFormalExpression" id="FormalExpression_1">return kcontext.getVariable(&quot;i&quot;) &lt;= kcontext.getVariable(&quot;count&quot;);</bpmn2:conditionExpression>
+      </bpmn2:sequenceFlow>
+      <bpmn2:sequenceFlow id="SequenceFlow_9" tns:priority="2" name="else" sourceRef="ExclusiveGateway_2" targetRef="ScriptTask_2">
+        <bpmn2:conditionExpression xsi:type="bpmn2:tFormalExpression" id="FormalExpression_4" language="http://www.java.com/java">return true;</bpmn2:conditionExpression>
+      </bpmn2:sequenceFlow>
+      <bpmn2:scriptTask id="ScriptTask_4" name="OneOff" scriptFormat="http://www.java.com/java">
+        <bpmn2:extensionElements>
+          <tns:metaData name="elementname">
+            <tns:metaValue><![CDATA[OneOff]]></tns:metaValue>
+          </tns:metaData>
+        </bpmn2:extensionElements>
+        <bpmn2:incoming>SequenceFlow_10</bpmn2:incoming>
+        <bpmn2:outgoing>SequenceFlow_11</bpmn2:outgoing>
+        <bpmn2:script>jep.JepConfig jepConfig = (jep.JepConfig) kcontext.getVariable(&quot;jepConfig&quot;);
+jep.SubInterpreter subInterp = (jep.SubInterpreter) kcontext.getVariable(&quot;subInterp&quot;);
+
+System.out.println(&quot;####### Defining parameter values: started #######&quot;);
+
+java.lang.String path = (java.lang.String) kcontext.getVariable(&quot;path&quot;);
+subInterp.set(&quot;path&quot;, path);
+subInterp.eval(&quot;path&quot;);
+java.lang.String droplist = (java.lang.String) kcontext.getVariable(&quot;droplist&quot;);
+subInterp.set(&quot;droplist&quot;, droplist);
+subInterp.eval(&quot;droplist=ast.literal_eval(droplist)&quot;);
+java.lang.Integer balancing = (java.lang.Integer) kcontext.getVariable(&quot;balancing&quot;);
+subInterp.set(&quot;balancing&quot;, balancing);
+subInterp.eval(&quot;balancing&quot;);
+java.lang.Integer action = (java.lang.Integer) kcontext.getVariable(&quot;action&quot;);
+subInterp.set(&quot;action&quot;, action);
+subInterp.eval(&quot;action&quot;);
+java.lang.Float predfrac = (java.lang.Float) kcontext.getVariable(&quot;predfrac&quot;);
+subInterp.set(&quot;predfrac&quot;, predfrac);
+subInterp.eval(&quot;predfrac=round(predfrac, 2)&quot;);
+java.lang.Integer folds = (java.lang.Integer) kcontext.getVariable(&quot;folds&quot;);
+subInterp.set(&quot;folds&quot;, folds);
+subInterp.eval(&quot;folds&quot;);
+java.lang.Float bagfrac = (java.lang.Float) kcontext.getVariable(&quot;bagfrac&quot;);
+subInterp.set(&quot;bagfrac&quot;, bagfrac);
+subInterp.eval(&quot;bagfrac=round(bagfrac, 2)&quot;);
+
+java.math.BigInteger id = (java.math.BigInteger) kcontext.getVariable(&quot;id&quot;);
+subInterp.set(&quot;id&quot;, id);
+subInterp.eval(&quot;id&quot;);
+java.lang.String gender = (java.lang.String) kcontext.getVariable(&quot;gender&quot;);
+subInterp.set(&quot;gender&quot;, gender);
+subInterp.eval(&quot;gender&quot;);
+java.lang.Integer age = (java.lang.Integer) kcontext.getVariable(&quot;age&quot;);
+subInterp.set(&quot;age&quot;, age);
+subInterp.eval(&quot;age&quot;);
+java.lang.Integer hypertension = (java.lang.Integer) kcontext.getVariable(&quot;hypertension&quot;);
+subInterp.set(&quot;hypertension&quot;, hypertension);
+subInterp.eval(&quot;hypertension&quot;);
+java.lang.Integer heart_disease = (java.lang.Integer) kcontext.getVariable(&quot;heart_disease&quot;);
+subInterp.set(&quot;heart_disease&quot;, heart_disease);
+subInterp.eval(&quot;heart_disease&quot;);
+java.lang.String ever_married = (java.lang.String) kcontext.getVariable(&quot;ever_married&quot;);
+subInterp.set(&quot;ever_married&quot;, ever_married);
+subInterp.eval(&quot;ever_married&quot;);
+java.lang.String work_type = (java.lang.String) kcontext.getVariable(&quot;work_type&quot;);
+subInterp.set(&quot;work_type&quot;, work_type);
+subInterp.eval(&quot;work_type&quot;);
+java.lang.String residence_type = (java.lang.String) kcontext.getVariable(&quot;residence_type&quot;);
+subInterp.set(&quot;residence_type&quot;, residence_type);
+subInterp.eval(&quot;residence_type&quot;);
+java.lang.Float avg_glucose_level = (java.lang.Float) kcontext.getVariable(&quot;avg_glucose_level&quot;);
+subInterp.set(&quot;avg_glucose_level&quot;, avg_glucose_level);
+subInterp.eval(&quot;avg_glucose_level&quot;);
+java.lang.Float bmi = (java.lang.Float) kcontext.getVariable(&quot;bmi&quot;);
+subInterp.set(&quot;bmi&quot;, bmi);
+subInterp.eval(&quot;bmi&quot;);
+java.lang.String smoking_status = (java.lang.String) kcontext.getVariable(&quot;smoking_status&quot;);
+subInterp.set(&quot;smoking_status&quot;, smoking_status);
+subInterp.eval(&quot;smoking_status&quot;);
+java.lang.Integer stroke = (java.lang.Integer) kcontext.getVariable(&quot;stroke&quot;);
+subInterp.set(&quot;stroke&quot;, stroke);
+subInterp.eval(&quot;stroke&quot;);
+
+java.lang.String script1 = java.lang.String.join(&quot;\n&quot;,
+&quot;#path='C:/xampp/htdocs/OpenEMR-7.0.2/interface/modules/custom_modules/oe-module-jbpm-generic-callout/public'&quot;,
+&quot;#Defining a list of columns to be excluded from further datasets in this scenario&quot;,
+&quot;#droplist=['gender','ever_married','work_type','residence_type','smoking_status','stroke']&quot;,
+&quot;#Defining the balancing ratio (1 means 50-50, any other number changes the share of non-target patients)&quot;,
+&quot;#balancing=1&quot;,
+&quot;#Flag for indicating the number of action runs&quot;,
+&quot;#action=1&quot;,
+&quot;#Defining the default fraction of the balanced dataset to be reserved for training (the rest of the dataset becomes reserved for prediction)&quot;,
+&quot;#predfrac=0.9&quot;,
+&quot;#Default depth of cross-validation (None for proceeding without cross-validation)&quot;,
+&quot;#folds=5&quot;,
+&quot;#Defining the default fraction of the training dataset to be reserved for patientsets in experiments&quot;,
+&quot;#bagfrac=0.99&quot;,
+&quot;#id=9046&quot;,
+&quot;#gender='Male'&quot;,
+&quot;#age=67&quot;,
+&quot;#hypertension=0&quot;,
+&quot;#heart_disease=1&quot;,
+&quot;#ever_married='Yes'&quot;,
+&quot;#work_type='Private'&quot;,
+&quot;#residence_type='Urban'&quot;,
+&quot;#avg_glucose_level=228.69&quot;,
+&quot;#bmi=36.6&quot;,
+&quot;#smoking_status='formerly smoked'&quot;,
+&quot;#stroke=1&quot;,
+&quot;record=[id, gender, age, hypertension, heart_disease, ever_married, work_type, residence_type, avg_glucose_level, bmi, smoking_status, stroke]&quot;);
+
+subInterp.set(&quot;script1&quot;, script1);
+subInterp.eval(&quot;exec(script1)&quot;);
+
+System.out.println(&quot;####### Defining parameter values: finished #######&quot;);
+
+System.out.println(&quot;####### Acquiring modeling artefacts: started #######&quot;);
+
+java.lang.String script2 = java.lang.String.join(&quot;\n&quot;,
+&quot;divisoract=action&quot;,
+&quot;if 'ModelDict' not in locals().keys():&quot;,
+&quot;    ModelMart=[]&quot;,
+&quot;    ModelDict={}&quot;,
+&quot;    key=0&quot;,
+&quot;    if os.path.exists(rf'{path}/ModelDict.{balancing}.{predfrac}.{folds}.{bagfrac}.{key}.all.pkl'):&quot;,
+&quot;        while os.path.exists(rf'{path}/ModelDict.{balancing}.{predfrac}.{folds}.{bagfrac}.{key}.all.pkl'):&quot;,
+&quot;            with open(rf'{path}/ModelDict.{balancing}.{predfrac}.{folds}.{bagfrac}.{key}.all.pkl', 'rb') as file:&quot;,
+&quot;                all=dill.load(file)&quot;,
+&quot;                file.close()&quot;,
+&quot;                ModelMart.append(all)&quot;,
+&quot;            key=key+1&quot;,
+&quot;        ModelDict[''.join(str(balancing)+str(predfrac)+str(folds)+str(bagfrac)+str(key))]=ModelMart&quot;,
+&quot;    if os.path.exists(rf'{path}/ohe_gender.pkl'):&quot;,
+&quot;        with open(rf'{path}/ohe_gender.pkl', 'rb') as file:&quot;,
+&quot;            ohe_gender=dill.load(file)&quot;,
+&quot;    if os.path.exists(rf'{path}/ohe_ever_married.pkl'):&quot;,
+&quot;        with open(rf'{path}/ohe_ever_married.pkl', 'rb') as file:&quot;,
+&quot;            ohe_ever_married=dill.load(file)&quot;,
+&quot;    if os.path.exists(rf'{path}/ohe_work_type.pkl'):&quot;,
+&quot;        with open(rf'{path}/ohe_work_type.pkl', 'rb') as file:&quot;,
+&quot;            ohe_work_type=dill.load(file)&quot;,
+&quot;    if os.path.exists(rf'{path}/ohe_residence_type.pkl'):&quot;,
+&quot;        with open(rf'{path}/ohe_residence_type.pkl', 'rb') as file:&quot;,
+&quot;            ohe_residence_type=dill.load(file)&quot;,
+&quot;    if os.path.exists(rf'{path}/ohe_smoking_status.pkl'):&quot;,
+&quot;        with open(rf'{path}/ohe_smoking_status.pkl', 'rb') as file:&quot;,
+&quot;            ohe_smoking_status=dill.load(file)&quot;,
+&quot;#    if os.path.exists(rf'{path}/scaler_Age.pkl'):&quot;,
+&quot;#        with open(rf'{path}/scaler_Age.pkl', 'rb') as file:&quot;,
+&quot;#            scaler_Age=dill.load(file)&quot;);
+
+subInterp.set(&quot;script2&quot;, script2);
+subInterp.eval(&quot;exec(script2)&quot;);
+
+System.out.println(&quot;####### Acquiring modeling artefacts: finished #######&quot;);
+
+kcontext.setVariable(&quot;subInterp&quot;,subInterp);
+kcontext.setVariable(&quot;jepConfig&quot;,jepConfig);</bpmn2:script>
+      </bpmn2:scriptTask>
+      <bpmn2:sequenceFlow id="SequenceFlow_11" tns:priority="1" sourceRef="ScriptTask_4" targetRef="ExclusiveGateway_4"/>
+      <bpmn2:endEvent id="EndEvent_2" name="">
+        <bpmn2:extensionElements>
+          <tns:metaData name="elementname">
+            <tns:metaValue><![CDATA[]]></tns:metaValue>
+          </tns:metaData>
+        </bpmn2:extensionElements>
+        <bpmn2:incoming>SequenceFlow_19</bpmn2:incoming>
+      </bpmn2:endEvent>
+      <bpmn2:sequenceFlow id="SequenceFlow_19" tns:priority="1" sourceRef="ScriptTask_7" targetRef="EndEvent_2"/>
+      <bpmn2:startEvent id="StartEvent_2" name="">
+        <bpmn2:extensionElements>
+          <tns:metaData name="elementname">
+            <tns:metaValue><![CDATA[]]></tns:metaValue>
+          </tns:metaData>
+        </bpmn2:extensionElements>
+        <bpmn2:outgoing>SequenceFlow_20</bpmn2:outgoing>
+      </bpmn2:startEvent>
+      <bpmn2:sequenceFlow id="SequenceFlow_20" tns:priority="1" sourceRef="StartEvent_2" targetRef="ScriptTask_6"/>
+      <bpmn2:scriptTask id="ScriptTask_2" name="Result" scriptFormat="http://www.java.com/java">
+        <bpmn2:extensionElements>
+          <tns:metaData name="elementname">
+            <tns:metaValue><![CDATA[Result]]></tns:metaValue>
+          </tns:metaData>
+        </bpmn2:extensionElements>
+        <bpmn2:incoming>SequenceFlow_9</bpmn2:incoming>
+        <bpmn2:outgoing>SequenceFlow_1</bpmn2:outgoing>
+        <bpmn2:script>//System.out.println(&quot;count = &quot; + kcontext.getVariable(&quot;count&quot;));
+//System.out.println(&quot;i = &quot; + kcontext.getVariable(&quot;i&quot;));
+jep.JepConfig jepConfig = (jep.JepConfig) kcontext.getVariable(&quot;jepConfig&quot;);
+jep.SubInterpreter subInterp = (jep.SubInterpreter) kcontext.getVariable(&quot;subInterp&quot;);
+
+java.lang.Double prediction00 = (java.lang.Double) subInterp.getValue(&quot;round(Record['PREDICTION'].squeeze(), 4)&quot;);
+kcontext.setVariable(&quot;prediction00&quot;, prediction00);
+
+//java.lang.String script99 = java.lang.String.join(&quot;\n&quot;,
+//&quot;cursor = conn.cursor()&quot;,
+//&quot;cursor.execute('DELETE FROM public.kaggletest')&quot;,
+//&quot;cursor.close()&quot;,
+//&quot;conn.commit()&quot;,
+//&quot;cursor = conn.cursor()&quot;,
+//&quot;for s in ResultsetPRED.index:&quot;,
+//&quot;    row = '\\\''+'\\\',\\\''.join([str(x) for x in ResultsetPRED.loc[s].to_list()])+'\\\''&quot;,
+//&quot;    insert = ''.join(['INSERT INTO public.kaggletest VALUES(', row, ')'])&quot;,
+//&quot;    cursor.execute(insert)&quot;,
+//&quot;cursor.close()&quot;,
+//&quot;conn.commit()&quot;,
+//&quot;conn.close()&quot;);
+
+//subInterp.set(&quot;script99&quot;, script99);
+//subInterp.eval(&quot;exec(script99)&quot;);
+
+//int iterator = (int) kcontext.getVariable(&quot;i&quot;);
+//kcontext.setVariable(&quot;i&quot;, iterator+1);
+kcontext.setVariable(&quot;subInterp&quot;,subInterp);
+kcontext.setVariable(&quot;jepConfig&quot;,jepConfig);</bpmn2:script>
+      </bpmn2:scriptTask>
+      <bpmn2:sequenceFlow id="SequenceFlow_1" tns:priority="1" sourceRef="ScriptTask_2" targetRef="ScriptTask_7"/>
+    </bpmn2:subProcess>
+    <bpmn2:sequenceFlow id="SequenceFlow_16" tns:priority="1" sourceRef="SubProcess_2" targetRef="_42482F6A-53E1-46B6-AB7B-F5C1BFA93833"/>
+    <bpmn2:sequenceFlow id="SequenceFlow_3" tns:priority="1" sourceRef="_06747C7E-060A-4104-815A-01650C91EE84" targetRef="SubProcess_4"/>
+    <bpmn2:subProcess id="SubProcess_4" name="Sub Process 1">
+      <bpmn2:extensionElements>
+        <tns:metaData name="elementname">
+          <tns:metaValue><![CDATA[Sub Process 1]]></tns:metaValue>
+        </tns:metaData>
+      </bpmn2:extensionElements>
+      <bpmn2:incoming>SequenceFlow_3</bpmn2:incoming>
+      <bpmn2:outgoing>SequenceFlow_14</bpmn2:outgoing>
+      <bpmn2:startEvent id="StartEvent_4">
+        <bpmn2:extensionElements>
+          <tns:metaData name="elementname">
+            <tns:metaValue><![CDATA[]]></tns:metaValue>
+          </tns:metaData>
+        </bpmn2:extensionElements>
+        <bpmn2:outgoing>SequenceFlow_6</bpmn2:outgoing>
+      </bpmn2:startEvent>
+      <bpmn2:scriptTask id="ScriptTask_11" name="Setup" scriptFormat="http://www.java.com/java">
+        <bpmn2:extensionElements>
+          <tns:metaData name="elementname">
+            <tns:metaValue><![CDATA[Setup]]></tns:metaValue>
+          </tns:metaData>
+        </bpmn2:extensionElements>
+        <bpmn2:incoming>SequenceFlow_6</bpmn2:incoming>
+        <bpmn2:outgoing>SequenceFlow_7</bpmn2:outgoing>
+        <bpmn2:script>System.out.println(&quot;####### Starting Sub Process 1 stroke-act.bpmn #######&quot;);
+System.gc();
+
+jep.JepConfig jepConfig = new jep.JepConfig();
+//jepConfig.addSharedModules(&quot;sklearn&quot;);
+jep.SubInterpreter subInterp = new jep.SubInterpreter(jepConfig);
+
+kcontext.setVariable(&quot;subInterp&quot;,subInterp);
+kcontext.setVariable(&quot;jepConfig&quot;,jepConfig);</bpmn2:script>
+      </bpmn2:scriptTask>
+      <bpmn2:scriptTask id="ScriptTask_12" name="KeepAlive" scriptFormat="http://www.java.com/java">
+        <bpmn2:extensionElements>
+          <tns:metaData name="elementname">
+            <tns:metaValue><![CDATA[KeepAlive]]></tns:metaValue>
+          </tns:metaData>
+        </bpmn2:extensionElements>
+        <bpmn2:incoming>SequenceFlow_7</bpmn2:incoming>
+        <bpmn2:outgoing>SequenceFlow_8</bpmn2:outgoing>
+        <bpmn2:script>jep.JepConfig jepConfig = (jep.JepConfig) kcontext.getVariable(&quot;jepConfig&quot;);
+jep.SubInterpreter subInterp = (jep.SubInterpreter) kcontext.getVariable(&quot;subInterp&quot;);
+
+//java.lang.String script = java.lang.String.join(&quot;\n&quot;,
+//&quot;import sys&quot;,
+//&quot;import dill&quot;,
+//&quot;file=open('C:/xampp/htdocs/OpenEMR-7.0.2/interface/modules/custom_modules/oe-module-jbpm-generic-callout/public/ModelDict.1.0.8.5.0.99.0.all.pkl', 'rb')&quot;,
+//&quot;all=dill.load(file)&quot;,
+//&quot;del sys.modules['sklearn']&quot;,
+//&quot;file.close()&quot;);
+
+//subInterp.set(&quot;script&quot;, script);
+//subInterp.eval(&quot;exec(script)&quot;);
+
+kcontext.setVariable(&quot;subInterp&quot;,subInterp);
+kcontext.setVariable(&quot;jepConfig&quot;,jepConfig);</bpmn2:script>
+      </bpmn2:scriptTask>
+      <bpmn2:scriptTask id="ScriptTask_13" name="Cleanup" scriptFormat="http://www.java.com/java">
+        <bpmn2:extensionElements>
+          <tns:metaData name="elementname">
+            <tns:metaValue><![CDATA[Cleanup]]></tns:metaValue>
+          </tns:metaData>
+        </bpmn2:extensionElements>
+        <bpmn2:incoming>SequenceFlow_8</bpmn2:incoming>
+        <bpmn2:outgoing>SequenceFlow_13</bpmn2:outgoing>
+        <bpmn2:script>jep.JepConfig jepConfig = (jep.JepConfig) kcontext.getVariable(&quot;jepConfig&quot;);
+jep.SubInterpreter subInterp = (jep.SubInterpreter) kcontext.getVariable(&quot;subInterp&quot;);
+jepConfig.setSharedModules(null);
+subInterp.close();
+subInterp=null;
+kcontext.setVariable(&quot;subInterp&quot;,null);
+kcontext.setVariable(&quot;jepConfig&quot;,null);
+//kcontext.setVariable(&quot;subInterp&quot;,subInterp);
+//kcontext.setVariable(&quot;jepConfig&quot;,jepConfig);
+System.gc();
+System.out.println(&quot;####### Finished Sub Process 1 stroke-act.bpmn #######&quot;);</bpmn2:script>
+      </bpmn2:scriptTask>
+      <bpmn2:endEvent id="EndEvent_3">
+        <bpmn2:extensionElements>
+          <tns:metaData name="elementname">
+            <tns:metaValue><![CDATA[]]></tns:metaValue>
+          </tns:metaData>
+        </bpmn2:extensionElements>
+        <bpmn2:incoming>SequenceFlow_13</bpmn2:incoming>
+      </bpmn2:endEvent>
+      <bpmn2:sequenceFlow id="SequenceFlow_6" tns:priority="1" sourceRef="StartEvent_4" targetRef="ScriptTask_11"/>
+      <bpmn2:sequenceFlow id="SequenceFlow_7" tns:priority="1" sourceRef="ScriptTask_11" targetRef="ScriptTask_12"/>
+      <bpmn2:sequenceFlow id="SequenceFlow_8" tns:priority="1" sourceRef="ScriptTask_12" targetRef="ScriptTask_13"/>
+      <bpmn2:sequenceFlow id="SequenceFlow_13" tns:priority="1" sourceRef="ScriptTask_13" targetRef="EndEvent_3"/>
+    </bpmn2:subProcess>
+    <bpmn2:sequenceFlow id="SequenceFlow_14" tns:priority="1" sourceRef="SubProcess_4" targetRef="SubProcess_2"/>
+  </bpmn2:process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_1">
+    <bpmndi:BPMNPlane id="BPMNPlane_Process_1" bpmnElement="stroke-act">
+      <bpmndi:BPMNShape id="BPMNShape_SubProcess_2" bpmnElement="SubProcess_2" isExpanded="true">
+        <dc:Bounds height="513.0" width="871.0" x="170.0" y="307.0"/>
+        <bpmndi:BPMNLabel id="BPMNLabel_2">
+          <dc:Bounds height="18.0" width="97.0" x="176.0" y="310.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_SubProcess_4" bpmnElement="SubProcess_4" isExpanded="true">
+        <dc:Bounds height="211.0" width="821.0" x="170.0" y="18.0"/>
+        <bpmndi:BPMNLabel id="BPMNLabel_1">
+          <dc:Bounds height="18.0" width="97.0" x="176.0" y="21.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_StartEvent_1" bpmnElement="_06747C7E-060A-4104-815A-01650C91EE84">
+        <dc:Bounds height="48.0" width="48.0" x="50.0" y="100.0"/>
+        <bpmndi:BPMNLabel id="BPMNLabel_3"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_EndEvent_1" bpmnElement="_42482F6A-53E1-46B6-AB7B-F5C1BFA93833">
+        <dc:Bounds height="48.0" width="48.0" x="1140.0" y="540.0"/>
+        <bpmndi:BPMNLabel id="BPMNLabel_4"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_ExclusiveGateway_3" bpmnElement="ExclusiveGateway_2" isMarkerVisible="true">
+        <dc:Bounds height="48.0" width="48.0" x="906.0" y="434.0"/>
+        <bpmndi:BPMNLabel id="BPMNLabel_5">
+          <dc:Bounds height="18.0" width="43.0" x="908.0" y="482.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_ScriptTask_1" bpmnElement="ScriptTask_4" isExpanded="true">
+        <dc:Bounds height="50.0" width="110.0" x="420.0" y="433.0"/>
+        <bpmndi:BPMNLabel id="BPMNLabel_6">
+          <dc:Bounds height="18.0" width="48.0" x="451.0" y="449.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_ScriptTask_6" bpmnElement="ScriptTask_5" isExpanded="true">
+        <dc:Bounds height="50.0" width="110.0" x="780.0" y="333.0"/>
+        <bpmndi:BPMNLabel id="BPMNLabel_9">
+          <dc:Bounds height="18.0" width="33.0" x="818.0" y="349.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_ScriptTask_7" bpmnElement="ScriptTask_6">
+        <dc:Bounds height="102.0" width="154.0" x="203.0" y="407.0"/>
+        <bpmndi:BPMNLabel id="BPMNLabel_10">
+          <dc:Bounds height="18.0" width="39.0" x="260.0" y="449.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_ScriptTask_8" bpmnElement="ScriptTask_7">
+        <dc:Bounds height="102.0" width="154.0" x="853.0" y="613.0"/>
+        <bpmndi:BPMNLabel id="BPMNLabel_11">
+          <dc:Bounds height="18.0" width="56.0" x="902.0" y="655.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_ExclusiveGateway_4" bpmnElement="ExclusiveGateway_4" isMarkerVisible="true">
+        <dc:Bounds height="48.0" width="48.0" x="633.0" y="434.0"/>
+        <bpmndi:BPMNLabel id="BPMNLabel_12">
+          <dc:Bounds height="18.0" width="48.0" x="633.0" y="482.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_EndEvent_3" bpmnElement="EndEvent_2">
+        <dc:Bounds height="36.0" width="36.0" x="912.0" y="764.0"/>
+        <bpmndi:BPMNLabel id="BPMNLabel_15"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_StartEvent_3" bpmnElement="StartEvent_2">
+        <dc:Bounds height="36.0" width="36.0" x="262.0" y="574.0"/>
+        <bpmndi:BPMNLabel id="BPMNLabel_16"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_ScriptTask_4" bpmnElement="ScriptTask_2" isExpanded="true">
+        <dc:Bounds height="50.0" width="110.0" x="875.0" y="544.0"/>
+        <bpmndi:BPMNLabel id="BPMNLabel_17">
+          <dc:Bounds height="18.0" width="43.0" x="908.0" y="560.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_StartEvent_5" bpmnElement="StartEvent_4">
+        <dc:Bounds height="36.0" width="36.0" x="220.0" y="108.0"/>
+        <bpmndi:BPMNLabel id="BPMNLabel_7"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_ScriptTask_12" bpmnElement="ScriptTask_11">
+        <dc:Bounds height="102.0" width="154.0" x="310.0" y="75.0"/>
+        <bpmndi:BPMNLabel id="BPMNLabel_8">
+          <dc:Bounds height="18.0" width="39.0" x="367.0" y="117.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_ScriptTask_13" bpmnElement="ScriptTask_12" isExpanded="true">
+        <dc:Bounds height="50.0" width="110.0" x="500.0" y="101.0"/>
+        <bpmndi:BPMNLabel id="BPMNLabel_13">
+          <dc:Bounds height="18.0" width="67.0" x="521.0" y="117.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_ScriptTask_14" bpmnElement="ScriptTask_13">
+        <dc:Bounds height="102.0" width="154.0" x="650.0" y="75.0"/>
+        <bpmndi:BPMNLabel id="BPMNLabel_14">
+          <dc:Bounds height="18.0" width="56.0" x="699.0" y="117.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_EndEvent_4" bpmnElement="EndEvent_3">
+        <dc:Bounds height="36.0" width="36.0" x="890.0" y="108.0"/>
+        <bpmndi:BPMNLabel id="BPMNLabel_18"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_8" bpmnElement="SequenceFlow_4" sourceElement="BPMNShape_ExclusiveGateway_3" targetElement="BPMNShape_ExclusiveGateway_4">
+        <di:waypoint xsi:type="dc:Point" x="906.0" y="458.0"/>
+        <di:waypoint xsi:type="dc:Point" x="794.0" y="458.0"/>
+        <di:waypoint xsi:type="dc:Point" x="681.0" y="458.0"/>
+        <bpmndi:BPMNLabel id="BPMNLabel_18">
+          <dc:Bounds height="18.0" width="66.0" x="762.0" y="459.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_9" bpmnElement="SequenceFlow_5" sourceElement="BPMNShape_ScriptTask_6" targetElement="BPMNShape_ExclusiveGateway_3">
+        <di:waypoint xsi:type="dc:Point" x="890.0" y="358.0"/>
+        <di:waypoint xsi:type="dc:Point" x="930.0" y="358.0"/>
+        <di:waypoint xsi:type="dc:Point" x="930.0" y="434.0"/>
+        <bpmndi:BPMNLabel id="BPMNLabel_19"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_10" bpmnElement="SequenceFlow_9" sourceElement="BPMNShape_ExclusiveGateway_3" targetElement="BPMNShape_ScriptTask_4">
+        <di:waypoint xsi:type="dc:Point" x="930.0" y="482.0"/>
+        <di:waypoint xsi:type="dc:Point" x="930.0" y="513.0"/>
+        <di:waypoint xsi:type="dc:Point" x="930.0" y="544.0"/>
+        <bpmndi:BPMNLabel id="BPMNLabel_20">
+          <dc:Bounds height="18.0" width="27.0" x="917.0" y="514.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_11" bpmnElement="SequenceFlow_10" sourceElement="BPMNShape_ScriptTask_7" targetElement="BPMNShape_ScriptTask_1">
+        <di:waypoint xsi:type="dc:Point" x="357.0" y="458.0"/>
+        <di:waypoint xsi:type="dc:Point" x="388.0" y="458.0"/>
+        <di:waypoint xsi:type="dc:Point" x="420.0" y="458.0"/>
+        <bpmndi:BPMNLabel id="BPMNLabel_21"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_15" bpmnElement="SequenceFlow_11" sourceElement="BPMNShape_ScriptTask_1" targetElement="BPMNShape_ExclusiveGateway_4">
+        <di:waypoint xsi:type="dc:Point" x="530.0" y="458.0"/>
+        <di:waypoint xsi:type="dc:Point" x="581.0" y="458.0"/>
+        <di:waypoint xsi:type="dc:Point" x="633.0" y="458.0"/>
+        <bpmndi:BPMNLabel id="BPMNLabel_22"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_16" bpmnElement="SequenceFlow_12" sourceElement="BPMNShape_ExclusiveGateway_4" targetElement="BPMNShape_ScriptTask_6">
+        <di:waypoint xsi:type="dc:Point" x="657.0" y="434.0"/>
+        <di:waypoint xsi:type="dc:Point" x="657.0" y="358.0"/>
+        <di:waypoint xsi:type="dc:Point" x="780.0" y="358.0"/>
+        <bpmndi:BPMNLabel id="BPMNLabel_23"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_20" bpmnElement="SequenceFlow_16" sourceElement="BPMNShape_SubProcess_2" targetElement="BPMNShape_EndEvent_1">
+        <di:waypoint xsi:type="dc:Point" x="1041.0" y="563.0"/>
+        <di:waypoint xsi:type="dc:Point" x="1090.0" y="563.0"/>
+        <di:waypoint xsi:type="dc:Point" x="1140.0" y="564.0"/>
+        <bpmndi:BPMNLabel id="BPMNLabel_27"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_23" bpmnElement="SequenceFlow_19" sourceElement="BPMNShape_ScriptTask_8" targetElement="BPMNShape_EndEvent_3">
+        <di:waypoint xsi:type="dc:Point" x="930.0" y="715.0"/>
+        <di:waypoint xsi:type="dc:Point" x="930.0" y="739.0"/>
+        <di:waypoint xsi:type="dc:Point" x="930.0" y="764.0"/>
+        <bpmndi:BPMNLabel id="BPMNLabel_30"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_24" bpmnElement="SequenceFlow_20" sourceElement="BPMNShape_StartEvent_3" targetElement="BPMNShape_ScriptTask_7">
+        <di:waypoint xsi:type="dc:Point" x="280.0" y="574.0"/>
+        <di:waypoint xsi:type="dc:Point" x="280.0" y="542.0"/>
+        <di:waypoint xsi:type="dc:Point" x="280.0" y="509.0"/>
+        <bpmndi:BPMNLabel id="BPMNLabel_31"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_1" bpmnElement="SequenceFlow_1" sourceElement="BPMNShape_ScriptTask_4" targetElement="BPMNShape_ScriptTask_8">
+        <di:waypoint xsi:type="dc:Point" x="930.0" y="594.0"/>
+        <di:waypoint xsi:type="dc:Point" x="930.0" y="604.0"/>
+        <di:waypoint xsi:type="dc:Point" x="930.0" y="613.0"/>
+        <bpmndi:BPMNLabel id="BPMNLabel_32"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_2" bpmnElement="SequenceFlow_3" sourceElement="BPMNShape_StartEvent_1" targetElement="BPMNShape_SubProcess_4">
+        <di:waypoint xsi:type="dc:Point" x="98.0" y="124.0"/>
+        <di:waypoint xsi:type="dc:Point" x="134.0" y="124.0"/>
+        <di:waypoint xsi:type="dc:Point" x="170.0" y="123.0"/>
+        <bpmndi:BPMNLabel id="BPMNLabel_1"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_5" bpmnElement="SequenceFlow_6" sourceElement="BPMNShape_StartEvent_5" targetElement="BPMNShape_ScriptTask_12">
+        <di:waypoint xsi:type="dc:Point" x="256.0" y="126.0"/>
+        <di:waypoint xsi:type="dc:Point" x="283.0" y="126.0"/>
+        <di:waypoint xsi:type="dc:Point" x="310.0" y="126.0"/>
+        <bpmndi:BPMNLabel id="BPMNLabel_24"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_6" bpmnElement="SequenceFlow_7" sourceElement="BPMNShape_ScriptTask_12" targetElement="BPMNShape_ScriptTask_13">
+        <di:waypoint xsi:type="dc:Point" x="464.0" y="126.0"/>
+        <di:waypoint xsi:type="dc:Point" x="482.0" y="126.0"/>
+        <di:waypoint xsi:type="dc:Point" x="500.0" y="126.0"/>
+        <bpmndi:BPMNLabel id="BPMNLabel_25"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_7" bpmnElement="SequenceFlow_8" sourceElement="BPMNShape_ScriptTask_13" targetElement="BPMNShape_ScriptTask_14">
+        <di:waypoint xsi:type="dc:Point" x="610.0" y="126.0"/>
+        <di:waypoint xsi:type="dc:Point" x="630.0" y="126.0"/>
+        <di:waypoint xsi:type="dc:Point" x="650.0" y="126.0"/>
+        <bpmndi:BPMNLabel id="BPMNLabel_26"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_12" bpmnElement="SequenceFlow_13" sourceElement="BPMNShape_ScriptTask_14" targetElement="BPMNShape_EndEvent_4">
+        <di:waypoint xsi:type="dc:Point" x="804.0" y="126.0"/>
+        <di:waypoint xsi:type="dc:Point" x="847.0" y="126.0"/>
+        <di:waypoint xsi:type="dc:Point" x="890.0" y="126.0"/>
+        <bpmndi:BPMNLabel id="BPMNLabel_28"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_13" bpmnElement="SequenceFlow_14" sourceElement="BPMNShape_SubProcess_4" targetElement="BPMNShape_SubProcess_2">
+        <di:waypoint xsi:type="dc:Point" x="580.0" y="229.0"/>
+        <di:waypoint xsi:type="dc:Point" x="580.0" y="268.0"/>
+        <di:waypoint xsi:type="dc:Point" x="605.0" y="268.0"/>
+        <di:waypoint xsi:type="dc:Point" x="605.0" y="307.0"/>
+        <bpmndi:BPMNLabel id="BPMNLabel_29"/>
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</bpmn2:definitions>
