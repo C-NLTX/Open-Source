@@ -24,7 +24,7 @@
 **Convergent Analytics Health AI Suite:**
 
 - [Stroke Prediction solution overview](Convergent_Analytics_Stroke_Prediction_250228_v06.pdf)
-- Stroke Prediction solution template: `coming soon.`
+- [Stroke Prediction solution template](/Programs/OpenEMR)
 - Stroke Prediction solution documentation: `coming soon.`
 
 **Convergent Analytics Enterprise AI Suite:**
