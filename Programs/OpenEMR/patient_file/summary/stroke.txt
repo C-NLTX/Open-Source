@@ -1,0 +1,20 @@
+1
+"C:/xampp/htdocs/OpenEMR-7.0.2/interface/modules/custom_modules/oe-module-jbpm-generic-callout/public"
+"['id','gender','ever_married','work_type','residence_type','smoking_status','stroke']"
+1
+1
+0.9
+5
+0.99
+9046
+"Male"
+67
+0
+1
+"Yes"
+"Private"
+"Urban"
+228.69
+36.6
+"formerly smoked"
+1

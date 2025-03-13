@@ -1,0 +1,16 @@
+1
+"C:/xampp/htdocs/OpenEMR-7.0.2/interface/modules/custom_modules/oe-module-jbpm-generic-callout/public"
+"['id','gender','ever_married','work_type','residence_type','smoking_status','stroke']"
+1
+1
+1
+1
+25.0
+10.0
+0.9
+1
+5
+0.99
+""
+1
+0

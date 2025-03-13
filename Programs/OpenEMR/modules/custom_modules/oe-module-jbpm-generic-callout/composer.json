@@ -1,0 +1,27 @@
+{
+  "name": "oe-module-jbpm-generic-callout",
+  "description": "OpenEMR jBPM Generic Callout Module",
+  "type": "openemr-module",
+  "license": "GPL-3.0",
+  "authors": [
+    {
+      "name": "Sergey Lukyanchikov",
+      "email": "sergey.lukyanchikov@outlook.com",
+      "role": "Developer"
+    }
+  ],
+  "keywords": ["openemr", "openemr-module", "jbpm"],
+  "minimum-stability": "stable",
+  "autoload": {
+    "psr-4": {"OpenEMR\\Modules\\jBPMGenericCallout\\": "src/"}
+  },
+  "require": {
+    "openemr/oe-module-installer-plugin": "^0.1.0",
+    "php": ">=7.1",
+    "symfony/event-dispatcher": "^4.4.0",
+    "nyholm/psr7": "^1.4"
+  },
+  "conflict": {
+    "openemr/openemr": "<6.0.0"
+  }
+}
