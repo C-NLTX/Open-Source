@@ -14,28 +14,30 @@
 
 - [jBPM as AI Orchestration Platform](https://www.linkedin.com/pulse/jbpm-ai-orchestration-platform-sergey-lukyanchikov-o4oie/) as of March 10th, 2025
 
-## AI Orchestration Platform Designed Using Convergent Analytics for Open-Source Architectures:
+## AI Orchestration Platform Designed by Convergent Analytics for Open-Source Architectures:
 
 - [AI Orchestration platform template](/Programs/jBPM/project)
+- AI Orchestration platform documentation: `coming soon.`
 
-## Solutions Developed Using Convergent Analytics for Open-Source Architectures:
+## Solutions Developed by Convergent Analytics for Open-Source Architectures:
 
 **Convergent Analytics Health AI Suite:**
 
 - [Stroke Prediction solution overview](Convergent_Analytics_Stroke_Prediction_250228_v06.pdf)
 - Stroke Prediction solution template: `coming soon.`
+- Stroke Prediction solution documentation: `coming soon.`
 
 **Convergent Analytics Enterprise AI Suite:**
 
 - [Cannibalization Analysis solution overview](Convergent_Analytics_Cannibalization_Analysis_250119_v01.pdf)
 
-# Downloads
+# Resources
 
-## Documentation
+## Open-Source Component Documentation:
 
 `Coming soon.`
 
-## Open-Source Components
+## Open-Source Component Downloads:
 
 - `jBPM (Java Business Process Management)`: find an integration engine for building applications to automate business processes and decisions [here](https://github.com/kiegroup/jbpm) - read more about it [here](https://www.jbpm.org/)
 - `Jep (Java Embedded Python)`: find an extension to Java that uses JNI and CPython API to start Python interpreters inside a JVM [here](https://github.com/ninia/jep) - read more about it [here](https://ninia.github.io/jep/)
