@@ -19,7 +19,7 @@
 **Convergent Analytics Health AI Suite:**
 
 - Download the overview of [Stroke Prediction](Convergent_Analytics_Stroke_Prediction_250228_v06.pdf)
-- Download the solution demo: `coming soon.`
+- [Stroke Prediction solution template](/Programs/project)
 
 **Convergent Analytics Enterprise AI Suite:**
 
