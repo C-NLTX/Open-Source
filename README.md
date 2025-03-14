@@ -1,6 +1,6 @@
-# Featured Materials
+#Featured Materials
 
-## Breaking News
+##Breaking News
 
 [OpenEMR](https://www.open-emr.org/) (the open-source Electronic Medical Record system) - now extended with Stroke Prediction solution interface whose logic is deployed in [jBPM](https://www.jbpm.org/) (the open-source orchestration engine). Production-level Health AI is here and is for anyone. Follow the related post series [here](https://www.linkedin.com/posts/lukyanchikov_openemr-jbpm-healthai-activity-7284482601745022979-re9f?utm_source=share&utm_medium=member_desktop).
 
@@ -10,34 +10,34 @@
 
 ![jBPM orchestrating Python](Cannibalization.png)
 
-## Articles
+##Articles
 
 - [jBPM as AI Orchestration Platform](https://www.linkedin.com/pulse/jbpm-ai-orchestration-platform-sergey-lukyanchikov-o4oie/) as of March 10th, 2025
 
-## AI Orchestration Platform Designed by Convergent Analytics for Open-Source Architectures:
+##C-NLTX AI Orchestration Platform:
 
 - [AI Orchestration Platform template](/Programs/jBPM/project)
 - AI Orchestration Platform documentation: `coming soon.`
 
-## Solutions Designed by Convergent Analytics for Open-Source Architectures:
+##C-NLTX Solutions:
 
-**Convergent Analytics Health AI Suite:**
+**Health AI Suite:**
 
 - [Health AI Suite template](/Programs/OpenEMR)
 - [Stroke Prediction solution overview](Convergent_Analytics_Stroke_Prediction_250228_v06.pdf)
 - Health AI Suite documentation: `coming soon.`
 
-**Convergent Analytics Enterprise AI Suite:**
+**Enterprise AI Suite:**
 
 - [Cannibalization Analysis solution overview](Convergent_Analytics_Cannibalization_Analysis_250119_v01.pdf)
 
-# Resources
+#Resources
 
-## Open-Source Component Documentation:
+##Open-Source Component Documentation:
 
 `Coming soon.`
 
-## Open-Source Component Downloads:
+##Open-Source Component Downloads:
 
 - `jBPM (Java Business Process Management)`: find an integration engine for building applications to automate business processes and decisions [here](https://github.com/kiegroup/jbpm) - read more about it [here](https://www.jbpm.org/)
 - `Jep (Java Embedded Python)`: find an extension to Java that uses JNI and CPython API to start Python interpreters inside a JVM [here](https://github.com/ninia/jep) - read more about it [here](https://ninia.github.io/jep/)
