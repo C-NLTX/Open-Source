@@ -19,7 +19,7 @@
 - [AI Orchestration Platform template](/Programs/jBPM/project)
 - AI Orchestration Platform documentation: `coming soon.`
 
-## Solutions Developed by Convergent Analytics for Open-Source Architectures:
+## Solutions Designed by Convergent Analytics for Open-Source Architectures:
 
 **Convergent Analytics Health AI Suite:**
 
