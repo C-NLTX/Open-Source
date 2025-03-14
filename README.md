@@ -16,16 +16,16 @@
 
 ## AI Orchestration Platform Designed by Convergent Analytics for Open-Source Architectures:
 
-- [AI Orchestration platform template](/Programs/jBPM/project)
-- AI Orchestration platform documentation: `coming soon.`
+- [AI Orchestration Platform template](/Programs/jBPM/project)
+- AI Orchestration Platform documentation: `coming soon.`
 
 ## Solutions Developed by Convergent Analytics for Open-Source Architectures:
 
 **Convergent Analytics Health AI Suite:**
 
+- [Health AI Suite template](/Programs/OpenEMR)
 - [Stroke Prediction solution overview](Convergent_Analytics_Stroke_Prediction_250228_v06.pdf)
-- [Stroke Prediction solution template](/Programs/OpenEMR)
-- Stroke Prediction solution documentation: `coming soon.`
+- Health AI Suite documentation: `coming soon.`
 
 **Convergent Analytics Enterprise AI Suite:**
 
