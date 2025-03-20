@@ -1,0 +1,12 @@
+id------------------id
+gender--------------sex
+age-----------------usertext1
+hypertension--------usertext2
+heart_disease-------usertext3
+ever_married--------family_size
+work_type-----------occupation
+Residence_type------usertext4
+avg_glucose_level---usertext5
+bmi-----------------usertext6
+smoking_status------usertext7
+stroke--------------usertext8
