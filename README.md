@@ -24,8 +24,8 @@
 **Health AI Suite:**
 
 - [Health AI Suite template](/Programs/OpenEMR)
+- [Health AI Suite documentation](/Documentation/Convergent_Analytics_Health_AI_Suite_250324_v01.pdf)
 - [Stroke Prediction solution overview](Convergent_Analytics_Stroke_Prediction_250228_v06.pdf)
-- Health AI Suite documentation: `coming soon.`
 
 **Enterprise AI Suite:**
 
