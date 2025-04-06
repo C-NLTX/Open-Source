@@ -42,4 +42,8 @@
 
 ## Key Open-Source Component Documentation:
 
-`Coming soon.`
+- [jBPM Documentation](https://docs.jbpm.org/7.74.1.Final/jbpm-docs/html_single/)
+- [jBPM Tutorial Videos](https://www.youtube.com/@kietutorials/videos)
+- [Jep Documentation](https://github.com/ninia/jep/wiki)
+- [PostgreSQL Documentation](https://www.postgresql.org/docs/15/index.html)
+- [BIRT Documentation](https://eclipse-birt.github.io/birt-website/docs/t_brief-editor-tour)
