@@ -51,3 +51,7 @@
 - [Jep Documentation](https://github.com/ninia/jep/wiki)
 - [PostgreSQL Documentation](https://www.postgresql.org/docs/15/index.html)
 - [BIRT Documentation](https://eclipse-birt.github.io/birt-website/docs/t_brief-editor-tour)
+
+## Donate
+
+[![I donate](btn_donate_SM.gif)](https://www.paypal.com/donate/?hosted_button_id=GN2XNFAJM3JPA)
