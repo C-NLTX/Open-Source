@@ -16,7 +16,7 @@
 
 ## Videos
 
-- [Stroke Prediction Quick Demo](https://www.linkedin.com/posts/lukyanchikov_clinic-predictive-emr-activity-7314918377821536256-ikdY?utm_source=share&utm_medium=member_desktop&rcm=ACoAAABc_osBqiCyXlbHS_akR6ldzAB3-rdBpz8) as of April 7th, 2025
+- [Stroke Prediction Quick Demo](https://youtu.be/F0xokMHCqHg) as of April 7th, 2025
 
 ## C-NLTX AI Orchestration Platform:
 
