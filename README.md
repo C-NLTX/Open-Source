@@ -16,7 +16,8 @@
 
 ## Videos
 
-- [Stroke Prediction Quick Demo](https://youtu.be/F0xokMHCqHg) as of April 7th, 2025
+- [Stroke Prediction Eclipse Demo](https://youtu.be/Stpidfn4G2M) as of July 10th, 2025
+- [Stroke Prediction Quick Demo](https://youtu.be/F0xokMHCqHg) as of April 2nd, 2025
 
 ## C-NLTX AI Orchestration Platform:
 
