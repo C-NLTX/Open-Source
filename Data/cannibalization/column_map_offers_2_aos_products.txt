@@ -1,0 +1,8 @@
+offer_id-----------id
+offer_type---------category
+difficulty---------cost
+difficulty---------cost_usdollar
+reward-------------price
+reward-------------price_usdollar
+duration-----------part_number
+channels-----------description
