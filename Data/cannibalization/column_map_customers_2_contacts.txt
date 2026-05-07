@@ -1,0 +1,5 @@
+customer_id----------------------------id
+became_member_on-----------------------date_reviewed
+gender---------------------------------salutation
+age------------------------------------first_name
+income---------------------------------title
