@@ -2,11 +2,11 @@
 
 ## Breaking News
 
-[SuiteCRM](https://suitecrm.com/) (the open-source Customer Relationship Management system) calls [Microsoft Azure Quantum](https://azure.microsoft.com/en-us/solutions/quantum-computing) to introduce external disturbance in the product correlation ("cannibalization") matrix: that is the plot behind the Cannibalization Analysis solution for [jBPM](https://kie.apache.org/components/jbpm). This Enterprise AI (except for Azure Quantum) is free and open-source. Follow the related post series [here](https://www.linkedin.com/posts/lukyanchikov_suitecrm-jbpm-microsoft-azure-quantum-architecture-activity-7454441118424932352-fjR8?utm_source=share&utm_medium=member_desktop&rcm=ACoAAABc_osBqiCyXlbHS_akR6ldzAB3-rdBpz8).
+[SuiteCRM](https://suitecrm.com/) (the open-source Customer Relationship Management system) calls [Microsoft Azure Quantum](https://azure.microsoft.com/en-us/solutions/quantum-computing) to introduce external disturbance in the product correlation ("cannibalization") matrix: that is the plot behind the Cannibalization Analysis solution for [jBPM](https://kie.apache.org/components/jbpm) (the open-source orchestration engine). This Enterprise AI (except for Azure Quantum) is free and open-source. Follow the related post series [here](https://www.linkedin.com/posts/lukyanchikov_suitecrm-jbpm-microsoft-azure-quantum-architecture-activity-7454441118424932352-fjR8?utm_source=share&utm_medium=member_desktop&rcm=ACoAAABc_osBqiCyXlbHS_akR6ldzAB3-rdBpz8).
 
 ![Cannibalization Analysis user interface in SuiteCRM](Cannibalization.png)
 
-[OpenEMR](https://www.open-emr.org/) (the open-source Electronic Medical Record system) - now extended with Stroke Prediction solution interface whose logic is deployed in [jBPM](https://www.jbpm.org/) (the open-source orchestration engine). Production-level Health AI is here and is for anyone. Follow the related post series [here](https://www.linkedin.com/posts/lukyanchikov_openemr-jbpm-healthai-activity-7284482601745022979-re9f?utm_source=share&utm_medium=member_desktop).
+[OpenEMR](https://www.open-emr.org/) (the open-source Electronic Medical Record system) - now extended with Stroke Prediction solution interface whose logic is deployed in [jBPM](https://www.jbpm.org/). Production-level Health AI is here and is for anyone. Follow the related post series [here](https://www.linkedin.com/posts/lukyanchikov_openemr-jbpm-healthai-activity-7284482601745022979-re9f?utm_source=share&utm_medium=member_desktop).
 
 ![Stroke Prediction user interface in OpenEMR](Stroke.png)
 
