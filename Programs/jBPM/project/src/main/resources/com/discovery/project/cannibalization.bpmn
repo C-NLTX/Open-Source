@@ -1,0 +1,713 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- origin at X=0.0 Y=0.0 -->
+<bpmn2:definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:bpmn2="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:g="http://www.jboss.org/drools/flow/gpd" xmlns:java="http://www.java.com/javaTypes" xmlns:tns="http://www.jboss.org/drools" xmlns="http://www.jboss.org/drools" xsi:schemaLocation="http://www.omg.org/spec/BPMN/20100524/MODEL BPMN20.xsd http://www.jboss.org/drools drools.xsd http://www.bpsim.org/schemas/1.0 bpsim.xsd" id="Definition" exporter="org.eclipse.bpmn2.modeler.core" exporterVersion="1.5.0.Final-v20180515-1642-B1" expressionLanguage="http://www.mvel.org/2.0" targetNamespace="http://www.omg.org/bpmn20" typeLanguage="http://www.java.com/javaTypes">
+  <bpmn2:itemDefinition id="_iterationsItem" isCollection="false" structureRef="com.discovery.project.Iterations"/>
+  <bpmn2:itemDefinition id="_dimensionItem" isCollection="false" structureRef="com.discovery.project.Dimension"/>
+  <bpmn2:itemDefinition id="_productsItem" isCollection="false" structureRef="com.discovery.project.Products"/>
+  <bpmn2:itemDefinition id="_count" isCollection="false" structureRef="Integer"/>
+  <bpmn2:itemDefinition id="_i" isCollection="false" structureRef="Integer"/>
+  <bpmn2:itemDefinition id="ItemDefinition_5" isCollection="false" structureRef="java.lang.Integer"/>
+  <bpmn2:process id="cannibalization" tns:packageName="com.discovery.project" tns:version="1.0" name="cannibalization" isExecutable="true" processType="Private">
+    <bpmn2:extensionElements>
+      <tns:import name="org.kie.api.runtime.process.CaseAssignment"/>
+      <tns:import name="org.kie.api.runtime.process.CaseData"/>
+    </bpmn2:extensionElements>
+    <bpmn2:property id="iterations" itemSubjectRef="_iterationsItem" name="iterations">
+      <bpmn2:extensionElements>
+        <tns:metaData name="customTags">
+          <tns:metaValue>iterations</tns:metaValue>
+        </tns:metaData>
+      </bpmn2:extensionElements>
+    </bpmn2:property>
+    <bpmn2:property id="dimension" itemSubjectRef="_dimensionItem" name="dimension">
+      <bpmn2:extensionElements>
+        <tns:metaData name="customTags">
+          <tns:metaValue>dimension</tns:metaValue>
+        </tns:metaData>
+      </bpmn2:extensionElements>
+    </bpmn2:property>
+    <bpmn2:property id="products" itemSubjectRef="_productsItem" name="products">
+      <bpmn2:extensionElements>
+        <tns:metaData name="customTags">
+          <tns:metaValue>products</tns:metaValue>
+        </tns:metaData>
+      </bpmn2:extensionElements>
+    </bpmn2:property>
+    <bpmn2:startEvent id="_06747C7E-060A-4104-815A-01650C91EE84">
+      <bpmn2:extensionElements>
+        <tns:metaData name="elementname">
+          <tns:metaValue><![CDATA[]]></tns:metaValue>
+        </tns:metaData>
+      </bpmn2:extensionElements>
+      <bpmn2:outgoing>SequenceFlow_13</bpmn2:outgoing>
+    </bpmn2:startEvent>
+    <bpmn2:endEvent id="_42482F6A-53E1-46B6-AB7B-F5C1BFA93833">
+      <bpmn2:extensionElements>
+        <tns:metaData name="elementname">
+          <tns:metaValue><![CDATA[]]></tns:metaValue>
+        </tns:metaData>
+      </bpmn2:extensionElements>
+      <bpmn2:incoming>SequenceFlow_16</bpmn2:incoming>
+    </bpmn2:endEvent>
+    <bpmn2:subProcess id="SubProcess_1" name="Sub Process 1">
+      <bpmn2:extensionElements>
+        <tns:metaData name="elementname">
+          <tns:metaValue><![CDATA[Sub Process 1]]></tns:metaValue>
+        </tns:metaData>
+      </bpmn2:extensionElements>
+      <bpmn2:incoming>SequenceFlow_13</bpmn2:incoming>
+      <bpmn2:outgoing>SequenceFlow_15</bpmn2:outgoing>
+      <bpmn2:scriptTask id="ScriptTask_3" name="KeepAlive" scriptFormat="http://www.java.com/java">
+        <bpmn2:extensionElements>
+          <tns:metaData name="elementname">
+            <tns:metaValue><![CDATA[KeepAlive]]></tns:metaValue>
+          </tns:metaData>
+        </bpmn2:extensionElements>
+        <bpmn2:incoming>SequenceFlow_2</bpmn2:incoming>
+        <bpmn2:outgoing>SequenceFlow_14</bpmn2:outgoing>
+        <bpmn2:script>jep.JepConfig jepConfig = (jep.JepConfig) kcontext.getVariable(&quot;jepConfig&quot;);
+jep.SubInterpreter subInterp = (jep.SubInterpreter) kcontext.getVariable(&quot;subInterp&quot;);
+
+java.lang.String script = java.lang.String.join(&quot;\n&quot;,
+&quot;#import matplotlib&quot;,
+&quot;#matplotlib.use('Agg')&quot;,
+&quot;#import matplotlib.pyplot as plt&quot;,
+&quot;#matplotlib.pyplot.switch_backend('Agg')&quot;,
+&quot;#import seaborn as sns&quot;,
+&quot;import sys&quot;,
+&quot;#import qiskit&quot;,
+&quot;#import qiskit_ibm_runtime&quot;);
+
+subInterp.set(&quot;script&quot;, script);
+subInterp.eval(&quot;exec(script)&quot;);
+
+//subInterp.eval(&quot;f=plt.figure()&quot;);
+//subInterp.eval(&quot;plt.close(f)&quot;);</bpmn2:script>
+      </bpmn2:scriptTask>
+      <bpmn2:scriptTask id="ScriptTask_1" name="Cleanup" scriptFormat="http://www.java.com/java">
+        <bpmn2:extensionElements>
+          <tns:metaData name="elementname">
+            <tns:metaValue><![CDATA[Cleanup]]></tns:metaValue>
+          </tns:metaData>
+        </bpmn2:extensionElements>
+        <bpmn2:incoming>SequenceFlow_14</bpmn2:incoming>
+        <bpmn2:outgoing>SequenceFlow_18</bpmn2:outgoing>
+        <bpmn2:script>jep.JepConfig jepConfig = (jep.JepConfig) kcontext.getVariable(&quot;jepConfig&quot;);
+jep.SubInterpreter subInterp = (jep.SubInterpreter) kcontext.getVariable(&quot;subInterp&quot;);
+jepConfig.setSharedModules(null);
+kcontext.setVariable(&quot;subInterp&quot;,null);
+kcontext.setVariable(&quot;jepConfig&quot;,null);
+
+java.lang.String script = java.lang.String.join(&quot;\n&quot;,
+&quot;import gc&quot;,
+&quot;if 'qiskit_ibm_runtime' in sys.modules:&quot;,
+&quot;    del sys.modules['qiskit_ibm_runtime']&quot;,
+&quot;    gc.close()&quot;,
+&quot;if 'azure.quantum' in sys.modules:&quot;,
+&quot;    del sys.modules['azure.quantum']&quot;,
+&quot;    gc.close()&quot;,
+&quot;if 'azure.identity' in sys.modules:&quot;,
+&quot;    del sys.modules['azure.identity']&quot;,
+&quot;    gc.close()&quot;,
+&quot;if 'azure.mgmt.resource.resources' in sys.modules:&quot;,
+&quot;    del sys.modules['azure.mgmt.resource.resources']&quot;,
+&quot;    gc.close()&quot;,
+&quot;if 'qiskit' in sys.modules:&quot;,
+&quot;    del sys.modules['qiskit']&quot;,
+&quot;    gc.close()&quot;);
+
+subInterp.set(&quot;script&quot;, script);
+subInterp.eval(&quot;exec(script)&quot;);
+
+subInterp.close();
+System.gc();
+System.out.println(&quot;####### Finished Sub Process 1: cannibalization.bpmn #######&quot;);</bpmn2:script>
+      </bpmn2:scriptTask>
+      <bpmn2:scriptTask id="_13F37D63-83E8-425E-A942-5FA4275E5157" name="Setup" scriptFormat="http://www.java.com/java">
+        <bpmn2:extensionElements>
+          <tns:metaData name="elementname">
+            <tns:metaValue><![CDATA[Setup]]></tns:metaValue>
+          </tns:metaData>
+        </bpmn2:extensionElements>
+        <bpmn2:incoming>SequenceFlow_17</bpmn2:incoming>
+        <bpmn2:outgoing>SequenceFlow_2</bpmn2:outgoing>
+        <bpmn2:script>System.out.println(&quot;####### Starting Sub Process 1: cannibalization.bpmn #######&quot;);
+jep.JepConfig jepConfig = new jep.JepConfig();
+//jepConfig.addSharedModules(&quot;matplotlib&quot;);
+//jepConfig.addSharedModules(&quot;seaborn&quot;);
+//jepConfig.addSharedModules(&quot;qiskit&quot;);
+//jepConfig.addSharedModules(&quot;qiskit_ibm_runtime&quot;);
+//jepConfig.addSharedModules(&quot;azure&quot;);
+//jepConfig.addSharedModules(&quot;azure.quantum&quot;);
+//jepConfig.addSharedModules(&quot;azure.quantum.qiskit&quot;);
+//jepConfig.addSharedModules(&quot;azure.identity&quot;);
+//jepConfig.addSharedModules(&quot;azure.mgmt.resource.resources&quot;);
+jep.SubInterpreter subInterp = new jep.SubInterpreter(jepConfig);
+
+kcontext.setVariable(&quot;subInterp&quot;,subInterp);
+kcontext.setVariable(&quot;jepConfig&quot;,jepConfig);</bpmn2:script>
+      </bpmn2:scriptTask>
+      <bpmn2:sequenceFlow id="SequenceFlow_2" tns:priority="1" sourceRef="_13F37D63-83E8-425E-A942-5FA4275E5157" targetRef="ScriptTask_3"/>
+      <bpmn2:sequenceFlow id="SequenceFlow_14" tns:priority="1" sourceRef="ScriptTask_3" targetRef="ScriptTask_1"/>
+      <bpmn2:startEvent id="StartEvent_1" name="">
+        <bpmn2:extensionElements>
+          <tns:metaData name="elementname">
+            <tns:metaValue><![CDATA[]]></tns:metaValue>
+          </tns:metaData>
+        </bpmn2:extensionElements>
+        <bpmn2:outgoing>SequenceFlow_17</bpmn2:outgoing>
+      </bpmn2:startEvent>
+      <bpmn2:sequenceFlow id="SequenceFlow_17" tns:priority="1" sourceRef="StartEvent_1" targetRef="_13F37D63-83E8-425E-A942-5FA4275E5157"/>
+      <bpmn2:endEvent id="EndEvent_1">
+        <bpmn2:extensionElements>
+          <tns:metaData name="elementname">
+            <tns:metaValue><![CDATA[]]></tns:metaValue>
+          </tns:metaData>
+        </bpmn2:extensionElements>
+        <bpmn2:incoming>SequenceFlow_18</bpmn2:incoming>
+      </bpmn2:endEvent>
+      <bpmn2:sequenceFlow id="SequenceFlow_18" tns:priority="1" sourceRef="ScriptTask_1" targetRef="EndEvent_1"/>
+    </bpmn2:subProcess>
+    <bpmn2:subProcess id="SubProcess_2" name="Sub Process 2">
+      <bpmn2:extensionElements>
+        <tns:metaData name="elementname">
+          <tns:metaValue><![CDATA[Sub Process 2]]></tns:metaValue>
+        </tns:metaData>
+      </bpmn2:extensionElements>
+      <bpmn2:incoming>SequenceFlow_15</bpmn2:incoming>
+      <bpmn2:outgoing>SequenceFlow_16</bpmn2:outgoing>
+      <bpmn2:scriptTask id="ScriptTask_7" name="Cleanup" scriptFormat="http://www.java.com/java">
+        <bpmn2:extensionElements>
+          <tns:metaData name="elementname">
+            <tns:metaValue><![CDATA[Cleanup]]></tns:metaValue>
+          </tns:metaData>
+        </bpmn2:extensionElements>
+        <bpmn2:incoming>SequenceFlow_1</bpmn2:incoming>
+        <bpmn2:outgoing>SequenceFlow_19</bpmn2:outgoing>
+        <bpmn2:script>jep.JepConfig jepConfig = (jep.JepConfig) kcontext.getVariable(&quot;jepConfig&quot;);
+jep.SubInterpreter subInterp = (jep.SubInterpreter) kcontext.getVariable(&quot;subInterp&quot;);
+jepConfig.setSharedModules(null);
+kcontext.setVariable(&quot;subInterp&quot;,null);
+kcontext.setVariable(&quot;jepConfig&quot;,null);
+
+java.lang.String script100 = java.lang.String.join(&quot;\n&quot;,
+&quot;if 'qiskit' in sys.modules:&quot;,
+&quot;    del sys.modules['qiskit']&quot;,
+&quot;    gc.collect()&quot;,
+&quot;if 'qiskit_ibm_runtime' in sys.modules:&quot;,
+&quot;    del sys.modules['qiskit_ibm_runtime']&quot;,
+&quot;    gc.collect()&quot;,
+&quot;if 'qiskit_aer' in sys.modules:&quot;,
+&quot;    del sys.modules['qiskit_aer']&quot;,
+&quot;    gc.collect()&quot;,
+&quot;if 'azure.quantum' in sys.modules:&quot;,
+&quot;    del sys.modules['azure.quantum']&quot;,
+&quot;    gc.collect()&quot;,
+&quot;if 'azure.identity' in sys.modules:&quot;,
+&quot;    del sys.modules['azure.identity']&quot;,
+&quot;    gc.collect()&quot;,
+&quot;if 'azure.mgmt.resource.resources' in sys.modules:&quot;,
+&quot;    del sys.modules['azure.mgmt.resource.resources']&quot;,
+&quot;    gc.collect()&quot;,
+&quot;if 'threading' in sys.modules:&quot;,
+&quot;    del sys.modules['threading']&quot;,
+&quot;    gc.collect()&quot;);
+
+subInterp.set(&quot;script100&quot;, script100);
+subInterp.eval(&quot;exec(script100)&quot;);
+
+subInterp.close();
+subInterp=null;
+System.gc();
+System.out.println(&quot;####### Finished Sub Process 2: cannibalization.bpmn #######&quot;);</bpmn2:script>
+      </bpmn2:scriptTask>
+      <bpmn2:scriptTask id="ScriptTask_6" name="Setup" scriptFormat="http://www.java.com/java">
+        <bpmn2:extensionElements>
+          <tns:metaData name="elementname">
+            <tns:metaValue><![CDATA[Setup]]></tns:metaValue>
+          </tns:metaData>
+        </bpmn2:extensionElements>
+        <bpmn2:incoming>SequenceFlow_20</bpmn2:incoming>
+        <bpmn2:outgoing>SequenceFlow_10</bpmn2:outgoing>
+        <bpmn2:script>System.out.println(&quot;####### Starting Sub Process 2: cannibalization.bpmn #######&quot;);
+kcontext.setVariable(&quot;count&quot;, iterations.getNumber());
+kcontext.setVariable(&quot;size&quot;, dimension.getSize());
+kcontext.setVariable(&quot;cannibals&quot;, products.getCannibals());
+kcontext.setVariable(&quot;i&quot;, 1);
+jep.JepConfig jepConfig = new jep.JepConfig();
+//jepConfig.addSharedModules(&quot;warnings&quot;);
+jepConfig.addSharedModules(&quot;numpy&quot;);
+jepConfig.addSharedModules(&quot;pandas&quot;);
+jepConfig.addSharedModules(&quot;matplotlib&quot;);
+jepConfig.addSharedModules(&quot;seaborn&quot;);
+jepConfig.addSharedModules(&quot;psycopg2&quot;);
+//jepConfig.addSharedModules(&quot;json&quot;);
+//jepConfig.addSharedModules(&quot;qiskit&quot;);
+//jepConfig.addSharedModules(&quot;qiskit_ibm_runtime&quot;);
+//jepConfig.addSharedModules(&quot;qiskit_aer&quot;);
+//jepConfig.addSharedModules(&quot;azure.quantum&quot;);
+//jepConfig.addSharedModules(&quot;azure.quantum.qiskit&quot;);
+//jepConfig.addSharedModules(&quot;azure.identity&quot;);
+//jepConfig.addSharedModules(&quot;azure.mgmt.resource.resources&quot;);
+jep.SubInterpreter subInterp = new jep.SubInterpreter(jepConfig);
+
+java.lang.Integer size = (java.lang.Integer) kcontext.getVariable(&quot;size&quot;);
+subInterp.set(&quot;size&quot;, size);
+subInterp.eval(&quot;size&quot;);
+
+java.lang.String cannibals = (java.lang.String) kcontext.getVariable(&quot;cannibals&quot;);
+subInterp.set(&quot;cannibals&quot;, cannibals);
+subInterp.eval(&quot;cannibals&quot;);
+
+java.lang.String script = java.lang.String.join(&quot;\n&quot;,
+&quot;import warnings&quot;,
+&quot;warnings.filterwarnings('ignore')&quot;,
+&quot;import sys&quot;,
+&quot;import gc&quot;,
+&quot;import numpy as np&quot;,
+&quot;np.savetxt('C:/Users/serge/eclipse-workspace/Java_Lab/src/STAMP00.txt', [sys.version_info], fmt = '%s')&quot;,
+&quot;import pandas as pd&quot;,
+&quot;import psycopg2&quot;,
+&quot;#import qiskit_ibm_runtime&quot;,
+&quot;conn=psycopg2.connect('host=127.0.0.1 port=5432 dbname=cannibalization user=postgres password=pAsSwOrD target_session_attrs=read-write')&quot;,
+&quot;Data=pd.read_sql('SELECT * FROM public.mavenanalyticsdata',conn)&quot;,
+&quot;Data=Data[~Data['REWARD_AMOUNT'].isna()]&quot;,
+&quot;Data0=Data.drop(['CUSTOMER_ID','EVENT','IS_AMOUNT','IS_REWARD','IS_OTHER','AMOUNT_AMOUNT'],axis=1)&quot;,
+&quot;Data0=Data0.groupby(['TIME','OFFER_ID'])['REWARD_AMOUNT'].agg('sum').unstack()&quot;,
+&quot;corrmat=Data0.corr()&quot;,
+&quot;corrmat[corrmat.columns] = 0&quot;,
+&quot;cannibals=cannibals.split('*')&quot;,
+&quot;cannibals=[x for x in cannibals if x != 'YYYY']&quot;,
+&quot;if len(cannibals)>0:&quot;,
+&quot;    size=len(cannibals)&quot;,
+&quot;import os&quot;,
+&quot;import subprocess&quot;,
+&quot;pro=subprocess.run(['python', 'C:/Users/serge/eclipse-workspace/Java_Lab/src/azure_quantum.py', str(size*size)], shell=False, capture_output=True)&quot;,
+&quot;result=pro.stdout.decode('utf-8')&quot;,
+&quot;dim=result[result.find('{')+1 : result.find('}')]&quot;,
+&quot;result=result[result.find('[[') : result.find(']]')+2]&quot;,
+&quot;np.savetxt('C:/Users/serge/eclipse-workspace/Java_Lab/src/STAMP01.txt', [result], fmt = '%s')&quot;);
+subInterp.set(&quot;script&quot;, script);
+subInterp.eval(&quot;exec(script)&quot;);
+
+//java.lang.String values = (java.lang.String) subInterp.getValue(&quot;output1&quot;);
+//kcontext.setVariable(&quot;values&quot;,values);
+//java.lang.String errors = (java.lang.String) subInterp.getValue(&quot;output2&quot;);
+//kcontext.setVariable(&quot;errors&quot;,errors);
+java.lang.String dim = (java.lang.String) subInterp.getValue(&quot;dim&quot;);
+java.lang.String result = (java.lang.String) subInterp.getValue(&quot;result&quot;);
+//System.out.println(dim);
+System.out.println(result);
+
+kcontext.setVariable(&quot;subInterp&quot;,subInterp);
+kcontext.setVariable(&quot;jepConfig&quot;,jepConfig);</bpmn2:script>
+      </bpmn2:scriptTask>
+      <bpmn2:sequenceFlow id="SequenceFlow_10" tns:priority="1" sourceRef="ScriptTask_6" targetRef="ScriptTask_4"/>
+      <bpmn2:scriptTask id="ScriptTask_5" name="Action" scriptFormat="http://www.java.com/java">
+        <bpmn2:extensionElements>
+          <tns:metaData name="elementname">
+            <tns:metaValue><![CDATA[Action]]></tns:metaValue>
+          </tns:metaData>
+        </bpmn2:extensionElements>
+        <bpmn2:incoming>SequenceFlow_12</bpmn2:incoming>
+        <bpmn2:outgoing>SequenceFlow_5</bpmn2:outgoing>
+        <bpmn2:script>System.out.println(&quot;count = &quot; + kcontext.getVariable(&quot;count&quot;));
+System.out.println(&quot;i = &quot; + kcontext.getVariable(&quot;i&quot;));
+jep.JepConfig jepConfig = (jep.JepConfig) kcontext.getVariable(&quot;jepConfig&quot;);
+jep.SubInterpreter subInterp = (jep.SubInterpreter) kcontext.getVariable(&quot;subInterp&quot;);
+
+subInterp.set(&quot;i&quot;, kcontext.getVariable(&quot;i&quot;));
+
+java.lang.String script = java.lang.String.join(&quot;\n&quot;,
+&quot;corrmat=pd.DataFrame()&quot;,
+&quot;for y in Data['TIME'].unique():&quot;,
+&quot;    t=np.random.choice(Data['TIME'].unique(),7,replace=True)&quot;,
+&quot;    Data1=Data.loc[Data['TIME'].isin(t)]&quot;,
+&quot;    Data1=Data1.drop(['CUSTOMER_ID','EVENT','IS_AMOUNT','IS_REWARD','IS_OTHER','AMOUNT_AMOUNT'],axis=1)&quot;,
+&quot;    Data1=Data1.groupby(['TIME','OFFER_ID'])['REWARD_AMOUNT'].agg('sum').unstack()&quot;,
+&quot;    corrmat_tmp=Data1.corr()&quot;,
+&quot;    corrmat_tmp.columns.name='OFFER'&quot;,
+&quot;    corrmat=corrmat.add(corrmat_tmp, fill_value=0)&quot;,
+&quot;corrmat_mean=corrmat/len(Data['TIME'].unique())&quot;,
+&quot;np.savetxt('C:/Users/serge/eclipse-workspace/Java_Lab/src/STAMP10A.txt', corrmat_mean, fmt = '%s')&quot;,
+&quot;dim = int(dim)&quot;,
+&quot;import math&quot;,
+&quot;corrmat_mean_sliced=corrmat_mean.iloc[:int(math.sqrt(dim)),:int(math.sqrt(dim))]&quot;,
+&quot;np.savetxt('C:/Users/serge/eclipse-workspace/Java_Lab/src/STAMP10B.txt', corrmat_mean_sliced, fmt = '%s')&quot;,
+&quot;matrix1=result.replace('. ', '.0000 ')&quot;,
+&quot;np.savetxt('C:/Users/serge/eclipse-workspace/Java_Lab/src/STAMP10C.txt', [matrix1], fmt = '%s')&quot;,
+&quot;matrix2=matrix1.replace('  ', ' ')&quot;,
+&quot;np.savetxt('C:/Users/serge/eclipse-workspace/Java_Lab/src/STAMP10D.txt', [matrix2], fmt = '%s')&quot;,
+&quot;matrix3=matrix2.replace('  ', ' ')&quot;,
+&quot;np.savetxt('C:/Users/serge/eclipse-workspace/Java_Lab/src/STAMP1E.txt', [matrix3], fmt = '%s')&quot;,
+&quot;matrix4=matrix3.replace('  ', ' ')&quot;,
+&quot;np.savetxt('C:/Users/serge/eclipse-workspace/Java_Lab/src/STAMP10F.txt', [matrix4], fmt = '%s')&quot;,
+&quot;matrix5=matrix4.replace('  ', ' ')&quot;,
+&quot;np.savetxt('C:/Users/serge/eclipse-workspace/Java_Lab/src/STAMP10G.txt', [matrix5], fmt = '%s')&quot;,
+&quot;matrix6=matrix5.replace('  ', ' ')&quot;,
+&quot;np.savetxt('C:/Users/serge/eclipse-workspace/Java_Lab/src/STAMP10H.txt', [matrix6], fmt = '%s')&quot;,
+&quot;matrix7=matrix6.replace(' [', ',[')&quot;,
+&quot;np.savetxt('C:/Users/serge/eclipse-workspace/Java_Lab/src/STAMP10I.txt', [matrix7], fmt = '%s')&quot;,
+&quot;matrix8=matrix7.replace(' ]', ']')&quot;,
+&quot;np.savetxt('C:/Users/serge/eclipse-workspace/Java_Lab/src/STAMP10J.txt', [matrix8], fmt = '%s')&quot;,
+&quot;matrix9=matrix8.replace(' ', ', ')&quot;,
+&quot;np.savetxt('C:/Users/serge/eclipse-workspace/Java_Lab/src/STAMP10K.txt', [matrix9], fmt = '%s')&quot;,
+&quot;import json&quot;,
+&quot;disturbance=json.loads(matrix9)&quot;,
+&quot;np.savetxt('C:/Users/serge/eclipse-workspace/Java_Lab/src/STAMP10L.txt', disturbance, fmt = '%s')&quot;,
+&quot;corrmat_mean_sliced=corrmat_mean_sliced.reset_index(drop=True)&quot;,
+&quot;corrmat_mean_sliced=corrmat_mean_sliced.T.reset_index(drop=True).T&quot;,
+&quot;disturbance=pd.DataFrame(disturbance)&quot;,
+&quot;disturbance=disturbance.reset_index(drop=True)&quot;,
+&quot;disturbance=disturbance.T.reset_index(drop=True).T&quot;,
+&quot;corrmat_disturbed=(corrmat_mean_sliced.add(disturbance))/2&quot;,
+&quot;np.savetxt('C:/Users/serge/eclipse-workspace/Java_Lab/src/STAMP11.txt', corrmat_disturbed, fmt = '%s')&quot;,
+&quot;f=plt.figure()&quot;,
+&quot;sns.heatmap(corrmat_disturbed, xticklabels=corrmat_disturbed.columns, yticklabels=corrmat_disturbed.columns)&quot;,
+&quot;plt.title('Correlation analysis of category sales volumes (by year/month)')&quot;,
+&quot;f.savefig('C:/Users/serge/eclipse-workspace/Java_Lab/src/CANNIBALIZATION_C'+str(i)+'.png')&quot;,
+&quot;plt.close(f)&quot;,
+&quot;#corrmat=Data0.corr()&quot;,
+&quot;#matrix = quantum_random_matrix(len(corrmat.columns))&quot;,
+&quot;#corrmat=np.multiply(corrmat, matrix)&quot;,
+&quot;#np.savetxt('C:/Users/serge/eclipse-workspace/Java_Lab/src/STAMP12.txt', corrmat, fmt = '%s')&quot;,
+&quot;#f=plt.figure()&quot;,
+&quot;#sns.heatmap(corrmat, xticklabels=corrmat.columns, yticklabels=corrmat.columns)&quot;,
+&quot;#plt.title('Correlation analysis of category sales volumes (by year/month)')&quot;,
+&quot;#f.savefig('C:/Users/serge/eclipse-workspace/Java_Lab/src/CANNIBALIZATION_Q'+str(i)+'.png')&quot;,
+&quot;#plt.close(f)&quot;);
+
+subInterp.set(&quot;script&quot;, script);
+subInterp.eval(&quot;exec(script)&quot;);
+
+int iterator = (int) kcontext.getVariable(&quot;i&quot;);
+kcontext.setVariable(&quot;i&quot;, iterator+1);
+kcontext.setVariable(&quot;subInterp&quot;,subInterp);
+kcontext.setVariable(&quot;jepConfig&quot;,jepConfig);</bpmn2:script>
+      </bpmn2:scriptTask>
+      <bpmn2:sequenceFlow id="SequenceFlow_5" sourceRef="ScriptTask_5" targetRef="ExclusiveGateway_2"/>
+      <bpmn2:exclusiveGateway id="ExclusiveGateway_4" name="Repeat" gatewayDirection="Converging">
+        <bpmn2:incoming>SequenceFlow_4</bpmn2:incoming>
+        <bpmn2:incoming>SequenceFlow_11</bpmn2:incoming>
+        <bpmn2:outgoing>SequenceFlow_12</bpmn2:outgoing>
+      </bpmn2:exclusiveGateway>
+      <bpmn2:sequenceFlow id="SequenceFlow_12" sourceRef="ExclusiveGateway_4" targetRef="ScriptTask_5"/>
+      <bpmn2:exclusiveGateway id="ExclusiveGateway_2" name="Check" gatewayDirection="Diverging">
+        <bpmn2:incoming>SequenceFlow_5</bpmn2:incoming>
+        <bpmn2:outgoing>SequenceFlow_4</bpmn2:outgoing>
+        <bpmn2:outgoing>SequenceFlow_9</bpmn2:outgoing>
+      </bpmn2:exclusiveGateway>
+      <bpmn2:sequenceFlow id="SequenceFlow_4" tns:priority="1" name="i &lt;= count" sourceRef="ExclusiveGateway_2" targetRef="ExclusiveGateway_4">
+        <bpmn2:conditionExpression xsi:type="bpmn2:tFormalExpression" id="FormalExpression_1">return kcontext.getVariable(&quot;i&quot;) &lt;= kcontext.getVariable(&quot;count&quot;);</bpmn2:conditionExpression>
+      </bpmn2:sequenceFlow>
+      <bpmn2:sequenceFlow id="SequenceFlow_9" tns:priority="2" name="else" sourceRef="ExclusiveGateway_2" targetRef="ScriptTask_2">
+        <bpmn2:conditionExpression xsi:type="bpmn2:tFormalExpression" id="FormalExpression_4" language="http://www.java.com/java">return true;</bpmn2:conditionExpression>
+      </bpmn2:sequenceFlow>
+      <bpmn2:scriptTask id="ScriptTask_4" name="KeepAlive" scriptFormat="http://www.java.com/java">
+        <bpmn2:extensionElements>
+          <tns:metaData name="elementname">
+            <tns:metaValue><![CDATA[KeepAlive]]></tns:metaValue>
+          </tns:metaData>
+        </bpmn2:extensionElements>
+        <bpmn2:incoming>SequenceFlow_10</bpmn2:incoming>
+        <bpmn2:outgoing>SequenceFlow_11</bpmn2:outgoing>
+        <bpmn2:script>jep.JepConfig jepConfig = (jep.JepConfig) kcontext.getVariable(&quot;jepConfig&quot;);
+jep.SubInterpreter subInterp = (jep.SubInterpreter) kcontext.getVariable(&quot;subInterp&quot;);
+
+java.lang.String script = java.lang.String.join(&quot;\n&quot;,
+&quot;import matplotlib&quot;,
+&quot;matplotlib.use('Agg')&quot;,
+&quot;import matplotlib.pyplot as plt&quot;,
+&quot;matplotlib.pyplot.switch_backend('Agg')&quot;,
+&quot;import seaborn as sns&quot;,
+&quot;f=plt.figure()&quot;,
+&quot;#f=plt.figure()&quot;,
+&quot;plt.close(f)&quot;,
+&quot;#observables_labels = ['IZ', 'IX', 'ZI', 'XI', 'ZZ', 'XX']&quot;,
+&quot;#f=plt.figure()&quot;,
+&quot;#plt.plot(observables_labels, values, '-o')&quot;,
+&quot;#plt.xlabel('Observables')&quot;,
+&quot;#plt.ylabel('Values')&quot;,
+&quot;#f.savefig('C:/Users/serge/eclipse-workspace/Java_Lab/src/values.png')&quot;,
+&quot;#plt.close(f)&quot;,
+&quot;#f=plt.figure()&quot;,
+&quot;#plt.plot(observables_labels, errors, '-o')&quot;,
+&quot;#plt.xlabel('Observables')&quot;,
+&quot;#plt.ylabel('Errors')&quot;,
+&quot;#f.savefig('C:/Users/serge/eclipse-workspace/Java_Lab/src/errors.png')&quot;,
+&quot;#plt.close(f)&quot;);
+
+subInterp.set(&quot;script&quot;, script);
+subInterp.eval(&quot;exec(script)&quot;);</bpmn2:script>
+      </bpmn2:scriptTask>
+      <bpmn2:sequenceFlow id="SequenceFlow_11" tns:priority="1" sourceRef="ScriptTask_4" targetRef="ExclusiveGateway_4"/>
+      <bpmn2:endEvent id="EndEvent_2" name="">
+        <bpmn2:extensionElements>
+          <tns:metaData name="elementname">
+            <tns:metaValue><![CDATA[]]></tns:metaValue>
+          </tns:metaData>
+        </bpmn2:extensionElements>
+        <bpmn2:incoming>SequenceFlow_19</bpmn2:incoming>
+      </bpmn2:endEvent>
+      <bpmn2:sequenceFlow id="SequenceFlow_19" tns:priority="1" sourceRef="ScriptTask_7" targetRef="EndEvent_2"/>
+      <bpmn2:startEvent id="StartEvent_2" name="">
+        <bpmn2:extensionElements>
+          <tns:metaData name="elementname">
+            <tns:metaValue><![CDATA[]]></tns:metaValue>
+          </tns:metaData>
+        </bpmn2:extensionElements>
+        <bpmn2:outgoing>SequenceFlow_20</bpmn2:outgoing>
+      </bpmn2:startEvent>
+      <bpmn2:sequenceFlow id="SequenceFlow_20" tns:priority="1" sourceRef="StartEvent_2" targetRef="ScriptTask_6"/>
+      <bpmn2:scriptTask id="ScriptTask_2" name="Result" scriptFormat="http://www.java.com/java">
+        <bpmn2:extensionElements>
+          <tns:metaData name="elementname">
+            <tns:metaValue><![CDATA[Result]]></tns:metaValue>
+          </tns:metaData>
+        </bpmn2:extensionElements>
+        <bpmn2:incoming>SequenceFlow_9</bpmn2:incoming>
+        <bpmn2:outgoing>SequenceFlow_1</bpmn2:outgoing>
+        <bpmn2:script>//System.out.println(&quot;count = &quot; + kcontext.getVariable(&quot;count&quot;));
+//System.out.println(&quot;i = &quot; + kcontext.getVariable(&quot;i&quot;));
+jep.JepConfig jepConfig = (jep.JepConfig) kcontext.getVariable(&quot;jepConfig&quot;);
+jep.SubInterpreter subInterp = (jep.SubInterpreter) kcontext.getVariable(&quot;subInterp&quot;);
+
+java.lang.String script = java.lang.String.join(&quot;\n&quot;,
+&quot;import psycopg2.extras as extras&quot;,
+&quot;#corrmat_disturbed=pd.DataFrame(corrmat_disturbed, columns=list(range(1,int(math.sqrt(dim))+1)))&quot;,
+&quot;np.savetxt('C:/Users/serge/eclipse-workspace/Java_Lab/src/STAMP20.txt', corrmat_disturbed, fmt = '%s')&quot;,
+&quot;tuples = [tuple(row) for row in corrmat_disturbed.itertuples(index=False)]&quot;,
+&quot;np.savetxt('C:/Users/serge/eclipse-workspace/Java_Lab/src/STAMP21.txt', tuples, fmt = '%s')&quot;,
+&quot;cols = ','.join(chr(i)+' FLOAT' for i in range(ord('A'), ord('A') + int(math.sqrt(dim))))&quot;,
+&quot;np.savetxt('C:/Users/serge/eclipse-workspace/Java_Lab/src/STAMP22.txt', [cols], fmt = '%s')&quot;,
+&quot;cursor = conn.cursor()&quot;,
+&quot;cursor.execute('DROP TABLE IF EXISTS public.mavenanalyticscorrmat')&quot;,
+&quot;cursor.execute('CREATE TABLE public.mavenanalyticscorrmat ('+cols+')')&quot;,
+&quot;cursor.close()&quot;,
+&quot;conn.commit()&quot;,
+&quot;cols = ','.join(chr(i) for i in range(ord('A'), ord('A') + int(math.sqrt(dim))))&quot;,
+&quot;np.savetxt('C:/Users/serge/eclipse-workspace/Java_Lab/src/STAMP23.txt', [cols], fmt = '%s')&quot;,
+&quot;query = 'INSERT INTO %s(%s) VALUES %%s' % ('public.mavenanalyticscorrmat', cols)&quot;,
+&quot;cursor = conn.cursor()&quot;,
+&quot;extras.execute_values(cursor, query, tuples)&quot;,
+&quot;conn.commit()&quot;);
+
+subInterp.set(&quot;script&quot;, script);
+subInterp.eval(&quot;exec(script)&quot;);
+
+java.lang.String corrmat = (java.lang.String) subInterp.getValue(&quot;corrmat_disturbed.to_string(index=False, header=False)&quot;);
+kcontext.setVariable(&quot;corrmat&quot;, corrmat);
+
+int iterator = (int) kcontext.getVariable(&quot;i&quot;);
+kcontext.setVariable(&quot;i&quot;, iterator+1);
+kcontext.setVariable(&quot;subInterp&quot;,subInterp);
+kcontext.setVariable(&quot;jepConfig&quot;,jepConfig);</bpmn2:script>
+      </bpmn2:scriptTask>
+      <bpmn2:sequenceFlow id="SequenceFlow_1" tns:priority="1" sourceRef="ScriptTask_2" targetRef="ScriptTask_7"/>
+    </bpmn2:subProcess>
+    <bpmn2:sequenceFlow id="SequenceFlow_13" tns:priority="1" sourceRef="_06747C7E-060A-4104-815A-01650C91EE84" targetRef="SubProcess_1"/>
+    <bpmn2:sequenceFlow id="SequenceFlow_15" tns:priority="1" sourceRef="SubProcess_1" targetRef="SubProcess_2"/>
+    <bpmn2:sequenceFlow id="SequenceFlow_16" tns:priority="1" sourceRef="SubProcess_2" targetRef="_42482F6A-53E1-46B6-AB7B-F5C1BFA93833"/>
+  </bpmn2:process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_1">
+    <bpmndi:BPMNPlane id="BPMNPlane_Process_1" bpmnElement="cannibalization">
+      <bpmndi:BPMNShape id="BPMNShape_SubProcess_1" bpmnElement="SubProcess_1" isExpanded="true">
+        <dc:Bounds height="211.0" width="821.0" x="170.0" y="18.0"/>
+        <bpmndi:BPMNLabel id="BPMNLabel_1">
+          <dc:Bounds height="18.0" width="97.0" x="176.0" y="21.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_SubProcess_2" bpmnElement="SubProcess_2" isExpanded="true">
+        <dc:Bounds height="513.0" width="871.0" x="170.0" y="307.0"/>
+        <bpmndi:BPMNLabel id="BPMNLabel_2">
+          <dc:Bounds height="18.0" width="97.0" x="176.0" y="310.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_ScriptTask_2" bpmnElement="_13F37D63-83E8-425E-A942-5FA4275E5157">
+        <dc:Bounds height="102.0" width="154.0" x="330.0" y="77.0"/>
+        <bpmndi:BPMNLabel id="BPMNLabel_2">
+          <dc:Bounds height="18.0" width="39.0" x="387.0" y="119.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_StartEvent_1" bpmnElement="_06747C7E-060A-4104-815A-01650C91EE84">
+        <dc:Bounds height="48.0" width="48.0" x="50.0" y="99.0"/>
+        <bpmndi:BPMNLabel id="BPMNLabel_3"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_EndEvent_1" bpmnElement="_42482F6A-53E1-46B6-AB7B-F5C1BFA93833">
+        <dc:Bounds height="48.0" width="48.0" x="1140.0" y="540.0"/>
+        <bpmndi:BPMNLabel id="BPMNLabel_4"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_ScriptTask_3" bpmnElement="ScriptTask_1">
+        <dc:Bounds height="102.0" width="154.0" x="700.0" y="77.0"/>
+        <bpmndi:BPMNLabel id="BPMNLabel_7">
+          <dc:Bounds height="18.0" width="56.0" x="749.0" y="119.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_ScriptTask_5" bpmnElement="ScriptTask_3" isExpanded="true">
+        <dc:Bounds height="50.0" width="110.0" x="550.0" y="103.0"/>
+        <bpmndi:BPMNLabel id="BPMNLabel_8">
+          <dc:Bounds height="18.0" width="67.0" x="571.0" y="119.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_ExclusiveGateway_3" bpmnElement="ExclusiveGateway_2" isMarkerVisible="true">
+        <dc:Bounds height="48.0" width="48.0" x="906.0" y="434.0"/>
+        <bpmndi:BPMNLabel id="BPMNLabel_5">
+          <dc:Bounds height="18.0" width="43.0" x="908.0" y="482.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_ScriptTask_1" bpmnElement="ScriptTask_4" isExpanded="true">
+        <dc:Bounds height="50.0" width="110.0" x="420.0" y="433.0"/>
+        <bpmndi:BPMNLabel id="BPMNLabel_6">
+          <dc:Bounds height="18.0" width="67.0" x="441.0" y="449.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_ScriptTask_6" bpmnElement="ScriptTask_5" isExpanded="true">
+        <dc:Bounds height="50.0" width="110.0" x="780.0" y="333.0"/>
+        <bpmndi:BPMNLabel id="BPMNLabel_9">
+          <dc:Bounds height="18.0" width="41.0" x="814.0" y="349.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_ScriptTask_7" bpmnElement="ScriptTask_6">
+        <dc:Bounds height="102.0" width="154.0" x="203.0" y="407.0"/>
+        <bpmndi:BPMNLabel id="BPMNLabel_10">
+          <dc:Bounds height="18.0" width="39.0" x="260.0" y="449.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_ScriptTask_8" bpmnElement="ScriptTask_7">
+        <dc:Bounds height="102.0" width="154.0" x="853.0" y="613.0"/>
+        <bpmndi:BPMNLabel id="BPMNLabel_11">
+          <dc:Bounds height="18.0" width="56.0" x="902.0" y="655.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_ExclusiveGateway_4" bpmnElement="ExclusiveGateway_4" isMarkerVisible="true">
+        <dc:Bounds height="48.0" width="48.0" x="633.0" y="434.0"/>
+        <bpmndi:BPMNLabel id="BPMNLabel_12">
+          <dc:Bounds height="18.0" width="48.0" x="633.0" y="482.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_StartEvent_2" bpmnElement="StartEvent_1">
+        <dc:Bounds height="36.0" width="36.0" x="212.0" y="110.0"/>
+        <bpmndi:BPMNLabel id="BPMNLabel_13"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_EndEvent_2" bpmnElement="EndEvent_1">
+        <dc:Bounds height="36.0" width="36.0" x="922.0" y="110.0"/>
+        <bpmndi:BPMNLabel id="BPMNLabel_14"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_EndEvent_3" bpmnElement="EndEvent_2">
+        <dc:Bounds height="36.0" width="36.0" x="912.0" y="764.0"/>
+        <bpmndi:BPMNLabel id="BPMNLabel_15"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_StartEvent_3" bpmnElement="StartEvent_2">
+        <dc:Bounds height="36.0" width="36.0" x="262.0" y="574.0"/>
+        <bpmndi:BPMNLabel id="BPMNLabel_16"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_ScriptTask_4" bpmnElement="ScriptTask_2" isExpanded="true">
+        <dc:Bounds height="50.0" width="110.0" x="875.0" y="544.0"/>
+        <bpmndi:BPMNLabel id="BPMNLabel_17">
+          <dc:Bounds height="18.0" width="43.0" x="908.0" y="560.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_3" bpmnElement="SequenceFlow_2" sourceElement="BPMNShape_ScriptTask_2" targetElement="BPMNShape_ScriptTask_5">
+        <di:waypoint xsi:type="dc:Point" x="484.0" y="128.0"/>
+        <di:waypoint xsi:type="dc:Point" x="517.0" y="128.0"/>
+        <di:waypoint xsi:type="dc:Point" x="550.0" y="128.0"/>
+        <bpmndi:BPMNLabel id="BPMNLabel_17"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_8" bpmnElement="SequenceFlow_4" sourceElement="BPMNShape_ExclusiveGateway_3" targetElement="BPMNShape_ExclusiveGateway_4">
+        <di:waypoint xsi:type="dc:Point" x="906.0" y="458.0"/>
+        <di:waypoint xsi:type="dc:Point" x="794.0" y="458.0"/>
+        <di:waypoint xsi:type="dc:Point" x="681.0" y="458.0"/>
+        <bpmndi:BPMNLabel id="BPMNLabel_18">
+          <dc:Bounds height="18.0" width="66.0" x="762.0" y="459.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_9" bpmnElement="SequenceFlow_5" sourceElement="BPMNShape_ScriptTask_6" targetElement="BPMNShape_ExclusiveGateway_3">
+        <di:waypoint xsi:type="dc:Point" x="890.0" y="358.0"/>
+        <di:waypoint xsi:type="dc:Point" x="930.0" y="358.0"/>
+        <di:waypoint xsi:type="dc:Point" x="930.0" y="434.0"/>
+        <bpmndi:BPMNLabel id="BPMNLabel_19"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_10" bpmnElement="SequenceFlow_9" sourceElement="BPMNShape_ExclusiveGateway_3" targetElement="BPMNShape_ScriptTask_4">
+        <di:waypoint xsi:type="dc:Point" x="930.0" y="482.0"/>
+        <di:waypoint xsi:type="dc:Point" x="930.0" y="513.0"/>
+        <di:waypoint xsi:type="dc:Point" x="930.0" y="544.0"/>
+        <bpmndi:BPMNLabel id="BPMNLabel_20">
+          <dc:Bounds height="18.0" width="27.0" x="917.0" y="514.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_11" bpmnElement="SequenceFlow_10" sourceElement="BPMNShape_ScriptTask_7" targetElement="BPMNShape_ScriptTask_1">
+        <di:waypoint xsi:type="dc:Point" x="357.0" y="458.0"/>
+        <di:waypoint xsi:type="dc:Point" x="388.0" y="458.0"/>
+        <di:waypoint xsi:type="dc:Point" x="420.0" y="458.0"/>
+        <bpmndi:BPMNLabel id="BPMNLabel_21"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_15" bpmnElement="SequenceFlow_11" sourceElement="BPMNShape_ScriptTask_1" targetElement="BPMNShape_ExclusiveGateway_4">
+        <di:waypoint xsi:type="dc:Point" x="530.0" y="458.0"/>
+        <di:waypoint xsi:type="dc:Point" x="581.0" y="458.0"/>
+        <di:waypoint xsi:type="dc:Point" x="633.0" y="458.0"/>
+        <bpmndi:BPMNLabel id="BPMNLabel_22"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_16" bpmnElement="SequenceFlow_12" sourceElement="BPMNShape_ExclusiveGateway_4" targetElement="BPMNShape_ScriptTask_6">
+        <di:waypoint xsi:type="dc:Point" x="657.0" y="434.0"/>
+        <di:waypoint xsi:type="dc:Point" x="657.0" y="358.0"/>
+        <di:waypoint xsi:type="dc:Point" x="780.0" y="358.0"/>
+        <bpmndi:BPMNLabel id="BPMNLabel_23"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_17" bpmnElement="SequenceFlow_13" sourceElement="BPMNShape_StartEvent_1" targetElement="BPMNShape_SubProcess_1">
+        <di:waypoint xsi:type="dc:Point" x="98.0" y="123.0"/>
+        <di:waypoint xsi:type="dc:Point" x="134.0" y="123.0"/>
+        <di:waypoint xsi:type="dc:Point" x="170.0" y="123.0"/>
+        <bpmndi:BPMNLabel id="BPMNLabel_24"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_18" bpmnElement="SequenceFlow_14" sourceElement="BPMNShape_ScriptTask_5" targetElement="BPMNShape_ScriptTask_3">
+        <di:waypoint xsi:type="dc:Point" x="660.0" y="128.0"/>
+        <di:waypoint xsi:type="dc:Point" x="680.0" y="128.0"/>
+        <di:waypoint xsi:type="dc:Point" x="700.0" y="128.0"/>
+        <bpmndi:BPMNLabel id="BPMNLabel_25"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_19" bpmnElement="SequenceFlow_15" sourceElement="BPMNShape_SubProcess_1" targetElement="BPMNShape_SubProcess_2">
+        <di:waypoint xsi:type="dc:Point" x="580.0" y="229.0"/>
+        <di:waypoint xsi:type="dc:Point" x="580.0" y="268.0"/>
+        <di:waypoint xsi:type="dc:Point" x="605.0" y="268.0"/>
+        <di:waypoint xsi:type="dc:Point" x="605.0" y="307.0"/>
+        <bpmndi:BPMNLabel id="BPMNLabel_26"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_20" bpmnElement="SequenceFlow_16" sourceElement="BPMNShape_SubProcess_2" targetElement="BPMNShape_EndEvent_1">
+        <di:waypoint xsi:type="dc:Point" x="1041.0" y="563.0"/>
+        <di:waypoint xsi:type="dc:Point" x="1090.0" y="563.0"/>
+        <di:waypoint xsi:type="dc:Point" x="1140.0" y="564.0"/>
+        <bpmndi:BPMNLabel id="BPMNLabel_27"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_21" bpmnElement="SequenceFlow_17" sourceElement="BPMNShape_StartEvent_2" targetElement="BPMNShape_ScriptTask_2">
+        <di:waypoint xsi:type="dc:Point" x="248.0" y="128.0"/>
+        <di:waypoint xsi:type="dc:Point" x="289.0" y="128.0"/>
+        <di:waypoint xsi:type="dc:Point" x="330.0" y="128.0"/>
+        <bpmndi:BPMNLabel id="BPMNLabel_28"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_22" bpmnElement="SequenceFlow_18" sourceElement="BPMNShape_ScriptTask_3" targetElement="BPMNShape_EndEvent_2">
+        <di:waypoint xsi:type="dc:Point" x="854.0" y="128.0"/>
+        <di:waypoint xsi:type="dc:Point" x="888.0" y="128.0"/>
+        <di:waypoint xsi:type="dc:Point" x="922.0" y="128.0"/>
+        <bpmndi:BPMNLabel id="BPMNLabel_29"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_23" bpmnElement="SequenceFlow_19" sourceElement="BPMNShape_ScriptTask_8" targetElement="BPMNShape_EndEvent_3">
+        <di:waypoint xsi:type="dc:Point" x="930.0" y="715.0"/>
+        <di:waypoint xsi:type="dc:Point" x="930.0" y="739.0"/>
+        <di:waypoint xsi:type="dc:Point" x="930.0" y="764.0"/>
+        <bpmndi:BPMNLabel id="BPMNLabel_30"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_24" bpmnElement="SequenceFlow_20" sourceElement="BPMNShape_StartEvent_3" targetElement="BPMNShape_ScriptTask_7">
+        <di:waypoint xsi:type="dc:Point" x="280.0" y="574.0"/>
+        <di:waypoint xsi:type="dc:Point" x="280.0" y="542.0"/>
+        <di:waypoint xsi:type="dc:Point" x="280.0" y="509.0"/>
+        <bpmndi:BPMNLabel id="BPMNLabel_31"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_1" bpmnElement="SequenceFlow_1" sourceElement="BPMNShape_ScriptTask_4" targetElement="BPMNShape_ScriptTask_8">
+        <di:waypoint xsi:type="dc:Point" x="930.0" y="594.0"/>
+        <di:waypoint xsi:type="dc:Point" x="930.0" y="603.0"/>
+        <di:waypoint xsi:type="dc:Point" x="930.0" y="613.0"/>
+        <bpmndi:BPMNLabel id="BPMNLabel_32"/>
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</bpmn2:definitions>

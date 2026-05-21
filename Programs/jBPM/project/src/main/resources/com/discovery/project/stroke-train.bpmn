@@ -225,6 +225,7 @@ subInterp.close();
 subInterp=null;
 System.gc();
 System.out.println(&quot;####### Finished Sub Process 2 stroke-train.bpmn #######&quot;);
+System.out.println(&quot;####### Vive la France! #######&quot;);
 //Thread.currentThread().interrupt();</bpmn2:script>
       </bpmn2:scriptTask>
       <bpmn2:scriptTask id="ScriptTask_6" name="Setup" scriptFormat="http://www.java.com/java">
