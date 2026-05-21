@@ -2,7 +2,7 @@
 
 ## Breaking News
 
-[SuiteCRM](https://suitecrm.com/) (the open-source Customer Relationship Management system) calls [Microsoft Azure Quantum](https://azure.microsoft.com/en-us/solutions/quantum-computing) to introduce external disturbance in the product correlation ("cannibalization") matrix: that is the plot behind the Cannibalization Analysis solution for [jBPM](https://www.jbpm.org/). This Enterprise AI (except for Azure Quantum) is free and open-source. Follow the related post series [here](https://www.linkedin.com/posts/lukyanchikov_suitecrm-jbpm-microsoft-azure-quantum-architecture-activity-7454441118424932352-fjR8?utm_source=share&utm_medium=member_desktop&rcm=ACoAAABc_osBqiCyXlbHS_akR6ldzAB3-rdBpz8).
+[SuiteCRM](https://suitecrm.com/) (the open-source Customer Relationship Management system) calls [Microsoft Azure Quantum](https://azure.microsoft.com/en-us/solutions/quantum-computing) to introduce external disturbance in the product correlation ("cannibalization") matrix: that is the plot behind the Cannibalization Analysis solution for [jBPM](https://kie.apache.org/components/jbpm). This Enterprise AI (except for Azure Quantum) is free and open-source. Follow the related post series [here](https://www.linkedin.com/posts/lukyanchikov_suitecrm-jbpm-microsoft-azure-quantum-architecture-activity-7454441118424932352-fjR8?utm_source=share&utm_medium=member_desktop&rcm=ACoAAABc_osBqiCyXlbHS_akR6ldzAB3-rdBpz8).
 
 ![Cannibalization Analysis user interface in SuiteCRM](Cannibalization.png)
 
@@ -10,7 +10,7 @@
 
 ![Stroke Prediction user interface in OpenEMR](Stroke.png)
 
-[jBPM](https://www.jbpm.org/) orchestrating [Python](https://pypi.org/project/jep/3.3.3/). Open source from A to Z, zero customization required to begin. Follow the related post series [here](https://www.linkedin.com/posts/lukyanchikov_jbpm-httpswwwjbpmorg-orchestrating-activity-7246441443475472386-7ceC?utm_source=share&utm_medium=member_desktop).
+[jBPM](https://kie.apache.org/components/jbpm) orchestrating [Python](https://pypi.org/project/jep/3.3.3/). Open source from A to Z, zero customization required to begin. Follow the related post series [here](https://www.linkedin.com/posts/lukyanchikov_jbpm-httpswwwjbpmorg-orchestrating-activity-7246441443475472386-7ceC?utm_source=share&utm_medium=member_desktop).
 
 ![jBPM orchestrating Python](Genesis.png)
 
