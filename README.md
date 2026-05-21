@@ -26,7 +26,7 @@
 ## C-NLTX AI Orchestration Platform:
 
 - [AI Orchestration Platform template](/Programs/jBPM/project)
-- [AI Orchestration Platform documentation](/Documentation/Convergent_Analytics_jBPM_AI_Orchestration_Platform_250310_v01.pdf)
+- [AI Orchestration Platform documentation](/Documentation/Convergent_Analytics_jBPM_AI_Orchestration_Platform_260501_v02.pdf)
 
 ## C-NLTX Solutions:
 
