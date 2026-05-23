@@ -38,6 +38,8 @@
 
 **Enterprise AI Suite:**
 
+- [Enterprise AI Suite template](/Programs/SuiteCRM)
+- [Enterprise AI Suite documentation](/Documentation/Convergent_Analytics_Enterprise_AI_Suite_260522_v01.pdf)
 - [Cannibalization Analysis solution overview](Convergent_Analytics_Cannibalization_Analysis_250119_v01.pdf)
 
 # Resources
