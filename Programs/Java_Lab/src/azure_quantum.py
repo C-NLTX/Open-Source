@@ -41,8 +41,11 @@ print("This workspace's targets:")
 for backend in provider.backends():
     print("- " + backend.name())
 
-qc = QuantumCircuit(dim)
-for qb in range(dim):
+import math
+numq=max(1, int(math.ceil(math.log2(int(math.sqrt(dim)) * (int(math.sqrt(dim)) - 1) / 2))))
+
+qc = QuantumCircuit(numq)
+for qb in range(numq):
     qc.h(qb)  # put qubit into superposition
 qc.measure_all()
 
@@ -61,16 +64,17 @@ probs = {k: v / total for k, v in result.get_counts(qc).items()}  # {'0': 0.5, '
 
 import pandas as pd
 import numpy as np
-import math
 
 Probs=pd.DataFrame.from_dict(probs, orient='index', columns=['Probability'])
 Probs['Statevector']=Probs.index
 matrix=np.zeros(shape=(int(math.sqrt(dim)),int(math.sqrt(dim))))
+pointer=0
 
-for i in range(int(math.sqrt(dim))):
-    for j in range(i, int(math.sqrt(dim))):
-        matrix[i][j]=Probs['Probability'].where(Probs['Statevector'].str.slice(int(math.sqrt(dim))*i+j,int(math.sqrt(dim))*i+j+1)=='1').sum()
+for i in range(int(math.sqrt(dim))-1):
+    for j in range(i+1, int(math.sqrt(dim))):
+        matrix[i][j]=(Probs['Probability'].iloc[pointer]-Probs['Probability'].mean())/Probs['Probability'].mean()+0.5
         matrix[j][i]=matrix[i][j]
+        pointer=pointer+1
 
 np.fill_diagonal(matrix, 1)
 
