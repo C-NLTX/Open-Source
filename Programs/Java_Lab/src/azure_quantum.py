@@ -7,9 +7,9 @@ print("Matrix dimension passed: {", dim, "}")
 dim = int(dim)
 
 import os
-os.environ['AZURE_CLIENT_ID'] = 'aaaaaaaa-aaaaaaaa-aaaaaaaa-aaaaaaaa-aaaaaaaa'
-os.environ['AZURE_CLIENT_SECRET'] = 'bbbbbbbb~bbbbbbbb-bbbbbbbb'
-os.environ['AZURE_TENANT_ID'] = 'cccccccc-cccccccc-cccccccc-cccccccc-cccccccc'
+os.environ['AZURE_CLIENT_ID'] = 'aaa-aaa-aaa-aaa-aaa'
+os.environ['AZURE_CLIENT_SECRET'] = 'bbb~bbb-bbb'
+os.environ['AZURE_TENANT_ID'] = 'ccc-ccc-ccc-ccc-ccc'
 
 from azure.identity import DefaultAzureCredential
 from azure.mgmt.resource.resources import ResourceManagementClient
@@ -18,7 +18,7 @@ credential = DefaultAzureCredential()
 
 client = ResourceManagementClient(
     credential=credential,
-    subscription_id="dddddddd-dddddddd-dddddddd-dddddddd-dddddddd"
+    subscription_id="ddd-ddd-ddd-ddd-ddd"
 )
 
 for resource_group in client.resource_groups.list():
@@ -31,7 +31,7 @@ from qiskit import QuantumCircuit
 from azure.quantum.qiskit import AzureQuantumProvider
 
 workspace = Workspace(  
-    resource_id = "/subscriptions/dddddddd-dddddddd-dddddddd-dddddddd-dddddddd/resourceGroups/slukyanc-resource-group/providers/Microsoft.Quantum/Workspaces/slukyanc-qws-jbpm", # Add the resourceID of your workspace
+    resource_id = "/subscriptions/ddd-ddd-ddd-ddd-ddd/resourceGroups/slukyanc-resource-group/providers/Microsoft.Quantum/Workspaces/slukyanc-qws-jbpm", # Add the resourceID of your workspace
     location = "West Europe" # Add the location of your workspace (for example "westus")
     )
 
@@ -48,6 +48,11 @@ qc = QuantumCircuit(numq)
 for qb in range(numq):
     qc.h(qb)  # put qubit into superposition
 qc.measure_all()
+
+#qc = QuantumCircuit(dim)
+#for qb in range(dim):
+#    qc.h(qb)  # put qubit into superposition
+#qc.measure_all()
 
 # Get Quantinuum's QPU backend:
 qpu_backend = provider.get_backend("rigetti.sim.qvm")
@@ -76,6 +81,6 @@ for i in range(int(math.sqrt(dim))-1):
         matrix[j][i]=matrix[i][j]
         pointer=pointer+1
 
-np.fill_diagonal(matrix, 1)
+np.fill_diagonal(matrix, 0)
 
 print(matrix)

@@ -322,7 +322,10 @@ java.lang.String script = java.lang.String.join(&quot;\n&quot;,
 &quot;corrmat=corrmat.T.reset_index(drop=True).T&quot;,
 &quot;disturbance=pd.DataFrame(disturbance)&quot;,
 &quot;disturbance=disturbance.reset_index(drop=True)&quot;,
-&quot;disturbance=disturbance.T.reset_index(drop=True).T&quot;);
+&quot;disturbance=disturbance.T.reset_index(drop=True).T&quot;,
+&quot;disturbance=disturbance-0.5&quot;,
+&quot;np.fill_diagonal(disturbance.values, 0)&quot;,
+&quot;disturbance.to_csv('C:/Users/serge/eclipse-workspace/Java_Lab/src/STAMP10M.csv')&quot;);
 subInterp.set(&quot;script&quot;, script);
 subInterp.eval(&quot;exec(script)&quot;);
 
@@ -355,8 +358,10 @@ jep.SubInterpreter subInterp = (jep.SubInterpreter) kcontext.getVariable(&quot;s
 subInterp.set(&quot;i&quot;, kcontext.getVariable(&quot;i&quot;));
 
 java.lang.String script = java.lang.String.join(&quot;\n&quot;,
-&quot;corrmat_disturbed=(corrmat.add(disturbance))/2&quot;,
-&quot;corrmat=corrmat_disturbed&quot;,
+&quot;corrmat_disturbed=corrmat.add(disturbance)&quot;,
+&quot;corrmat_disturbed[corrmat_disturbed>1]=1&quot;,
+&quot;corrmat_disturbed[corrmat_disturbed&lt;-1]=-1&quot;,
+&quot;corrmat=(corrmat+corrmat_disturbed)/2&quot;,
 &quot;np.savetxt('C:/Users/serge/eclipse-workspace/Java_Lab/src/STAMP11.txt', corrmat_disturbed, fmt = '%s')&quot;,
 &quot;f=plt.figure()&quot;,
 &quot;sns.heatmap(corrmat_disturbed, xticklabels=corrmat_disturbed.columns, yticklabels=corrmat_disturbed.columns)&quot;,
@@ -417,7 +422,9 @@ java.lang.String script = java.lang.String.join(&quot;\n&quot;,
 &quot;matplotlib.pyplot.switch_backend('Agg')&quot;,
 &quot;import seaborn as sns&quot;,
 &quot;f=plt.figure()&quot;,
-&quot;#f=plt.figure()&quot;,
+&quot;sns.heatmap(corrmat, xticklabels=corrmat.columns, yticklabels=corrmat.columns)&quot;,
+&quot;plt.title('Correlation analysis of category sales volumes (by year/month)')&quot;,
+&quot;f.savefig('C:/Users/serge/eclipse-workspace/Java_Lab/src/CANNIBALIZATION_C0.png')&quot;,
 &quot;plt.close(f)&quot;,
 &quot;#observables_labels = ['IZ', 'IX', 'ZI', 'XI', 'ZZ', 'XX']&quot;,
 &quot;#f=plt.figure()&quot;,
